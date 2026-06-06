@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   ...(GOOGLE_VERIFICATION ? { verification: { google: GOOGLE_VERIFICATION } } : {}),
   alternates: {
-    canonical: "https://rekenhet.nl",
+    canonical: "https://www.rekenhet.nl",
   },
 };
 

@@ -15,7 +15,7 @@ import { categories } from "@/data/categories";
 import { getAllContentPages } from "@/content";
 import { generateAllPairs } from "@/lib/units/converter";
 
-const SITE_URL = "https://rekenhet.nl";
+const SITE_URL = "https://www.rekenhet.nl";
 
 const COMMON_AMOUNTS = [
   2000, 2500, 2800, 3000, 3200, 3500, 3800, 4000,

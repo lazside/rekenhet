@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://rekenhet.nl/sitemap.xml",
+    sitemap: "https://www.rekenhet.nl/sitemap.xml",
   };
 }

@@ -46,7 +46,7 @@ export async function generateMetadata({
       locale: "nl_NL",
     },
     alternates: {
-      canonical: `https://rekenhet.nl/lokaal/${city}`,
+      canonical: `https://www.rekenhet.nl/lokaal/${city}`,
     },
   };
 }

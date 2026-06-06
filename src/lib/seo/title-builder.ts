@@ -12,7 +12,7 @@ import type { Category } from "@/types";
 // ─── Constants ──────────────────────────────────────────────────
 
 const SITE_NAME = "Rekenhet.nl";
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://rekenhet.nl";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.rekenhet.nl";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.png`;
 const SEPARATOR = "|";
 const BRAND = SITE_NAME;
