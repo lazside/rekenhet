@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { AdZoneMobileAnchor } from "@/components/ads/AdSenseBanner";
 import { CookieConsentBanner } from "@/components/cookies/CookieConsentBanner";
 import { hasConsent, getConsent } from "@/lib/cookies/consent";
@@ -68,7 +67,7 @@ export function RootLayoutInner({
   useAdSenseLoader();
 
   return (
-    <ThemeProvider>
+    <>
       {/* NOTE: AdSense script is NOT loaded here statically.
           It loads dynamically only after user consent via
           the useAdSenseLoader hook. */}
@@ -84,6 +83,6 @@ export function RootLayoutInner({
 
       {/* Zone C: Mobile sticky anchor footer */}
       <AdZoneMobileAnchor />
-    </ThemeProvider>
+    </>
   );
 }

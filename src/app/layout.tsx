@@ -43,15 +43,6 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Inline theme-init script — must run before React hydrates to prevent FOUC.
- * Placed as a template literal string, injected via `renderScripts()` which
- * returns a raw __html string that React renders inert but the browser executes.
- */
-function themeInitScript(): string {
-  return `(function(){try{var t=localStorage.getItem('rekenhet-theme');if(t==='dark'||(t!=='light'&&window.matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})()`;
-}
-
 function printDateScript(): string {
   return `document.getElementById('print-date')&&(document.getElementById('print-date').textContent=new Date().toLocaleDateString('nl-NL',{year:'numeric',month:'long',day:'numeric'}))`;
 }
@@ -62,10 +53,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="nl" suppressHydrationWarning>
+    <html lang="nl">
       <head>
-        {/* ═══ Theme init — blocks FOUC ═══ */}
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />
         {/* ═══ Print date ═══ */}
         <script dangerouslySetInnerHTML={{ __html: printDateScript() }} />
       </head>

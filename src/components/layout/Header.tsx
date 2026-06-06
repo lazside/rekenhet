@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/Button";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { SearchDialog } from "@/components/search/SearchDialog";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -105,9 +104,8 @@ export function Header() {
             </div>
           </nav>
 
-          {/* Right side: Theme toggle + Search (desktop) */}
-          <div className="hidden md:flex items-center gap-2 ml-auto">
-            <ThemeToggle />
+          {/* Right side: Search (desktop) */}
+          <div className="hidden md:flex items-center ml-auto">
             <div className="w-[260px]">
               <SearchDialog />
             </div>
@@ -115,7 +113,6 @@ export function Header() {
 
           {/* Mobile actions */}
           <div className="flex md:hidden items-center gap-1">
-            <ThemeToggle />
             <button
               onClick={triggerSearch}
               className="flex h-9 w-9 items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200"
