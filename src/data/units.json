@@ -1,0 +1,158 @@
+{
+  "categories": [
+    {
+      "id": "lengte",
+      "name": "Lengte",
+      "icon": "📏",
+      "baseUnit": "meter",
+      "units": [
+        { "id": "millimeter", "slug": "mm", "singular": "millimeter", "plural": "millimeters", "factor": 0.001 },
+        { "id": "centimeter", "slug": "cm", "singular": "centimeter", "plural": "centimeters", "factor": 0.01 },
+        { "id": "decimeter", "slug": "dm", "singular": "decimeter", "plural": "decimeters", "factor": 0.1 },
+        { "id": "meter", "slug": "m", "singular": "meter", "plural": "meters", "factor": 1 },
+        { "id": "decameter", "slug": "dam", "singular": "decameter", "plural": "decameters", "factor": 10 },
+        { "id": "hectometer", "slug": "hm", "singular": "hectometer", "plural": "hectometers", "factor": 100 },
+        { "id": "kilometer", "slug": "km", "singular": "kilometer", "plural": "kilometers", "factor": 1000 },
+        { "id": "inch", "slug": "inch", "singular": "inch", "plural": "inches", "factor": 0.0254 },
+        { "id": "foot", "slug": "ft", "singular": "foot", "plural": "feet", "factor": 0.3048 },
+        { "id": "yard", "slug": "yard", "singular": "yard", "plural": "yards", "factor": 0.9144 },
+        { "id": "mile", "slug": "mile", "singular": "mijl", "plural": "mijlen", "factor": 1609.344 }
+      ]
+    },
+    {
+      "id": "gewicht",
+      "name": "Gewicht",
+      "icon": "⚖️",
+      "baseUnit": "gram",
+      "units": [
+        { "id": "milligram", "slug": "mg", "singular": "milligram", "plural": "milligrammen", "factor": 0.001 },
+        { "id": "centigram", "slug": "cg", "singular": "centigram", "plural": "centigrammen", "factor": 0.01 },
+        { "id": "decigram", "slug": "dg", "singular": "decigram", "plural": "decigrammen", "factor": 0.1 },
+        { "id": "gram", "slug": "g", "singular": "gram", "plural": "grammen", "factor": 1 },
+        { "id": "decagram", "slug": "dag", "singular": "decagram", "plural": "decagrammen", "factor": 10 },
+        { "id": "hectogram", "slug": "hg", "singular": "hectogram", "plural": "hectogrammen", "factor": 100 },
+        { "id": "kilogram", "slug": "kg", "singular": "kilogram", "plural": "kilogrammen", "factor": 1000 },
+        { "id": "ton", "slug": "ton", "singular": "ton", "plural": "tonnen", "factor": 1000000 },
+        { "id": "pond", "slug": "pond", "singular": "pond", "plural": "ponden", "factor": 500 },
+        { "id": "ons", "slug": "ons", "singular": "ons", "plural": "ons", "factor": 100 },
+        { "id": "ounce", "slug": "ounce", "singular": "ounce", "plural": "ounces", "factor": 28.3495 },
+        { "id": "pound", "slug": "lbs", "singular": "pond (lbs)", "plural": "ponden (lbs)", "factor": 453.592 }
+      ]
+    },
+    {
+      "id": "oppervlakte",
+      "name": "Oppervlakte",
+      "icon": "📐",
+      "baseUnit": "vierkante meter",
+      "units": [
+        { "id": "square_millimeter", "slug": "mm2", "singular": "vierkante millimeter", "plural": "vierkante millimeters", "factor": 0.000001 },
+        { "id": "square_centimeter", "slug": "cm2", "singular": "vierkante centimeter", "plural": "vierkante centimeters", "factor": 0.0001 },
+        { "id": "square_decimeter", "slug": "dm2", "singular": "vierkante decimeter", "plural": "vierkante decimeters", "factor": 0.01 },
+        { "id": "square_meter", "slug": "m2", "singular": "vierkante meter", "plural": "vierkante meters", "factor": 1 },
+        { "id": "are", "slug": "are", "singular": "are", "plural": "aren", "factor": 100 },
+        { "id": "hectare", "slug": "ha", "singular": "hectare", "plural": "hectaren", "factor": 10000 },
+        { "id": "square_kilometer", "slug": "km2", "singular": "vierkante kilometer", "plural": "vierkante kilometers", "factor": 1000000 }
+      ]
+    },
+    {
+      "id": "auto-vermogen",
+      "name": "Motorvermogen",
+      "icon": "🔧",
+      "baseUnit": "kilowatt",
+      "units": [
+        { "id": "kilowatt", "slug": "kW", "singular": "kilowatt", "plural": "kilowatt", "factor": 1 },
+        { "id": "pk", "slug": "pk", "singular": "pk", "plural": "pk", "factor": 0.7355 }
+      ]
+    },
+    {
+      "id": "auto-koppel",
+      "name": "Koppel",
+      "icon": "🔧",
+      "baseUnit": "newtonmeter",
+      "units": [
+        { "id": "newtonmeter", "slug": "Nm", "singular": "newtonmeter", "plural": "newtonmeter", "factor": 1 },
+        { "id": "foot_pound", "slug": "ft-lbs", "singular": "foot-pound", "plural": "foot-pounds", "factor": 1.3558 }
+      ]
+    },
+    {
+      "id": "druk",
+      "name": "Druk",
+      "icon": "🔧",
+      "baseUnit": "bar",
+      "units": [
+        { "id": "bar", "slug": "bar", "singular": "bar", "plural": "bar", "factor": 1 },
+        { "id": "psi", "slug": "psi", "singular": "PSI", "plural": "PSI", "factor": 0.06895 }
+      ]
+    },
+    {
+      "id": "energie",
+      "name": "Energie",
+      "icon": "⚡",
+      "baseUnit": "joule",
+      "units": [
+        { "id": "joule", "slug": "J", "singular": "joule", "plural": "joules", "factor": 1 },
+        { "id": "kilojoule", "slug": "kJ", "singular": "kilojoule", "plural": "kilojoules", "factor": 1000 },
+        { "id": "btu", "slug": "BTU", "singular": "BTU", "plural": "BTU", "factor": 1055.06 },
+        { "id": "kwh", "slug": "kWh", "singular": "kWh", "plural": "kWh", "factor": 3600000 },
+        { "id": "calorie", "slug": "cal", "singular": "calorie", "plural": "calorieën", "factor": 4.184 }
+      ]
+    },
+    {
+      "id": "elektrisch",
+      "name": "Elektrisch",
+      "icon": "⚡",
+      "baseUnit": "watt",
+      "units": [
+        { "id": "watt", "slug": "W", "singular": "watt", "plural": "watt", "factor": 1 },
+        { "id": "kilowatt_elec", "slug": "kW-elec", "singular": "kilowatt", "plural": "kilowatt", "factor": 1000 },
+        { "id": "megawatt", "slug": "MW", "singular": "megawatt", "plural": "megawatt", "factor": 1000000 },
+        { "id": "amp_230v", "slug": "A-230V", "singular": "ampère (230V)", "plural": "ampère (230V)", "factor": 230 }
+      ]
+    },
+    {
+      "id": "inhoud",
+      "name": "Inhoud (vloeistof)",
+      "icon": "🍳",
+      "baseUnit": "milliliter",
+      "units": [
+        { "id": "milliliter", "slug": "ml", "singular": "milliliter", "plural": "milliliter", "factor": 1 },
+        { "id": "centiliter", "slug": "cl", "singular": "centiliter", "plural": "centiliter", "factor": 10 },
+        { "id": "liter", "slug": "l", "singular": "liter", "plural": "liter", "factor": 1000 },
+        { "id": "fluid_ounce", "slug": "fl_oz", "singular": "fluid ounce", "plural": "fluid ounces", "factor": 29.5735 },
+        { "id": "cup_us", "slug": "cups", "singular": "cup", "plural": "cups", "factor": 237 },
+        { "id": "tablespoon", "slug": "tbsp", "singular": "eetlepel", "plural": "eetlepels", "factor": 15 },
+        { "id": "teaspoon", "slug": "tsp", "singular": "theelepel", "plural": "theelepels", "factor": 5 }
+      ]
+    },
+    {
+      "id": "keuken-gewicht",
+      "name": "Keukengewichten",
+      "icon": "🍳",
+      "baseUnit": "gram",
+      "units": [
+        { "id": "gram_water", "slug": "g-water", "singular": "gram water", "plural": "gram water", "factor": 1 },
+        { "id": "gram_flour", "slug": "g-bloem", "singular": "gram bloem", "plural": "gram bloem", "factor": 0.53 },
+        { "id": "gram_sugar", "slug": "g-suiker", "singular": "gram suiker", "plural": "gram suiker", "factor": 0.85 },
+        { "id": "gram_butter", "slug": "g-boter", "singular": "gram boter", "plural": "gram boter", "factor": 0.96 },
+        { "id": "gram_rice", "slug": "g-rijst", "singular": "gram rijst", "plural": "gram rijst", "factor": 0.8 },
+        { "id": "gram_honey", "slug": "g-honing", "singular": "gram honing", "plural": "gram honing", "factor": 1.42 }
+      ]
+    },
+    {
+      "id": "datagrootte",
+      "name": "Data",
+      "icon": "💾",
+      "baseUnit": "byte",
+      "units": [
+        { "id": "byte", "slug": "B", "singular": "byte", "plural": "bytes", "factor": 1 },
+        { "id": "kilobyte", "slug": "KB", "singular": "kilobyte", "plural": "kilobytes", "factor": 1024 },
+        { "id": "megabyte", "slug": "MB", "singular": "megabyte", "plural": "megabytes", "factor": 1048576 },
+        { "id": "gigabyte", "slug": "GB", "singular": "gigabyte", "plural": "gigabytes", "factor": 1073741824 },
+        { "id": "terabyte", "slug": "TB", "singular": "terabyte", "plural": "terabytes", "factor": 1099511627776 },
+        { "id": "kilobit", "slug": "Kb", "singular": "kilobit", "plural": "kilobits", "factor": 128 },
+        { "id": "megabit", "slug": "Mb", "singular": "megabit", "plural": "megabits", "factor": 131072 },
+        { "id": "gigabit", "slug": "Gb", "singular": "gigabit", "plural": "gigabits", "factor": 134217728 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "_source": "CBS StatLine (2024-2025), bewerkt voor Rekenhet.nl",
+  "_disclaimer": "Dit zijn gemiddelden en medianen. Individuele situaties kunnen afwijken.",
+  "income": {
+    "title": "Mediaan inkomen per leeftijdsgroep (2025)",
+    "unit": "bruto per jaar",
+    "description": "Het modaal inkomen in Nederland is ~€46.500 bruto per jaar (2026). De mediaan ligt rond de €44.000.",
+    "brackets": [
+      { "ageMin": 18, "ageMax": 25, "label": "18-25 jaar", "median": 12500, "p10": 3000, "p25": 7000, "p75": 22000, "p90": 32000 },
+      { "ageMin": 25, "ageMax": 35, "label": "25-35 jaar", "median": 38000, "p10": 12000, "p25": 24000, "p75": 55000, "p90": 72000 },
+      { "ageMin": 35, "ageMax": 45, "label": "35-45 jaar", "median": 52000, "p10": 18000, "p25": 34000, "p75": 72000, "p90": 92000 },
+      { "ageMin": 45, "ageMax": 55, "label": "45-55 jaar", "median": 54000, "p10": 19000, "p25": 35000, "p75": 74000, "p90": 95000 },
+      { "ageMin": 55, "ageMax": 65, "label": "55-65 jaar", "median": 48000, "p10": 15000, "p25": 30000, "p75": 68000, "p90": 88000 },
+      { "ageMin": 65, "ageMax": 99, "label": "65+ jaar", "median": 32000, "p10": 10000, "p25": 20000, "p75": 50000, "p90": 70000 }
+    ]
+  },
+  "netIncome": {
+    "title": "Mediaan netto besteedbaar inkomen (2025)",
+    "unit": "netto per maand",
+    "description": "Het mediane netto besteedbaar inkomen in Nederland is circa €3.050 per maand (2025).",
+    "brackets": [
+      { "ageMin": 18, "ageMax": 25, "label": "18-25 jaar", "median": 1250, "p10": 600, "p25": 900, "p75": 1900, "p90": 2500 },
+      { "ageMin": 25, "ageMax": 35, "label": "25-35 jaar", "median": 2750, "p10": 1500, "p25": 2100, "p75": 3600, "p90": 4500 },
+      { "ageMin": 35, "ageMax": 45, "label": "35-45 jaar", "median": 3350, "p10": 1900, "p25": 2600, "p75": 4300, "p90": 5400 },
+      { "ageMin": 45, "ageMax": 55, "label": "45-55 jaar", "median": 3450, "p10": 2000, "p25": 2700, "p75": 4400, "p90": 5600 },
+      { "ageMin": 55, "ageMax": 65, "label": "55-65 jaar", "median": 3100, "p10": 1700, "p25": 2400, "p75": 4100, "p90": 5200 },
+      { "ageMin": 65, "ageMax": 99, "label": "65+ jaar", "median": 2200, "p10": 1100, "p25": 1600, "p75": 3100, "p90": 4200 }
+    ]
+  },
+  "mortgage": {
+    "title": "Gemiddelde hypotheekschuld (2025)",
+    "unit": "EUR",
+    "description": "De gemiddelde hypotheekschuld in Nederland is circa €340.000. Het mediane bedrag ligt rond de €290.000.",
+    "brackets": [
+      { "ageMin": 18, "ageMax": 25, "label": "18-25 jaar", "median": 180000, "p10": 50000, "p25": 100000, "p75": 280000, "p90": 380000 },
+      { "ageMin": 25, "ageMax": 35, "label": "25-35 jaar", "median": 290000, "p10": 120000, "p25": 200000, "p75": 400000, "p90": 520000 },
+      { "ageMin": 35, "ageMax": 45, "label": "35-45 jaar", "median": 340000, "p10": 150000, "p25": 240000, "p75": 460000, "p90": 600000 },
+      { "ageMin": 45, "ageMax": 55, "label": "45-55 jaar", "median": 310000, "p10": 100000, "p25": 190000, "p75": 440000, "p90": 580000 },
+      { "ageMin": 55, "ageMax": 65, "label": "55-65 jaar", "median": 200000, "p10": 50000, "p25": 110000, "p75": 310000, "p90": 450000 },
+      { "ageMin": 65, "ageMax": 99, "label": "65+ jaar", "median": 90000, "p10": 0, "p25": 30000, "p75": 180000, "p90": 300000 }
+    ]
+  }
+}

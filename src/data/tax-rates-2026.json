@@ -1,0 +1,58 @@
+{
+  "year": 2026,
+  "country": "NL",
+  "currency": "EUR",
+  "source": "Belastingdienst — Belastingplan 2026 (geïndexeerd)",
+  "lastVerified": "2026-01-01",
+  "brackets": [
+    { "min": 0, "max": 40018, "rate": 35.82, "label": "Schijf 1" },
+    { "min": 40018, "max": 76817, "rate": 37.48, "label": "Schijf 2" },
+    { "min": 76817, "max": null, "rate": 49.50, "label": "Schijf 3" }
+  ],
+  "incomeTaxRates": {
+    "schijf1": { "incomeTax": 9.28, "socialPremiums": 26.54, "total": 35.82 },
+    "schijf2": { "incomeTax": 37.48, "socialPremiums": 0, "total": 37.48 },
+    "schijf3": { "incomeTax": 49.50, "socialPremiums": 0, "total": 49.50 }
+  },
+  "heffingskortingen": {
+    "algemeen": {
+      "max": 3070,
+      "phaseOutStart": 24928,
+      "phaseOutRate": 6.595,
+      "min": 0
+    },
+    "arbeid": {
+      "bracket1": { "min": 0, "max": 11500, "rate": 9.8 },
+      "bracket2": { "min": 11500, "max": 23500, "rate": 30.074 },
+      "bracket3": { "min": 23500, "max": 40018, "rate": 2.685 },
+      "phaseOutStart": 40018,
+      "phaseOutRate": 6.51,
+      "max": 5598
+    }
+  },
+  "socialPremiums": {
+    "aow": 17.90,
+    "anw": 0.10,
+    "wlz": 9.65,
+    "maxPremiumIncome": 40018,
+    "totalRate": 26.54
+  },
+  "vakantiegeld": {
+    "rate": 8,
+    "label": "Vakantietoeslag",
+    "description": "8% van bruto jaarsalaris, meestal uitbetaald in mei"
+  },
+  "bijtelling": {
+    "rates": [
+      { "percentage": 0, "label": "Geen auto van de zaak" },
+      { "percentage": 22, "label": "Standaard bijtelling" },
+      { "percentage": 16, "label": "Elektrisch (2026)" },
+      { "percentage": 12, "label": "Oude regeling (voor 2017)" }
+    ]
+  },
+  "meta": {
+    "disclaimer": "Deze tarieven zijn een indicatie op basis van het Belastingplan 2026. Exacte bedragen kunnen afwijken na definitieve publicatie door de Belastingdienst.",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "schemaVersion": 1
+  }
+}

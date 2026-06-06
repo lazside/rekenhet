@@ -1,26 +1,254 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * Rekenhet.nl — Global Styles
+ * Minimal, clean, high-contrast for calculator UX.
+ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ─── Dark Mode Variant (class strategy) ─────────────────────── */
+@custom-variant dark (&:is(.dark *));
 
-@media (prefers-color-scheme: dark) {
+/* ─── Dark Mode CSS Variables ────────────────────────────────── */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-bg: 255 255 255;
+    --color-fg: 17 24 39;
+    --color-surface: 249 250 251;
+    --color-border: 229 231 235;
+  }
+
+  .dark {
+    --color-bg: 15 23 42;
+    --color-fg: 226 232 240;
+    --color-surface: 30 41 59;
+    --color-border: 51 65 85;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-gray-900 dark:bg-slate-950 dark:text-slate-200;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Ensure all ad slots have CLS-safe dimensions */
+  ins.adsbygoogle[data-ad-status="unfilled"] {
+    display: none !important;
+  }
+
+  /* Focus-visible ring for keyboard navigation */
+  :focus-visible {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  }
+
+  /* Remove default number input spinners */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── Animations ─────────────────────────────────────────────── */
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.35s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+/* ─── Tailwind v4 Custom Utilities ───────────────────────────── */
+
+@utility container-calc {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Print Stylesheet ─────────────────────────────────────────── */
+
+@media print {
+  /* ── Hide UI elements ── */
+  header,
+  footer,
+  nav,
+  aside,
+  [aria-label="Zijbalk"],
+  [aria-label="Kruimelpad"],
+  [aria-label="Stappen"],
+  ins.adsbygoogle,
+  .advertisement,
+  [class*="AdZone"],
+  [class*="ad-"],
+  #cookie-consent-banner,
+  [class*="cookieConsent"],
+  [class*="CookieConsent"],
+  button,
+  .no-print,
+  [class*="ShareToolbar"],
+  [class*="SearchDialog"],
+  [class*="MobileNav"],
+  [class*="hamburger"],
+  [class*="affiliate"],
+  [class*="Affiliate"],
+  [class*="AdSense"],
+  img[alt*="ad"],
+  img[alt*="Ad"],
+  /* Cookie consent injected elements */
+  [id*="cookie"],
+  [class*="cookie"] {
+    display: none !important;
+  }
+
+  /* ── Force white backgrounds, crisp text ── */
+  * {
+    background: white !important;
+    color: #1a1a1a !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #1a1a1a !important;
+    background: white !important;
+  }
+
+  /* ── Keep tables and data visible ── */
+  table,
+  th,
+  td {
+    border-color: #ccc !important;
+    background: white !important;
+  }
+
+  th {
+    font-weight: 700;
+    color: #000 !important;
+  }
+
+  td {
+    color: #1a1a1a !important;
+  }
+
+  /* Results cards — remove borders, keep content */
+  [class*="rounded-xl"],
+  [class*="rounded-lg"] {
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+    padding: 8pt !important;
+    margin-bottom: 8pt !important;
+    background: white !important;
+  }
+
+  /* Gradient hero cards — flatten to white */
+  [class*="bg-gradient"] {
+    background: white !important;
+    border: 1px solid #ddd !important;
+  }
+
+  [class*="text-white"] {
+    color: #1a1a1a !important;
+  }
+
+  /* ── Links ── */
+  a {
+    color: #1a1a1a !important;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #666 !important;
+  }
+
+  /* ── Inputs in print ── */
+  input,
+  select,
+  textarea {
+    border: 1px solid #ccc !important;
+    padding: 4pt !important;
+    background: white !important;
+  }
+
+  input[type="range"] {
+    display: none !important;
+  }
+
+  /* ── Avoid page breaks inside cards ── */
+  [class*="rounded-xl"],
+  [class*="rounded-lg"],
+  article,
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* ── Print-only header ── */
+  .print-header {
+    display: flex !important;
+    align-items: baseline;
+    gap: 8pt;
+    padding-bottom: 12pt;
+    margin-bottom: 16pt;
+    border-bottom: 2px solid #333;
+    font-size: 10pt;
+    color: #333 !important;
+  }
+
+  .print-header strong {
+    font-size: 14pt;
+    font-weight: 800;
+    color: #000 !important;
+  }
+
+  .print-header .print-date {
+    margin-left: auto;
+    font-size: 9pt;
+    color: #666 !important;
+  }
+
+  /* ── Page margins ── */
+  @page {
+    margin: 1.5cm 1.8cm;
+  }
+
+  @page :first {
+    margin-top: 2cm;
+  }
+}
+
+/* ── Screen-only: hide the print header ── */
+.print-header {
+  display: none;
 }

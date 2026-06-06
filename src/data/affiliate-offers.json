@@ -1,0 +1,71 @@
+{
+  "_description": "Contextual affiliate offers mapped to calculator slugs and category slugs. Each offer has match rules that determine when it shows.",
+  "offers": [
+    {
+      "id": "boekhouden-beste",
+      "name": "Beste Boekhoudprogramma's",
+      "description": "Vergelijk de beste boekhoudsoftware voor ondernemers. Moneybird, e-Boekhouden en meer — vaak met korting op de eerste maanden.",
+      "cta": "Boekhoudprogramma's vergelijken",
+      "url": "https://example.com/affiliate/boekhouden",
+      "icon": "📊",
+      "matchSlugs": ["btw-calculator", "bruto-netto-salaris-calculator"],
+      "matchCategories": ["ondernemen"],
+      "priority": 10
+    },
+    {
+      "id": "hypotheek-vergelijken",
+      "name": "Hypotheekrente Vergelijken",
+      "description": "Vind de laagste hypotheekrente bij 30+ aanbieders. Onafhankelijk advies, geen verplichtingen. Bereken je maximale hypotheek.",
+      "cta": "Hypotheekrentes vergelijken",
+      "url": "https://example.com/affiliate/hypotheek",
+      "icon": "🏠",
+      "matchSlugs": [],
+      "matchCategories": ["geld-en-verzekeringen"],
+      "priority": 10
+    },
+    {
+      "id": "energie-vergelijken",
+      "name": "Energieprijzen Vergelijken",
+      "description": "Bespaar honderden euro's per jaar door je energiecontract te vergelijken. Ontvang direct de beste aanbieding bij jou in de buurt.",
+      "cta": "Energie vergelijken",
+      "url": "https://example.com/affiliate/energie",
+      "icon": "⚡",
+      "matchSlugs": [],
+      "matchCategories": ["algemeen"],
+      "priority": 8
+    },
+    {
+      "id": "verzekering-vergelijken",
+      "name": "Verzekeringen vergelijken",
+      "description": "Zorg, auto, reis en aansprakelijkheid. Vergelijk eenvoudig de premies van 15+ verzekeraars en sluit direct af.",
+      "cta": "Verzekeringen vergelijken",
+      "url": "https://example.com/affiliate/verzekeringen",
+      "icon": "🛡️",
+      "matchSlugs": [],
+      "matchCategories": ["geld-en-verzekeringen"],
+      "priority": 6
+    },
+    {
+      "id": "salaris-administratie",
+      "name": "Salarisadministratie Uitbesteden",
+      "description": "Professionele salarisadministratie voor ZZP'ers en MKB. Inclusief jaaropgave, pensioenregeling en HR-advies.",
+      "cta": "Salarisadministratie vergelijken",
+      "url": "https://example.com/affiliate/salaris",
+      "icon": "💼",
+      "matchSlugs": ["bruto-netto-salaris-calculator"],
+      "matchCategories": ["werk-en-inkomen"],
+      "priority": 9
+    },
+    {
+      "id": "bmi-gezondheid",
+      "name": "Gezondheidscheck & Advies",
+      "description": "Ontvang persoonlijk gezondheidsadvies op basis van je BMI, leeftijd en leefstijl. Erkende diëtisten en coaches.",
+      "cta": "Gezondheidscheck doen",
+      "url": "https://example.com/affiliate/gezondheid",
+      "icon": "❤️",
+      "matchSlugs": [],
+      "matchCategories": ["gezondheid"],
+      "priority": 7
+    }
+  ]
+}

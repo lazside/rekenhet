@@ -1,0 +1,16 @@
+"use client"; import { useState, useMemo } from "react"; import { Landmark, Euro } from "lucide-react"; import { ShareToolbar } from "@/components/share/ShareToolbar"; import { formatEUR } from "@/lib/utils"; import { annuity } from "@/lib/calculators/annuity";
+export default function AnnuityCalculator() {
+  const [h, setH] = useState(300000); const [r, setR] = useState(4.5); const [l, setL] = useState(30);
+  const res = useMemo(() => annuity(h, r, l), [h, r, l]);
+  return (<div className="space-y-6"><div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-5">
+    <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Landmark className="h-4 w-4 text-blue-600" />Annuïteitenhypotheek</h2>
+    <div className="grid grid-cols-3 gap-4"><div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Hypotheek (€)</label><input type="number" value={h} onChange={e=>setH(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div><div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Rente (%)</label><input type="number" step="0.1" value={r} onChange={e=>setR(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div><div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Looptijd (jr)</label><input type="number" value={l} onChange={e=>setL(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div></div>
+  </div>
+  <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-3">
+    <div className="rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 p-5 text-white shadow-lg text-center"><p className="text-sm text-emerald-200">Bruto maandlasten</p><p className="text-3xl font-bold tabular-nums mt-1">{formatEUR(res.maandlasten)}</p></div>
+    <div className="flex items-center justify-between rounded-xl px-5 py-3.5 bg-white border border-gray-100"><span className="text-sm text-gray-600">Totaal betalen</span><span className="text-sm font-bold tabular-nums">{formatEUR(res.totaal)}</span></div>
+    <div className="flex items-center justify-between rounded-xl px-5 py-3.5 bg-amber-50 border border-amber-100"><span className="text-sm text-gray-600">Totale rente</span><span className="text-sm font-bold tabular-nums text-amber-700">{formatEUR(res.totaleRente)}</span></div>
+  </div>
+  <ShareToolbar calculatorType="annuiteiten-lasten" calculatorName="Annuïtaire Maandlasten" categoryName="Geld & Verzekeringen" inputs={[{label:"Hypotheek",value:formatEUR(h)},{label:"Rente",value:`${r}%`}]} results={[{label:"Maandlasten",value:formatEUR(res.maandlasten),type:"success"},{label:"Totale rente",value:formatEUR(res.totaleRente),type:"warning"}]} />
+  <p className="text-xs text-gray-400 text-center">Bruto maandlasten op basis van annuïtair aflossen. NHG en renteaftrek niet meegerekend.</p></div>);
+}

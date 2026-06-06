@@ -1,0 +1,17 @@
+"use client"; import { useState, useMemo } from "react"; import { ArrowRightLeft, Euro } from "lucide-react"; import { ShareToolbar } from "@/components/share/ShareToolbar"; import { formatEUR } from "@/lib/utils"; import { parttimeFactor } from "@/lib/calculators/parttime-factor";
+export default function ParttimeCalculator() {
+  const [full, setFull] = useState(50000); const [hFull, setHFull] = useState(40); const [hPart, setHPart] = useState(24);
+  const r = useMemo(() => parttimeFactor(full, hFull, hPart), [full, hFull, hPart]);
+  return (<div className="space-y-6"><div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-5">
+    <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><ArrowRightLeft className="h-4 w-4 text-blue-600" />Parttime Factor</h2>
+    <div className="grid grid-cols-2 gap-4"><div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Fulltime salaris (€)</label><input type="number" value={full} onChange={e=>setFull(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div><div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Fulltime uren</label><input type="number" value={hFull} onChange={e=>setHFull(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div></div>
+    <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Parttime uren</label><div className="relative"><input type="range" min={1} max={hFull} value={hPart} onChange={e=>setHPart(+e.target.value)} className="w-full accent-blue-600"/><div className="flex justify-between text-xs text-gray-400 mt-1"><span>1</span><span className="font-semibold text-blue-600">{hPart} uur</span><span>{hFull}</span></div></div></div>
+  </div>
+  <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-3">
+    <div className="text-center py-4"><p className="text-xs text-gray-500 mb-1">Parttime salaris</p><p className="text-4xl font-bold text-blue-600 tabular-nums">{formatEUR(r.parttimeSalary)}</p></div>
+    <div className="flex items-center justify-between rounded-xl px-5 py-3.5 bg-white border border-gray-100"><span className="text-sm text-gray-600">Factor</span><span className="text-sm font-bold tabular-nums">{r.factor} ({r.pct}%)</span></div>
+    <div className="flex items-center justify-between rounded-xl px-5 py-3.5 bg-white border border-gray-100"><span className="text-sm text-gray-600">Fulltime uren → parttime</span><span className="text-sm font-bold tabular-nums">{hFull} → {hPart} u/wk</span></div>
+  </div>
+  <ShareToolbar calculatorType="parttime-factor" calculatorName="Parttime Salaris Factor" categoryName="Werk & Inkomen" inputs={[{label:"Fulltime",value:formatEUR(full)},{label:"Uren",value:`${hPart}/${hFull}`}]} results={[{label:"Parttime salaris",value:formatEUR(r.parttimeSalary),type:"success"}]} />
+  <p className="text-xs text-gray-400 text-center">Op basis van een lineaire verhouding. Werkelijke afspraken kunnen afwijken.</p></div>);
+}

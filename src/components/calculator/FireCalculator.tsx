@@ -1,0 +1,27 @@
+"use client"; import { useState, useMemo } from "react"; import { TrendingUp, Euro } from "lucide-react"; import { ShareToolbar } from "@/components/share/ShareToolbar"; import { formatEUR } from "@/lib/utils"; import { berekenFire } from "@/lib/calculators/fire";
+export default function FireCalculator() {
+  const [v, setV] = useState(50000); const [m, setM] = useState(500); const [r, setR] = useState(7); const [i, setI] = useState(2); const [k, setK] = useState(24000); const [o, setO] = useState(4);
+  const res = useMemo(() => berekenFire({ huidigVermogen: v, maandelijkseInleg: m, jaarlijksRendement: r, inflatie: i, jaarKosten: k, veiligOpnamePct: o }), [v, m, r, i, k, o]);
+  const chartMax = Math.max(...res.jaren.map(j=>j.waarde));
+  return (<div className="space-y-6"><div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-5">
+    <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><TrendingUp className="h-4 w-4 text-blue-600" />FIRE Calculator</h2>
+    <div className="grid grid-cols-2 gap-4">
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Huidig vermogen (€)</label><input type="number" value={v} onChange={e=>setV(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div>
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Maandelijkse inleg (€)</label><input type="number" value={m} onChange={e=>setM(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div>
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Rendement p/j (%)</label><input type="number" step="0.5" value={r} onChange={e=>setR(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div>
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Inflatie (%)</label><input type="number" step="0.5" value={i} onChange={e=>setI(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div>
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Jaarkosten pensioen (€)</label><input type="number" value={k} onChange={e=>setK(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div>
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Veilige opname (%)</label><input type="number" step="0.5" value={o} onChange={e=>setO(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div>
+    </div>
+  </div>
+  <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+    {res.bereiktInJaar ? (<div className="rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 p-5 text-white shadow-lg text-center"><p className="text-sm text-emerald-200">FIRE bereikt in jaar</p><p className="text-4xl font-bold tabular-nums mt-1">{res.bereiktInJaar}</p></div>):(<div className="rounded-xl bg-amber-50 p-5 text-center"><p className="text-sm text-amber-700 font-semibold">FIRE niet bereikt binnen 50 jaar</p></div>)}
+    <div className="grid grid-cols-2 gap-3 mt-3">
+      <div className="rounded-lg bg-blue-50 p-3 text-center border border-blue-100"><p className="text-[10px] text-blue-600">FIRE-getal</p><p className="text-sm font-bold text-blue-700 tabular-nums">{formatEUR(res.fireGetal)}</p></div>
+      <div className="rounded-lg bg-emerald-50 p-3 text-center border border-emerald-100"><p className="text-[10px] text-emerald-600">Maandelijkse opname</p><p className="text-sm font-bold text-emerald-700 tabular-nums">{formatEUR(res.maandelijkseOpname)}</p></div>
+    </div>
+  </div>
+  {res.bereiktInJaar && (<div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm"><h3 className="text-sm font-semibold text-gray-900 mb-3">Portefeuillegroei (jaar 1-{Math.min(20,res.bereiktInJaar+3)})</h3><div className="flex items-end gap-1 h-32">{[...Array(Math.min(20,res.bereiktInJaar+3))].map((_,i)=>{const y=res.jaren[i]; if(!y)return null; return (<div key={i} className="flex-1 flex flex-col items-center"><div className="w-full rounded-t-md bg-gradient-to-t from-blue-400 to-blue-500 relative" style={{height:`${(y.waarde/chartMax)*100}%`}} title={`Jaar ${y.jaar}: ${formatEUR(y.waarde)}`}><div className="absolute bottom-0 left-0 right-0 h-1/3 bg-emerald-400/40 rounded-t" style={{height:`${(y.cumulatiefIngeld/y.waarde)*100}%`}}/></div><span className="text-[8px] text-gray-400 mt-0.5">{y.jaar}</span></div>)})}</div><div className="flex items-center gap-4 mt-2 text-[10px] text-gray-400"><span className="flex items-center gap-1"><span className="inline-block h-2 w-2 rounded bg-blue-400"/>Portefeuille</span><span className="flex items-center gap-1"><span className="inline-block h-2 w-2 rounded bg-emerald-400"/>Ingelegd</span></div></div>)}
+  <ShareToolbar calculatorType="fire-berekenen" calculatorName="FIRE Calculator" categoryName="Geld & Verzekeringen" inputs={[{label:"Vermogen",value:formatEUR(v)},{label:"Inleg/mnd",value:formatEUR(m)}]} results={[{label:"FIRE in jaar",value:`${res.bereiktInJaar||"-"}`,type:"success"}]} />
+  <p className="text-xs text-gray-400 text-center">FIRE-berekening is een indicatie. Historische rendementen garanderen geen toekomstige resultaten.</p></div>);
+}
