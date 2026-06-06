@@ -42,6 +42,7 @@ const TelemetrySchema = z.object({
     "email_shared",
     "search",
     "page_view",
+    "affiliate_click",
   ]),
 
   metadata: z

@@ -38,7 +38,7 @@ export interface TelemetryEvent {
   /** Which calculator was used (e.g., "bruto-netto-salaris-calculator") */
   calculatorId: string;
   /** What the user did */
-  action: "calculated" | "pdf_download" | "email_shared" | "search" | "page_view";
+  action: "calculated" | "pdf_download" | "email_shared" | "search" | "page_view" | "affiliate_click";
   /** Optional: additional anonymous context (no PII allowed) */
   metadata?: Record<string, string | number | boolean>;
 }

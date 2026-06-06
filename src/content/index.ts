@@ -15,6 +15,7 @@ import "./pages/vakantiedagen";
 import "./pages/ontslagvergoeding";
 import "./pages/inflatie-calculator";
 import "./pages/winst-verlies";
+import "./pages/huurtoeslag";
 
 export {
   registerPages,

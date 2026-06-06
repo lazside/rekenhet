@@ -155,6 +155,7 @@ registry.set("overwaarde-berekenen", () => import("@/components/calculator/Calcu
 registry.set("huurverhoging", () => import("@/components/calculator/CalculatorHub"));
 registry.set("enkelvoudige-interest", () => import("@/components/calculator/CalculatorHub"));
 registry.set("vermogensbelasting-box3", () => import("@/components/calculator/CalculatorHub"));
+registry.set("huurtoeslag", () => import("@/components/calculator/HuurtoeslagCalculator"));
 
 // ─── Resolver ──────────────────────────────────────────────────
 

@@ -94,5 +94,6 @@
   { "title": "Overwaarde Berekenen", "slug": "/geld-en-verzekeringen/overwaarde-berekenen", "keywords": ["overwaarde", "woning", "verkoop", "hypotheek"], "category": "Geld & Verzekeringen" },
   { "title": "Huurverhoging", "slug": "/geld-en-verzekeringen/huurverhoging", "keywords": ["huurverhoging", "huur", "max 5.5%", "2026"], "category": "Geld & Verzekeringen" },
   { "title": "Enkelvoudige Interest", "slug": "/geld-en-verzekeringen/enkelvoudige-interest", "keywords": ["enkelvoudige interest", "rente", "interest", "eindbedrag"], "category": "Geld & Verzekeringen" },
-  { "title": "Vermogensbelasting Box 3", "slug": "/geld-en-verzekeringen/vermogensbelasting-box3", "keywords": ["box 3", "vermogensbelasting", "belasting", "vermogen"], "category": "Geld & Verzekeringen" }
+  { "title": "Vermogensbelasting Box 3", "slug": "/geld-en-verzekeringen/vermogensbelasting-box3", "keywords": ["box 3", "vermogensbelasting", "belasting", "vermogen"], "category": "Geld & Verzekeringen" },
+  { "title": "Huurtoeslag Berekenen 2026", "slug": "/geld-en-verzekeringen/huurtoeslag", "keywords": ["huurtoeslag", "huurtoeslag 2026", "huursubsidie", "huur", "toeslagen"], "category": "Geld & Verzekeringen" }
 ]
