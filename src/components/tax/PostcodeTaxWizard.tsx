@@ -37,8 +37,13 @@ function lookupMunicipality(postcode: string): MuniLookupResult {
   return entry || data.fallback;
 }
 
-export default function PostcodeTaxWizard() {
-  const [postcode, setPostcode] = useState("");
+interface PostcodeTaxWizardProps {
+  /** Optionally pre-fill the postcode input (for /lokaal/[city] pages) */
+  initialPostcode?: string;
+}
+
+export default function PostcodeTaxWizard({ initialPostcode }: PostcodeTaxWizardProps) {
+  const [postcode, setPostcode] = useState(initialPostcode || "");
   const [woz, setWoz] = useState(350000);
   const [huishouden, setHuishouden] = useState<"enkel" | "meer">("meer");
 
