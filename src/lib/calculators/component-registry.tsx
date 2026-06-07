@@ -15,7 +15,7 @@ const registry = new Map<string, () => Promise<{ default: CalculatorComponent }>
 
 registry.set(
   "bruto-netto-salaris-calculator",
-  () => import("@/components/calculator/BrutoNettoCalculator")
+  () => import("@/lib/calculators/modules/bruto-netto-salaris-calculator/ui")
 );
 
 registry.set(
@@ -157,6 +157,7 @@ registry.set("enkelvoudige-interest", () => import("@/components/calculator/Calc
 registry.set("vermogensbelasting-box3", () => import("@/components/calculator/CalculatorHub"));
 registry.set("huurtoeslag", () => import("@/components/calculator/HuurtoeslagCalculator"));
 registry.set("energielabel-berekenen", () => import("@/components/calculator/EnergielabelCalculator"));
+registry.set("zelfstandigenaftrek-berekenen", () => import("@/components/calculator/ZelfstandigenaftrekCalculator"));
 
 // ─── Resolver ──────────────────────────────────────────────────
 

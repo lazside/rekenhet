@@ -17,7 +17,6 @@ const footerLinks = {
  { href:"/disclaimer", label:"Disclaimer" },
  ],
  general: [
- { href:"/updates", label:"Updates & Wetgeving" },
  { href:"/contact", label:"Contact & Vragen" },
  ],
 };
@@ -44,8 +43,9 @@ export function Footer() {
  </Link>
  <p className="text-sm text-slate-500 leading-relaxed mb-4">
  Rekenhet.nl is het moderne, onafhankelijke rekenplatform voor
- Nederland. Gratis online calculators voor werk, geld, gezondheid,
- auto en wiskunde — snel, betrouwbaar en zonder registratie.
+ Nederland. Gratis online calculators voor werk, hypotheek, geld,
+ gezondheid, auto, ondernemen en wiskunde — snel, betrouwbaar
+ en zonder registratie.
  </p>
  <Link
  href="/contact"

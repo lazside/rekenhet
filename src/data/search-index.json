@@ -15,7 +15,7 @@
   { "title": "Uurtarief naar Netto Maandinkomen", "slug": "/werk-en-inkomen/uurtarief-berekenen", "keywords": ["uurtarief", "zzp", "maandinkomen", "freelance", "netto"], "category": "Werk & Inkomen" },
   { "title": "BTW Inclusief/Exclusief", "slug": "/ondernemen/btw-incl-excl", "keywords": ["btw", "inclusief", "exclusief", "factuur", "omzetbelasting"], "category": "Ondernemen" },
   { "title": "Parttime Salaris Factor", "slug": "/werk-en-inkomen/parttime-factor", "keywords": ["parttime", "salaris", "uren", "fulltime", "deeltijd"], "category": "Werk & Inkomen" },
-  { "title": "Maximale Hypotheek", "slug": "/geld-en-verzekeringen/maximale-hypotheek", "keywords": ["hypotheek", "maximale hypotheek", "lening", "inkomen", "rente"], "category": "Geld & Verzekeringen" },
+  { "title": "Maximale Hypotheek", "slug": "/hypotheek/maximale-hypotheek", "keywords": ["hypotheek", "maximale hypotheek", "lening", "inkomen", "rente"], "category": "Geld & Verzekeringen" },
   { "title": "Annuïteitenhypotheek Maandlasten", "slug": "/geld-en-verzekeringen/annuiteiten-lasten", "keywords": ["annuiteiten", "hypotheek", "maandlasten", "rente", "aflossing"], "category": "Geld & Verzekeringen" },
   { "title": "Netto Vakantiegeld", "slug": "/werk-en-inkomen/netto-vakantiegeld", "keywords": ["vakantiegeld", "vakantietoeslag", "8%", "netto", "salaris"], "category": "Werk & Inkomen" },
   { "title": "Vermogensgroei Tracker", "slug": "/geld-en-verzekeringen/compound-interest", "keywords": ["vermogensgroei", "compound interest", "samengestelde rente", "beleggen", "sparen"], "category": "Geld & Verzekeringen" },
@@ -95,5 +95,7 @@
   { "title": "Huurverhoging", "slug": "/geld-en-verzekeringen/huurverhoging", "keywords": ["huurverhoging", "huur", "max 5.5%", "2026"], "category": "Geld & Verzekeringen" },
   { "title": "Enkelvoudige Interest", "slug": "/geld-en-verzekeringen/enkelvoudige-interest", "keywords": ["enkelvoudige interest", "rente", "interest", "eindbedrag"], "category": "Geld & Verzekeringen" },
   { "title": "Vermogensbelasting Box 3", "slug": "/geld-en-verzekeringen/vermogensbelasting-box3", "keywords": ["box 3", "vermogensbelasting", "belasting", "vermogen"], "category": "Geld & Verzekeringen" },
-  { "title": "Huurtoeslag Berekenen 2026", "slug": "/geld-en-verzekeringen/huurtoeslag", "keywords": ["huurtoeslag", "huurtoeslag 2026", "huursubsidie", "huur", "toeslagen"], "category": "Geld & Verzekeringen" }
+  { "title": "Huurtoeslag Berekenen 2026", "slug": "/geld-en-verzekeringen/huurtoeslag", "keywords": ["huurtoeslag", "huurtoeslag 2026", "huursubsidie", "huur", "toeslagen"], "category": "Geld & Verzekeringen" },
+  { "title": "Energielabel & Verduurzaming Hypotheek", "slug": "/hypotheek/energielabel-berekenen", "keywords": ["energielabel", "hypotheek", "verduurzaming", "extra lenen", "nibud"], "category": "Hypotheek & Wonen" },
+  { "title": "Zelfstandigenaftrek & Netto Inkomen 2026", "slug": "/ondernemen/zelfstandigenaftrek-berekenen", "keywords": ["zelfstandigenaftrek", "zzp", "mkb", "ondernemersaftrek", "startersaftrek", "netto inkomen"], "category": "Ondernemen" }
 ]

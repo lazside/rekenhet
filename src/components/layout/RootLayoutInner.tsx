@@ -43,7 +43,6 @@ function useAdSenseLoader() {
     script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_ID}`;
     script.async = true;
     script.crossOrigin = "anonymous";
-    script.setAttribute("data-loaded-after-consent", "true");
     document.head.appendChild(script);
   }
 }

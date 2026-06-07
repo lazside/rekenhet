@@ -1,3 +1,5 @@
+import { FAQs as brutoNettoFaqs } from "@/lib/calculators/modules/bruto-netto-salaris-calculator/faqs";
+
 interface FaqItem {
   question: string;
   answer: string;
@@ -10,22 +12,16 @@ interface CalculatorFaqEntry {
 
 const explicitFaqs: CalculatorFaqEntry[] = [
   {
+    slug: "bruto-netto-salaris-calculator",
+    faqs: brutoNettoFaqs,
+  },
+  {
     slug: "btw-calculator",
     faqs: [
       { question: "Hoe bereken ik BTW over een bedrag?", answer: "Vul het bedrag in, kies het BTW-tarief (21%, 9% of 0%) en selecteer of het bedrag inclusief of exclusief BTW is." },
       { question: "Wat is het verschil tussen inclusief en exclusief BTW?", answer: "Een bedrag exclusief BTW is zonder belasting. Inclusief BTW is inclusief omzetbelasting." },
       { question: "Welke BTW-tarieven zijn er in Nederland?", answer: "21% (hoog), 9% (laag) en 0% (export)." },
       { question: "Hoeveel is €100 inclusief 21% BTW?", answer: "€100 exclusief BTW wordt €121 inclusief 21% BTW." },
-    ],
-  },
-  {
-    slug: "bruto-netto-salaris-calculator",
-    faqs: [
-      { question: "Hoeveel belasting betaal ik over mijn salaris in 2026?", answer: "In 2026 betaal je inkomstenbelasting volgens 3 schijven: Schijf 1 (€0 – €40.018) 35,82%, Schijf 2 (€40.018 – €76.817) 37,48%, en Schijf 3 (€76.817+) 49,50%. Over de eerste schijf betaal je ook premies volksverzekeringen (AOW, Anw, Wlz). Je krijgt daarnaast heffingskortingen: algemene heffingskorting (max €3.070) en arbeidskorting (max €5.598), die je totale belasting verlagen." },
-      { question: "Wat is het verschil tussen bruto en netto salaris?", answer: "Bruto is je salaris vóór aftrek van belasting en sociale premies. Netto is wat je daadwerkelijk op je bankrekening ontvangt. Het verschil bestaat uit loonheffing (inkomstenbelasting + premies volksverzekeringen) minus heffingskortingen zoals de algemene heffingskorting en arbeidskorting. Ook je vakantiegeld (8%) en eventuele bijtelling voor een leaseauto spelen een rol." },
-      { question: "Hoeveel kost een leaseauto mij netto per maand?", answer: "De netto kosten van een leaseauto hangen af van de bijtelling (meestal 22% van de cataloguswaarde) en jouw belastingtarief. De bijtelling verhoogt je belastbaar inkomen, waardoor je in een hogere schijf kunt vallen. Voorbeeld: bij een auto van €45.000 met 22% bijtelling en 49,50% marginaal tarief kost de auto je netto ongeveer €408 per maand aan extra belasting, plus eventuele eigen bijdrage. Gebruik de leaseauto-module in onze calculator voor een exacte berekening." },
-      { question: "Hoe werken de algemene heffingskorting en arbeidskorting in 2026?", answer: "De algemene heffingskorting is maximaal €3.070 en bouwt af met 6,595% voor elke euro boven €24.928. De arbeidskorting is maximaal €5.598 en wordt opgebouwd in stappen: 9,8% over de eerste €11.500, 30,074% over €11.500–€23.500, en 2,685% over €23.500–€40.018. Boven €40.018 bouwt de arbeidskorting af met 6,51%. In onze calculator zie je precies waar je zit in de afbouwcurve." },
-      { question: "Hoeveel netto maandloon houd ik over als ZZP'er of flexwerker?", answer: "Als ZZP'er of flexwerker kun je je netto maandinkomen berekenen op basis van je uurtarief. Bij een uurtarief van €35 verdien je bruto ongeveer €5.460 per maand bij 36 uur per week. Na belasting en premies hou je netto ongeveer €3.850–€4.200 over, afhankelijk van heffingskortingen. Gebruik de 'Uurloon → Maandinkomen' matrix in onze calculator voor een projectie bij 32, 36 en 40 uur." },
     ],
   },
   {
@@ -49,6 +45,15 @@ const explicitFaqs: CalculatorFaqEntry[] = [
       { question: "Wat is de 106%-LTV regel voor verduurzaming?", answer: "De 106%-LTV (Loan-to-Value) regel houdt in dat je bij verduurzaming tot 106% van de woningwaarde mag lenen in plaats van de gebruikelijke 100%. Die extra 6% is bedoeld voor energiebesparende maatregelen zoals isolatie, warmtepompen of zonnepanelen. Je hebt hiervoor minimaal een energielabel A nodig of een plan om naar A+ te gaan." },
       { question: "Hoe kan ik het extra budget voor verduurzaming gebruiken?", answer: "Het extra budget (duurzaamheidsbudget) kun je besteden aan energiebesparende maatregelen zoals dakisolatie, spouwmuurisolatie, HR++ glas, een warmtepomp, zonnepanelen of een ventilatiesysteem. Deze investeringen verhogen niet alleen je wooncomfort maar ook de waarde van je woning en verlagen je energierekening." },
       { question: "Welke energielabels komen in aanmerking voor extra hypotheek?", answer: "In principe komen alle energielabels van A++++ tot en met G in aanmerking voor een bepaalde mate van extra leencapaciteit, maar de hoogte verschilt sterk. Voor woningen met label A of hoger is de extra hypotheekruimte het grootst. Vanaf label E, F en G is de extra leencapaciteit minimaal, maar het verduurzamingsbudget juist hoger omdat er meer verbeteringen nodig zijn." },
+    ],
+  },
+  {
+    slug: "zelfstandigenaftrek-berekenen",
+    faqs: [
+      { question: "Hoeveel is de zelfstandigenaftrek in 2026?", answer: "In 2026 is de zelfstandigenaftrek gedaald naar €1.200. Dat is een halvering ten opzichte van 2025 (€2.470). Deze drastische afbouw is onderdeel van het Belastingplan om het verschil in belastingdruk tussen werknemers en zelfstandigen te verkleinen. Voor ondernemers die de AOW-leeftijd hebben bereikt geldt de helft: €600." },
+      { question: "Wanneer heb ik recht op de startersaftrek?", answer: "Je hebt recht op startersaftrek (€2.123 extra bovenop de zelfstandigenaftrek) als je aan het urencriterium voldoet én in de 5 voorafgaande jaren maximaal 2 keer zelfstandigenaftrek hebt toegepast. De startersaftrek geldt in de eerste jaren van je onderneming en is bedoeld om startende ZZP'ers een extra belastingvoordeel te geven." },
+      { question: "Hoeveel belasting betaal ik als ZZP'er over mijn winst in 2026?", answer: "Als ZZP'er betaal je inkomstenbelasting volgens 3 schijven (tot €40.018: 35,82%, tot €76.817: 37,48%, daarboven: 49,50%). Daarnaast betaal je Zvw-premie (5,43% over je winst tot ~€71.000). Je mag echter eerst de zelfstandigenaftrek (€1.200), eventuele startersaftrek (€2.123) en de MKB-winstvrijstelling (12,7% van de winst na aftrek) van je winst aftrekken. Onze calculator berekent dit volledig voor je." },
+      { question: "Wat is de MKB-winstvrijstelling en hoe werkt het?", answer: "De MKB-winstvrijstelling is een aftrekpost van 12,7% op je winst ná ondernemersaftrek (zelfstandigenaftrek + startersaftrek). Het is geen vast bedrag maar een percentage, dus hoe hoger je winst, hoe hoger de vrijstelling. Over het resterende bedrag betaal je pas inkomstenbelasting. In 2026 is dit percentage ongewijzigd ten opzichte van 2025." },
     ],
   },
 ];

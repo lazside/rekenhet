@@ -40,7 +40,7 @@ auto_install = true   # fetch the runtime when CodeGraph is enabled but missing
 # Rules are "ToolName" or "ToolName(glob)"; '*' matches any run, '?' one char.
 mode  = "ask"
 # deny = ["bash(rm -rf*)", "bash(git push*)"]   # hard-blocked in every mode
-allow = ["write_file=C:\\Users\\Huzeyfe\\Desktop\\rekenhet\\CLAUDE.md", "write_file=C:\\Users\\Huzeyfe\\Desktop\\rekenhet\\AGENTS.md", "bash=cd C:\\Users\\Huzeyfe\\Desktop\\rekenhet && echo \"=== CLAUDE.md ===\" && wc -l CLAUDE.md && echo \"=== AGENTS.md ===\" && wc -l AGENTS.md && echo \"=== File sizes ===\" && ls -la CLAUDE.md AGENTS.md", "bash=cd /mnt/c/Users/Huzeyfe/Desktop/rekenhet && echo \"=== CLAUDE.md ===\" && wc -l CLAUDE.md && echo \"=== AGENTS.md ===\" && wc -l AGENTS.md && echo \"=== File sizes ===\" && ls -la CLAUDE.md AGENTS.md"]
+allow = ["write_file=C:\\Users\\Huzeyfe\\Desktop\\rekenhet\\CLAUDE.md", "write_file=C:\\Users\\Huzeyfe\\Desktop\\rekenhet\\AGENTS.md", "bash=cd C:\\Users\\Huzeyfe\\Desktop\\rekenhet && echo \"=== CLAUDE.md ===\" && wc -l CLAUDE.md && echo \"=== AGENTS.md ===\" && wc -l AGENTS.md && echo \"=== File sizes ===\" && ls -la CLAUDE.md AGENTS.md", "bash=cd /mnt/c/Users/Huzeyfe/Desktop/rekenhet && echo \"=== CLAUDE.md ===\" && wc -l CLAUDE.md && echo \"=== AGENTS.md ===\" && wc -l AGENTS.md && echo \"=== File sizes ===\" && ls -la CLAUDE.md AGENTS.md", "bash=cd \"C:/Users/Huzeyfe/Desktop/rekenhet\" && rm -rf .next && npx tsc --noEmit 2>&1", "bash=cd \"C:/Users/Huzeyfe/Desktop/rekenhet\" && npm run check 2>&1", "explore", "multi_edit=C:\\Users\\Huzeyfe\\Desktop\\rekenhet\\src\\data\\search-index.json", "edit_file=C:\\Users\\Huzeyfe\\Desktop\\rekenhet\\src\\components\\layout\\Footer.tsx"]
 # ask = ["write_file"]   # force a prompt even if otherwise allowed
 
 [sandbox]

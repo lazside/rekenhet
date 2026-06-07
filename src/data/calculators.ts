@@ -1,4 +1,5 @@
 import type { ResultRow } from "@/types";
+import { META as brutoNettoMeta } from "@/lib/calculators/modules/bruto-netto-salaris-calculator/meta";
 
 /**
  * Calculator metadata used for SEO, routing, and rendering.
@@ -41,25 +42,7 @@ const registry: CalculatorMeta[] = [
     featured: true,
     relatedSlugs: [],
   },
-  {
-    slug: "bruto-netto-salaris-calculator",
-    categorySlug: "werk-en-inkomen",
-    title: "Bruto Netto Salaris Calculator",
-    description:
-      "Bereken je netto salaris op basis van je bruto jaarsalaris. Rekening houdend met belasting, premies, vakantietoeslag.",
-    metaTitle:
-      "Bruto Netto Salaris Calculator | Bereken Je Netto Salaris 2026",
-    metaDescription:
-      "Gratis bruto netto salaris calculator. Vul je bruto jaarsalaris in en ontdek direct je netto maandloon, vakantietoeslag en meer.",
-    keywords: [
-      "bruto netto calculator",
-      "salaris berekenen",
-      "netto salaris",
-      "loonberekening",
-    ],
-    featured: true,
-    relatedSlugs: [],
-  },
+  brutoNettoMeta,
   {
     slug: "bmi-calculator",
     categorySlug: "gezondheid",
@@ -691,6 +674,8 @@ const registry: CalculatorMeta[] = [
   {slug:"huurtoeslag",categorySlug:"geld-en-verzekeringen",title:"Huurtoeslag Berekenen 2026",description:"Bereken je huurtoeslag op basis van huur, inkomen, vermogen en huishoudsituatie.",metaTitle:"Huurtoeslag Berekenen 2026 — Exacte Berekening | Rekenhet.nl",metaDescription:"Gratis huurtoeslag calculator 2026. Bereken je recht op huurtoeslag op basis van rekenhuur, toetsingsinkomen, vermogen en huishouden.",keywords:["huurtoeslag","huurtoeslag 2026","huursubsidie","huurtoeslag berekenen","toeslagen"],featured:true,relatedSlugs:["bruto-netto-salaris-calculator","box3-berekenen"]},
   // ── Hypotheek & Energielabel ──
   {slug:"energielabel-berekenen",categorySlug:"hypotheek",title:"Energielabel & Verduurzaming Hypotheek",description:"Bereken hoeveel extra je kunt lenen voor een woning met een beter energielabel en verduurzaming. Actuele Nibud-leennormen.",metaTitle:"Energielabel Hypotheek Berekenen — Extra Leencapaciteit | Rekenhet.nl",metaDescription:"Bereken direct hoeveel extra hypotheek je kunt krijgen op basis van het energielabel van de woning. Inclusief verduurzamingsbudget volgens de actuele leennormen.",keywords:["energielabel hypotheek","extra lenen energielabel","verduurzaming hypotheek","hypotheek energielabel a","nibud leennormen"],featured:true,relatedSlugs:["maximale-hypotheek","annuiteiten-lasten","isde-subsidie"]},
+  // ── Ondernemen: Zelfstandigenaftrek ──
+  {slug:"zelfstandigenaftrek-berekenen",categorySlug:"ondernemen",title:"Zelfstandigenaftrek & Netto Inkomen 2026",description:"Bereken je zelfstandigenaftrek, MKB-winstvrijstelling en netto inkomen als ZZP'er of ondernemer. Actuele tarieven 2026 (zelfstandigenaftrek €1.200).",metaTitle:"Zelfstandigenaftrek Berekenen 2026 — Netto Inkomen ZZP",metaDescription:"Gratis zelfstandigenaftrek calculator 2026. Bereken je exacte zelfstandigenaftrek (€1.200), startersaftrek, MKB-winstvrijstelling en netto inkomen. Inclusief reserveringsadvies.",keywords:["zelfstandigenaftrek","zelfstandigenaftrek 2026","ondernemersaftrek","zzp belasting","mkb winstvrijstelling","startersaftrek"],featured:true,relatedSlugs:["bruto-netto-salaris-calculator","winst-verlies","zzp-tarief"]},
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorMeta | undefined {

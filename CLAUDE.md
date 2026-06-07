@@ -154,10 +154,57 @@ Every calculator component that uses React state/effects MUST be:
 | Twitter card | ✅ Always | `summary_large_image` |
 | Keywords | ✅ Always | Array of Dutch keyword strings |
 
-## 6. CALCULATOR REGISTRATION — DUAL REGISTRY
-Every new calculator MUST be registered in **two places**:
-1. **Data registry:** `src/data/calculators.ts` — add to `registry` array with full SEO metadata
-2. **Component registry:** `src/lib/calculators/component-registry.tsx` — add to the `Map` with dynamic import
+## 6. 🚀 CALCULATOR DEPLOYMENT CHECKLIST — 10 VERPLICHTE STAPPEN
+
+Elke nieuwe calculator doorloopt dit exacte stappenplan. Niets overslaan.
+
+| # | Stap | Waar | Typefoutrisico |
+|---|------|------|----------------|
+| 1 | **Rekenkern** schrijven | `src/lib/calculators/modules/[slug]/compute.ts` | ✅ |
+| 2 | **Meta** toevoegen | `src/lib/calculators/modules/[slug]/meta.ts` — `CalculatorMeta` object | ✅ |
+| 3 | **Schema** toevoegen | `src/lib/calculators/modules/[slug]/schema.ts` — Zod validatie | ✅ |
+| 4 | **React component** maken | `src/lib/calculators/modules/[slug]/ui.tsx` — `"use client"` | ✅ |
+| 5 | **FAQs** toevoegen | `src/lib/calculators/modules/[slug]/faqs.ts` — minimaal 3-5 stuks | ✅ |
+| 6 | **Barrel export** | `src/lib/calculators/modules/[slug]/index.ts` — re-export alles | ✅ |
+| 7 | **Data registry** | `src/data/calculators.ts` — import `META` uit `modules/[slug]/meta` | ❌ VERGETEN |
+| 8 | **Component registry** | `src/lib/calculators/component-registry.tsx` — `import` naar `modules/[slug]/ui` | ❌ VERGETEN |
+| 9 | **FAQ registry** | `src/data/calculator-faqs.ts` — import `FAQs` uit `modules/[slug]/faqs` | ❌ VERGETEN |
+| 10 | **Typecheck + consistency** | `npx tsc --noEmit` + `npm run check` | ✅ |
+
+**De 6 verplichte bestanden per module:**
+
+```
+src/lib/calculators/modules/[calculator-slug]/
+├── index.ts       → Barrel export (re-export alles)
+├── meta.ts        → CalculatorMeta object (SEO, routing)
+├── schema.ts      → Zod validatie schema + field definitions
+├── compute.ts     → Pure rekenkern (computeFn)
+├── faqs.ts        → 3-5 FAQ items voor FAQPage JSON-LD
+└── ui.tsx         → "use client" React component
+```
+
+**✅ GEBRUIK ALTIJD de gedeelde UI-primitives** uit `@/lib/calculators/ui-primitives`:
+
+| Primitieve | Vervangt | Voorbeeld |
+|-----------|----------|-----------|
+| `<CalcCard>` | `rounded-xl border border-gray-200 bg-white p-5 shadow-sm` | `CalcCard` wrap elke form/result sectie |
+| `<CalcSectionTitle icon={...} title="..." />` | `h2` met icoon + `flex items-center gap-2` | Sectie kopjes |
+| `<CalcInput id label value onChange prefix="€" />` | Input met label, border, focus ring | Alle getalvelden |
+| `<CalcRange id label value onChange min max />` | Slider met gradient + thumb styling | Schuifregelaars |
+| `<CalcSelect id label value onChange options />` | Select met label + border | Keuzelijsten |
+| `<CalcToggle id label checked onChange />` | `button[role="switch"]` met animatie | Aan/uit opties |
+| `<CalcResultRow label value type />` | `flex justify-between rounded-xl px-5 py-3.5` | Resultaatrijen (type: default/success/warning/info/highlight) |
+| `<CalcHero label value gradient />` | `bg-gradient-to-br ... p-6 text-white shadow-lg` | Primaire uitkomst |
+| `<CalcTooltip text />` | `Info` icon + popup | Uitleg bij velden |
+| `<CalcDisclaimer>` | `text-xs text-gray-400 text-center` | Footer disclaimer |
+
+**Kopieer `src/lib/calculators/modules/_template/`** voor elke nieuwe calculator.
+Dit template bevat alle 6 bestanden met TODO's en een werkend voorbeeld van alle primitives.
+
+**Let op bij verhuizingen:** Als een calculator van categorie verandert (bv. `geld-en-verzekeringen` → `hypotheek`):
+- Voeg een **308 redirect** toe in `next.config.ts` (`redirects()`)
+- Update de href in `popularTools[]` op de homepage
+- Check of er `relatedSlugs` in andere calculators naar de oude slug verwijzen
 
 ## 7. API ROUTES — MANDATORY PATTERNS:
 - ✅ Zod schema validation on ALL inputs
@@ -229,17 +276,20 @@ Types: feat, fix, refactor, perf, seo, style, content, chore
 
 - [ ] `npm run lint` passes with zero errors
 - [ ] `npm run check` (consistency check) passes
-- [ ] All new calculator slugs are unique across the registry
-- [ ] Every new page has `generateMetadata` exporting a `Metadata` object
-- [ ] Every new page has JSON-LD structured data
-- [ ] Every new page has a canonical URL in alternates
-- [ ] Every new API route has Zod validation + rate limiting
-- [ ] No hardcoded strings that should be Dutch (check every label, placeholder, title)
-- [ ] No English strings in user-facing text (search for stray English)
-- [ ] `cn()` is used for all conditional Tailwind classes (never template literals)
-- [ ] All new components have barrel exports in their `index.ts`
-- [ ] No `any` types — use `unknown` + narrowing
-- [ ] AdSense slots reference env vars, not hardcoded IDs
+- [ ] All **10 stappen** van de Calculator Deployment Checklist zijn doorlopen
+- [ ] `updates.json` heeft een entry voor nieuwe calculators (toont op homepage)
+- [ ] `popularTools` op homepage is up-to-date (nieuwe tools + correcte href's)
+- [ ] Alle nieuwe calculator slugs zijn uniek in de registry
+- [ ] Elke nieuwe pagina heeft `generateMetadata` met een Metadata object
+- [ ] Elke nieuwe pagina heeft JSON-LD structured data (BreadcrumbList + WebApplication)
+- [ ] Elke nieuwe pagina heeft een canonical URL in alternates
+- [ ] Elke nieuwe API route heeft Zod validation + rate limiting
+- [ ] Geen hardcoded strings — alle user-facing tekst is Nederlands
+- [ ] `cn()` is gebruikt voor alle conditional Tailwind classes
+- [ ] Alle nieuwe componenten hebben barrel exports in hun `index.ts`
+- [ ] Geen `any` types — gebruik `unknown` + narrowing
+- [ ] AdSense slots verwijzen naar env vars, geen hardcoded IDs
+- [ ] Bij verhuizing van een calculator: 308 redirect + oude links updaten
 
 ---
 

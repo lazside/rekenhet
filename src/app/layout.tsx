@@ -53,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="nl">
+    <html lang="nl" data-scroll-behavior="smooth">
       <head>
         {/* ═══ Force light mode (disable browser dark mode override) ═══ */}
         <meta name="color-scheme" content="light only" />

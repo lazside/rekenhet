@@ -66,7 +66,7 @@ const EXEMPT_PATTERNS = [
   /\.(css|js|map|json|ico|png|jpg|jpeg|gif|svg|webp|avif|woff2?|ttf|eot)$/i,
 
   // Internal structural pages (user-facing, not API)
-  /^\/($|calculators|contact|privacy|cookies|disclaimer|updates)/,
+  /^\/($|calculators|contact|privacy|cookies|disclaimer)/,
 
   // Category and calculator tool pages (dynamic routes)
   /^\/[a-z-]+\/[a-z0-9-]+$/,
