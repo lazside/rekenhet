@@ -121,7 +121,7 @@ You are a UI/UX Engineer specialized in conversion-optimized, ad-monetized conte
 6. **Print styles** — The `.print-header` class hides on screen, shows on print. Calculator results have `print-friendly` class. Use `<meta name="color-scheme" content="light only">` (already in root layout).
 7. **Affiliate offers** — Use `ContextualOfferCard` component with data from `src/data/affiliate-offers.json`. Offer cards appear in sidebar and as adblock fallback. Use `findBestOffer()` for contextual matching.
 8. **Consistent spacing** — Follow the existing spacing scale. Container uses `max-w-6xl`. Cards use `rounded-xl`. Primary action buttons use the site's blue accent. Category cards use their assigned `color` from the categories data.
-9. **Dark mode** — The site forces light mode (`color-scheme: light only` in root layout). Do NOT add dark mode styles. Ignore any dark: Tailwind prefixes — they exist for development only but have no effect.
+9. **Dark mode** — De site is **uitsluitend light mode**. Alle `dark:` Tailwind prefixes zijn uit de codebase verwijderd. Voeg ze NOOIT toe aan nieuwe componenten. De root layout forceert `color-scheme: light only`.
 10. **Typography** — Headings use `font-bold tracking-tight`. Body uses `text-gray-600 leading-relaxed`. The font stack is Geist (via next/font, configured at the app level).
 
 ### Tools You May Use

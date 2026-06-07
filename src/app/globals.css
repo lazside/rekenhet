@@ -5,8 +5,9 @@
  * Minimal, clean, high-contrast for calculator UX.
  */
 
-/* ─── Dark mode expliciet uitgeschakeld ─────────────────────── */
-@custom-variant dark (&);
+/* ─── Dark mode volledig verwijderd ──────────────────────────── */
+/* Alle dark: Tailwind classes zijn uit de codebase gestript.    */
+/* Uitsluitend light mode.                                       */
 
 @layer base {
   html {

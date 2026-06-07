@@ -1,6 +1,17 @@
 {
   "updates": [
     {
+      "date": "2026-06-08",
+      "version": "1.5.0",
+      "title": "Energielabel Hypotheek Calculator & Nieuwe Categorie",
+      "type": "Nieuwe Calculator",
+      "calculators": [
+        { "slug": "energielabel-berekenen", "name": "Energielabel & Verduurzaming Hypotheek" },
+        { "slug": "maximale-hypotheek", "name": "Sneltest Maximale Hypotheek" }
+      ],
+      "description": "Nieuwe **Hypotheek & Wonen** categorie gelanceerd met de **Energielabel Hypotheek Calculator** — bereken hoeveel extra je kunt lenen op basis van het energielabel. De **Maximale Hypotheek** calculator is verhuisd naar deze nieuwe categorie."
+    },
+    {
       "date": "2026-06-06",
       "version": "1.4.0",
       "title": "Procenten Calculator & Contactpagina gelanceerd",
