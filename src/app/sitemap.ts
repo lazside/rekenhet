@@ -31,6 +31,7 @@ function changeFreqForCategory(categorySlug: string): "monthly" | "weekly" | "ye
     wiskunde: "yearly",
     algemeen: "monthly",
     "geld-en-verzekeringen": "monthly",
+    hypotheek: "monthly",
   };
   return freqMap[categorySlug] || "monthly";
 }
@@ -38,7 +39,7 @@ function changeFreqForCategory(categorySlug: string): "monthly" | "weekly" | "ye
 function calcPriority(featured?: boolean, categorySlug?: string): number {
   let base = 0.64;
   if (featured) base += 0.2;
-  if (categorySlug === "werk-en-inkomen" || categorySlug === "geld-en-verzekeringen")
+  if (categorySlug === "werk-en-inkomen" || categorySlug === "geld-en-verzekeringen" || categorySlug === "hypotheek")
     base += 0.08;
   return Math.min(Math.round(base * 100) / 100, 0.96);
 }

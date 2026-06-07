@@ -5,6 +5,9 @@
  * Minimal, clean, high-contrast for calculator UX.
  */
 
+/* ─── Dark mode expliciet uitgeschakeld ─────────────────────── */
+@custom-variant dark (&);
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -16,6 +19,7 @@
     @apply bg-white text-gray-900;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
       Roboto, "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
   }
 
   /* Ensure all ad slots have CLS-safe dimensions */

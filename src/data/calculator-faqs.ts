@@ -40,6 +40,15 @@ const explicitFaqs: CalculatorFaqEntry[] = [
       { question: "Hoe bereken ik een procentuele stijging?", answer: "Trek oude van nieuwe waarde af, deel door oude waarde, keer 100." },
     ],
   },
+  {
+    slug: "energielabel-berekenen",
+    faqs: [
+      { question: "Hoeveel extra hypotheek krijg ik met energielabel A?", answer: "Met energielabel A kun je tot €25.000 extra lenen bovenop de standaard leencapaciteit. Voor A+ is dat €30.000, A++ €35.000 en A+++ of hoger kan oplopen tot €50.000. Hoe beter het energielabel, hoe hoger de extra hypotheekruimte volgens de Nibud-normen." },
+      { question: "Wat is de 106%-LTV regel voor verduurzaming?", answer: "De 106%-LTV (Loan-to-Value) regel houdt in dat je bij verduurzaming tot 106% van de woningwaarde mag lenen in plaats van de gebruikelijke 100%. Die extra 6% is bedoeld voor energiebesparende maatregelen zoals isolatie, warmtepompen of zonnepanelen. Je hebt hiervoor minimaal een energielabel A nodig of een plan om naar A+ te gaan." },
+      { question: "Hoe kan ik het extra budget voor verduurzaming gebruiken?", answer: "Het extra budget (duurzaamheidsbudget) kun je besteden aan energiebesparende maatregelen zoals dakisolatie, spouwmuurisolatie, HR++ glas, een warmtepomp, zonnepanelen of een ventilatiesysteem. Deze investeringen verhogen niet alleen je wooncomfort maar ook de waarde van je woning en verlagen je energierekening." },
+      { question: "Welke energielabels komen in aanmerking voor extra hypotheek?", answer: "In principe komen alle energielabels van A++++ tot en met G in aanmerking voor een bepaalde mate van extra leencapaciteit, maar de hoogte verschilt sterk. Voor woningen met label A of hoger is de extra hypotheekruimte het grootst. Vanaf label E, F en G is de extra leencapaciteit minimaal, maar het verduurzamingsbudget juist hoger omdat er meer verbeteringen nodig zijn." },
+    ],
+  },
 ];
 
 export function getCalculatorFaqs(slug: string): FaqItem[] {

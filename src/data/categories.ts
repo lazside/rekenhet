@@ -62,6 +62,13 @@ export const categories: Category[] = [
     icon: CalcIcon as LucideIcon,
     color: "bg-slate-500",
   },
+  {
+    slug: "hypotheek",
+    title: "Hypotheek & Wonen",
+    description: "Maximale hypotheek, energielabel, maandlasten en duurzaamheidsleningen",
+    icon: Home as LucideIcon,
+    color: "bg-indigo-500",
+  },
 ];
 
 export function getCategoryBySlug(slug: string): Category | undefined {

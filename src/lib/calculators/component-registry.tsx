@@ -156,6 +156,7 @@ registry.set("huurverhoging", () => import("@/components/calculator/CalculatorHu
 registry.set("enkelvoudige-interest", () => import("@/components/calculator/CalculatorHub"));
 registry.set("vermogensbelasting-box3", () => import("@/components/calculator/CalculatorHub"));
 registry.set("huurtoeslag", () => import("@/components/calculator/HuurtoeslagCalculator"));
+registry.set("energielabel-berekenen", () => import("@/components/calculator/EnergielabelCalculator"));
 
 // ─── Resolver ──────────────────────────────────────────────────
 

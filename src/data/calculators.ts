@@ -293,7 +293,7 @@ const registry: CalculatorMeta[] = [
   },
   {
     slug: "maximale-hypotheek",
-    categorySlug: "geld-en-verzekeringen",
+    categorySlug: "hypotheek",
     title: "Sneltest Maximale Hypotheek",
     description: "Ontdek snel wat je maximale hypotheek is op basis van je inkomen, partnerinkomen, rente en looptijd.",
     metaTitle: "Maximale Hypotheek Berekenen — Sneltest | Rekenhet.nl",
@@ -689,6 +689,8 @@ const registry: CalculatorMeta[] = [
   {slug:"vermogensbelasting-box3",categorySlug:"geld-en-verzekeringen",title:"Vermogensbelasting Box 3",description:"Bereken de Box 3 belasting over je vermogen in 2026",metaTitle:"Box 3 Vermogensbelasting Berekenen 2026 | Rekenhet.nl",metaDescription:"Gratis Box 3 calculator. Bereken de vermogensbelasting op basis van forfaitair rendement.",keywords:["box 3","vermogensbelasting","belasting","vermogen","sparen","beleggen"],featured:true,relatedSlugs:["box3-berekenen","spaardoel-berekenen"]},
   // ── Huurtoeslag 2026 ──
   {slug:"huurtoeslag",categorySlug:"geld-en-verzekeringen",title:"Huurtoeslag Berekenen 2026",description:"Bereken je huurtoeslag op basis van huur, inkomen, vermogen en huishoudsituatie.",metaTitle:"Huurtoeslag Berekenen 2026 — Exacte Berekening | Rekenhet.nl",metaDescription:"Gratis huurtoeslag calculator 2026. Bereken je recht op huurtoeslag op basis van rekenhuur, toetsingsinkomen, vermogen en huishouden.",keywords:["huurtoeslag","huurtoeslag 2026","huursubsidie","huurtoeslag berekenen","toeslagen"],featured:true,relatedSlugs:["bruto-netto-salaris-calculator","box3-berekenen"]},
+  // ── Hypotheek & Energielabel ──
+  {slug:"energielabel-berekenen",categorySlug:"hypotheek",title:"Energielabel & Verduurzaming Hypotheek",description:"Bereken hoeveel extra je kunt lenen voor een woning met een beter energielabel en verduurzaming. Actuele Nibud-leennormen.",metaTitle:"Energielabel Hypotheek Berekenen — Extra Leencapaciteit | Rekenhet.nl",metaDescription:"Bereken direct hoeveel extra hypotheek je kunt krijgen op basis van het energielabel van de woning. Inclusief verduurzamingsbudget volgens de actuele leennormen.",keywords:["energielabel hypotheek","extra lenen energielabel","verduurzaming hypotheek","hypotheek energielabel a","nibud leennormen"],featured:true,relatedSlugs:["maximale-hypotheek","annuiteiten-lasten","isde-subsidie"]},
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorMeta | undefined {

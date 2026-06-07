@@ -26,6 +26,7 @@ function resolveAppCategory(slug: string): AppCategory {
     "geld-en-verzekeringen": "FinanceApplication",
     gezondheid: "HealthApplication",
     wiskunde: "MathApplication",
+    hypotheek: "FinanceApplication",
     algemeen: "UtilitiesApplication",
   };
   return map[slug] || "UtilitiesApplication";

@@ -55,6 +55,8 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <head>
+        {/* ═══ Force light mode (disable browser dark mode override) ═══ */}
+        <meta name="color-scheme" content="light only" />
         {/* ═══ Print date ═══ */}
         <script dangerouslySetInnerHTML={{ __html: printDateScript() }} />
       </head>

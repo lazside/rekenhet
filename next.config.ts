@@ -13,6 +13,17 @@ const nextConfig: NextConfig = {
   /* ── Compressor ────────────────────────────────────────── */
   compress: true,
 
+  /* ── Redirects ─────────────────────────────────────────── */
+  async redirects() {
+    return [
+      {
+        source: "/geld-en-verzekeringen/maximale-hypotheek",
+        destination: "/hypotheek/maximale-hypotheek",
+        permanent: true,
+      },
+    ];
+  },
+
   /* ── Security Headers ──────────────────────────────────── */
   async headers() {
     return [

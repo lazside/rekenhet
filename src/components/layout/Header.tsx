@@ -7,20 +7,17 @@ import { Button } from "@/components/ui/Button";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { SearchDialog } from "@/components/search/SearchDialog";
+import { categories } from "@/data/categories";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/calculators", label: "Alle calculators" },
 ];
 
-const categoryLinks = [
-  { href: "/werk-en-inkomen", label: "Werk & Inkomen" },
-  { href: "/ondernemen", label: "Ondernemen" },
-  { href: "/geld-en-verzekeringen", label: "Geld & Verzekeringen" },
-  { href: "/gezondheid", label: "Gezondheid" },
-  { href: "/auto-vervoer", label: "Auto & Vervoer" },
-  { href: "/wiskunde", label: "Wiskunde & Omrekenen" },
-];
+const categoryLinks = categories.map((cat) => ({
+  href: `/${cat.slug}`,
+  label: cat.title,
+}));
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);

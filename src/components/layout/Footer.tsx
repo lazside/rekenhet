@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Calculator, Mail } from "lucide-react";
+import { categories } from "@/data/categories";
 
 const footerLinks = {
   calculators: [
     { href: "/calculators", label: "Alle calculators" },
-    { href: "/werk-en-inkomen", label: "Werk & Inkomen" },
-    { href: "/ondernemen", label: "Ondernemen" },
-    { href: "/geld-en-verzekeringen", label: "Geld & Verzekeringen" },
-    { href: "/gezondheid", label: "Gezondheid" },
-    { href: "/wiskunde", label: "Wiskunde & Omrekenen" },
+    ...categories.map((cat) => ({
+      href: `/${cat.slug}`,
+      label: cat.title,
+    })),
   ],
   legal: [
     { href: "/privacy", label: "Privacybeleid" },
