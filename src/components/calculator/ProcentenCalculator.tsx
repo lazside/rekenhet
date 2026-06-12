@@ -71,9 +71,9 @@ export default function ProcentenCalculator() {
             <div className="relative">
               <input
                 id="pa"
-                type="number"
+                type="text"
                 value={a}
-                onChange={(e) => setA(Number(e.target.value) || 0)}
+                onChange={(e) => setA(e.target.value === '' ? 0 : Number(e.target.value))}
                 className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
               />
             </div>
@@ -85,9 +85,9 @@ export default function ProcentenCalculator() {
             <div className="relative">
               <input
                 id="pb"
-                type="number"
+                type="text"
                 value={b}
-                onChange={(e) => setB(Number(e.target.value) || 0)}
+                onChange={(e) => setB(e.target.value === '' ? 0 : Number(e.target.value))}
                 className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
               />
             </div>

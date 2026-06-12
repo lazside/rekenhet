@@ -70,13 +70,13 @@ export default function CalculatorHub() {
  <div key={f.key} className={`space-y-1 ${spanClass}`}>
  <label className="text-xs font-medium text-gray-500">{f.label}</label>
  {f.type ==="select" ? (
- <select value={String(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: e.target.value }))} className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm bg-white">
+ <select value={String(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: e.target.value }))} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all">
  {f.options?.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
  </select>
  ) : f.type ==="date" ? (
- <input type="date" value={String(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: e.target.value }))} className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm" />
+ <input type="date" value={String(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: e.target.value }))} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" />
  ) : (
- <input type="number" value={Number(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: parseFloat(e.target.value) || 0 }))} min={f.min} max={f.max} step={f.step ?? 1} className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" />
+ <input type="text" value={Number(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: parseFloat(e.target.value) || 0 }))} min={f.min} max={f.max} step={f.step ?? 1} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" />
  )}
  </div>
  );

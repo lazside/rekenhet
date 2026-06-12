@@ -44,8 +44,8 @@ export default function ErfenisAowCalculator() {
           <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-4">
             <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Gift className="h-4 w-4 text-blue-600" />Schenk-/Erfbelasting</h2>
             <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Bedrag (€)</label><input type="number" value={bedrag} onChange={e=>setBedrag(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div>
-              <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Relatie</label><select value={groep} onChange={e=>setGroep(e.target.value as Tariefgroep)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm">{(Object.entries(TARIEF_LABELS) as [Tariefgroep, string][]).map(([k,v])=> <option key={k} value={k}>{v}</option>)}</select></div>
+              <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Bedrag (€)</label><input type="text" value={bedrag} onChange={e=>setBedrag(+e.target.value||0)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"/></div>
+              <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Relatie</label><select value={groep} onChange={e=>setGroep(e.target.value as Tariefgroep)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all">{(Object.entries(TARIEF_LABELS) as [Tariefgroep, string][]).map(([k,v])=> <option key={k} value={k}>{v}</option>)}</select></div>
             </div>
             <div className="flex gap-2"><button onClick={()=>setErfenis(false)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${!erfenis?"bg-blue-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Schenking</button><button onClick={()=>setErfenis(true)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${erfenis?"bg-blue-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Erfenis</button></div>
           </div>
@@ -75,7 +75,7 @@ export default function ErfenisAowCalculator() {
         <>
           <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-4">
             <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Clock className="h-4 w-4 text-blue-600" />AOW-leeftijd</h2>
-            <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Geboortedatum</label><input type="date" value={geboorteDatum} onChange={e=>setGeboorteDatum(e.target.value)} className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"/></div>
+            <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Geboortedatum</label><input type="date" value={geboorteDatum} onChange={e=>setGeboorteDatum(e.target.value)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"/></div>
           </div>
           <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-3">
             <div className="rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 p-5 text-white shadow-lg text-center">

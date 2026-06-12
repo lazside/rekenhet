@@ -81,7 +81,7 @@ export default function ZwangerschapCalculator() {
               type="date"
               value={lmp}
               onChange={(e) => setLmp(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"
+              className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
             />
           </div>
         ) : (
@@ -93,7 +93,7 @@ export default function ZwangerschapCalculator() {
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
-              className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm"
+              className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
             />
           </div>
         )}

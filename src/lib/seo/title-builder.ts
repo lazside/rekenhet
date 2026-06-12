@@ -132,7 +132,7 @@ export function buildCategoryMetadata(cat: Category): Metadata {
   return buildMetadata({
     title: TITLE_TEMPLATES.category(cat),
     description: TITLE_TEMPLATES.categoryMeta(cat),
-    path: `/calculators?categorie=${cat.slug}`,
+    path: `/${cat.slug}`,
   });
 }
 
@@ -161,7 +161,7 @@ export function getCalculatorUrl(
  * Returns the category URL on the site.
  */
 export function getCategoryUrl(categorySlug: string): string {
-  return `${SITE_URL}/calculators?categorie=${categorySlug}`;
+  return `${SITE_URL}/${categorySlug}`;
 }
 
 // ─── Export Constants ───────────────────────────────────────────

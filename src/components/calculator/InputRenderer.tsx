@@ -44,7 +44,7 @@ export function InputFieldRenderer({
             )}
             <input
               id={field.id}
-              type="number"
+              type="text"
               inputMode="decimal"
               step={field.step ?? "any"}
               min={field.min}

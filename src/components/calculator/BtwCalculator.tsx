@@ -163,12 +163,12 @@ export default function BtwCalculator() {
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400">€</span>
             <input
               id="btw-bedrag"
-              type="number"
+              type="text"
               inputMode="decimal"
               min={0}
               step={0.01}
               value={bedrag}
-              onChange={(e) => setBedrag(Number(e.target.value) || 0)}
+              onChange={(e) => setBedrag(e.target.value === '' ? 0 : Number(e.target.value))}
               className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-7 pr-3 text-lg font-semibold text-gray-900 tabular-nums focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
             />
           </div>

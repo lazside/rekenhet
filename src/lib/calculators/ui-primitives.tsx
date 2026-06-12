@@ -2,7 +2,27 @@
 
 import { Info } from "lucide-react";
 import { cn } from "@/lib/utils";
-import type { ReactNode } from "react";
+import { useState, useCallback, useEffect, useRef, type ReactNode, type ChangeEvent } from "react";
+import { numOnChange, numConvert } from "./input-helpers";
+
+// ═══════════════════════════════════════════════════════════════
+// GEDEELDE STYLING — gebruik deze constanten in ALLE calculators
+// ═══════════════════════════════════════════════════════════════
+
+/** Standaard input className — overal dezelfde look & feel */
+export const INPUT_CLASSES =
+  "block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all";
+
+/** Standaard select className */
+export const SELECT_CLASSES =
+  "block w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20";
+
+/** Input className met prefix spacing */
+export function inputCn(prefix?: string): string {
+  return prefix
+    ? `block w-full rounded-lg border border-gray-300 bg-white py-2.5 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all pl-7 pr-3`
+    : INPUT_CLASSES;
+}
 
 // ═══════════════════════════════════════════════════════════════
 // TOOLTIP
@@ -52,7 +72,9 @@ export function CalcSectionTitle({ icon, title }: { icon: ReactNode; title: stri
 interface CalcInputProps {
   id: string;
   label: string;
+  /** Huidige getalswaarde van de parent (wordt alleen gebruikt bij reset) */
   value: number;
+  /** Wordt aangeroepen met een geldig getal */
   onChange: (v: number) => void;
   min?: number;
   max?: number;
@@ -64,6 +86,39 @@ interface CalcInputProps {
 }
 
 export function CalcInput({ id, label, value, onChange, min, max, step, prefix, suffix, tooltip }: CalcInputProps) {
+  // Eén bron van waarheid: een string die de gebruiker vrij kan bewerken.
+  const [display, setDisplay] = useState(() => value === 0 ? "" : String(value));
+
+  // Alleen synchroniseren van parent naar child als de parent-waarde
+  // écht verandert (bv. period-switch in bruto-netto) EN het veld
+  // niet de focus heeft.
+  const hasFocus = useRef(false);
+  const userCleared = useRef(false);
+  useEffect(() => {
+    if (!hasFocus.current && !userCleared.current) {
+      setDisplay(value === 0 ? "" : String(value));
+    }
+  }, [value]);
+
+  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    // Alleen cijfers, punt en komma toestaan
+    let raw = e.target.value.replace(/[^0-9.,]/g, "");
+    // Leidende nullen strippen (behalve bij "0.5" of "0,5")
+    if (raw.length > 1 && raw.startsWith("0") && raw[1] !== "." && raw[1] !== ",") {
+      raw = raw.replace(/^0+/, "");
+    }
+    setDisplay(raw);
+    if (raw === "") {
+      userCleared.current = true;
+      // Parent updaten naar 0, zodat het veld leeg blijft
+      onChange(0);
+    } else {
+      userCleared.current = false;
+      const num = Number(raw.replace(",", "."));
+      if (!isNaN(num)) onChange(num);
+    }
+  }, [onChange]);
+
   return (
     <div className="space-y-1.5">
       <div className="flex items-center gap-1.5">
@@ -73,13 +128,22 @@ export function CalcInput({ id, label, value, onChange, min, max, step, prefix, 
       <div className="relative">
         {prefix && <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400">{prefix}</span>}
         <input
-          id={id} type="number" inputMode="decimal"
-          value={value} onChange={(e) => onChange(Math.max(0, Number(e.target.value) || 0))}
-          min={min} max={max} step={step}
-          className={cn(
-            "block w-full rounded-lg border border-gray-300 bg-white py-2.5 text-sm text-gray-900 tabular-nums focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20",
-            prefix ? "pl-7 pr-3" : "px-3"
-          )}
+          id={id} type="text" inputMode="decimal"
+          value={display}
+          onChange={handleChange}
+          onFocus={() => { hasFocus.current = true; }}
+          onBlur={() => {
+            hasFocus.current = false;
+            // Als de gebruiker het veld leegmaakte: niet terugspringen
+            if (userCleared.current) {
+              setDisplay("");
+              userCleared.current = false;
+            } else {
+              setDisplay(value === 0 ? "" : String(value));
+            }
+          }}
+          className={inputCn(prefix)}
+          autoComplete="off"
         />
         {suffix && <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-gray-400">{suffix}</span>}
       </div>
@@ -145,7 +209,7 @@ export function CalcSelect({ id, label, value, onChange, options }: CalcSelectPr
       <label htmlFor={id} className="text-sm font-medium text-gray-700">{label}</label>
       <select
         id={id} value={String(value)} onChange={(e) => onChange(e.target.value)}
-        className="block w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+        className={SELECT_CLASSES}
       >
         {options.map((opt) => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
       </select>

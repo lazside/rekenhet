@@ -74,7 +74,7 @@ export default async function ContentPage({ params }: Props) {
     { name: "Alle calculators", item: `${SITE_URL}/calculators` },
     {
       name: page.categoryLabel || page.calculator.categorySlug,
-      item: `${SITE_URL}/calculators?categorie=${page.calculator.categorySlug}`,
+      item: `${SITE_URL}/${page.calculator.categorySlug}`,
     },
     { name: page.seo.h1, item: `${SITE_URL}${path}` },
   ];

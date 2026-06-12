@@ -6,7 +6,7 @@ import { Card, CardContent, CardTitle, CardDescription } from "@/components/ui/C
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { categories, getCategoryBySlug } from "@/data/categories";
 import { getCalculatorsByCategory, getAllCalculators } from "@/data/calculators";
-import { buildCategoryMetadata, getCategoryUrl } from "@/lib/seo/title-builder";
+import { buildCategoryMetadata } from "@/lib/seo/title-builder";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { webApplicationSchema, breadcrumbListSchema } from "@/lib/seo/jsonld";
 import { SITE_URL } from "@/lib/seo/title-builder";

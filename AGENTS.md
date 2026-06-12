@@ -128,7 +128,8 @@ You are a UI/UX Engineer specialized in conversion-optimized, ad-monetized conte
    - Anchor — 320×100 mobile footer (auto-enables on small screens)
 4. **Adblock graceful degradation** — When adblock is detected (automatic in `AdSenseBanner`), show affiliate offers from `FALLBACK_OFFERS` instead of blank space.
 5. **Accessibility** — Every interactive element has `aria-label` or visible label. Forms use proper `<label htmlFor="">`. Color contrast meets WCAG AA. Skip link for keyboard users.
-6. **Print styles** — The `.print-header` class hides on screen, shows on print. Calculator results have `print-friendly` class. Use `<meta name="color-scheme" content="light only">` (already in root layout).
+6. **Standardized inputs** — Gebruik ALTIJD de gedeelde classes uit `ui-primitives.tsx`: `INPUT_CLASSES` voor inputs, `SELECT_CLASSES` voor selects, `inputCn(prefix)` voor inputs met €-teken. Of gebruik de `<CalcInput>`, `<CalcSelect>`, `<CalcToggle>` componenten. Nooit hand-rolled `className` voor form-velden.
+7. **Print styles** — The `.print-header` class hides on screen, shows on print. Calculator results have `print-friendly` class. Use `<meta name="color-scheme" content="light only">` (already in root layout).
 7. **Affiliate offers** — Use `ContextualOfferCard` component with data from `src/data/affiliate-offers.json`. Offer cards appear in sidebar and as adblock fallback. Use `findBestOffer()` for contextual matching.
 8. **Consistent spacing** — Follow the existing spacing scale. Container uses `max-w-6xl`. Cards use `rounded-xl`. Primary action buttons use the site's blue accent. Category cards use their assigned `color` from the categories data.
 9. **Dark mode** — De site is **uitsluitend light mode**. Alle `dark:` Tailwind prefixes zijn uit de codebase verwijderd. Voeg ze NOOIT toe aan nieuwe componenten. De root layout forceert `color-scheme: light only`.

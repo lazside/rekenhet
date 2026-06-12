@@ -197,7 +197,7 @@ function UurloonMatrix({ projecties }: { projecties: NonNullable<BrutoNettoBreak
 interface BrutoNettoCalculatorProps { initialSalary?: number; }
 
 export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalculatorProps) {
-  const [salary, setSalary] = useState(initialSalary || DEFAULTS.salary);
+  const [salaryStr, setSalaryStr] = useState(() => String(initialSalary || DEFAULTS.salary));
   const [period, setPeriod] = useState<"maand" | "jaar">(DEFAULTS.period);
   const [vakantiegeld, setVakantiegeld] = useState(DEFAULTS.vakantiegeld);
   const [bijtelling, setBijtelling] = useState(DEFAULTS.bijtelling);
@@ -211,7 +211,8 @@ export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalcul
   const [showCbs, setShowCbs] = useState(false);
   const [showHeffingsDetail, setShowHeffingsDetail] = useState(false);
 
-  const brutoJaar = period === "maand" ? salary * 12 : salary;
+  const salaryNum = Number(salaryStr.replace(",", ".")) || 0;
+  const brutoJaar = period === "maand" ? salaryNum * 12 : salaryNum;
 
   const breakdown = useMemo(
     () => calculateNetSalary({
@@ -233,7 +234,7 @@ export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalcul
     import("@/lib/share/share-url").then(({ getShareStateFromUrl }) => {
       const state = getShareStateFromUrl();
       if (state) {
-        if (typeof state.salary === "number") setSalary(state.salary);
+        if (typeof state.salary === "number") setSalaryStr(String(state.salary));
         if (typeof state.period === "string") setPeriod(state.period as "maand" | "jaar");
         if (typeof state.vakantiegeld === "boolean") setVakantiegeld(state.vakantiegeld);
       }
@@ -241,7 +242,10 @@ export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalcul
   }, []);
 
   const handleSalaryChange = useCallback(
-    (v: number) => setSalary(Math.max(sliderMin, Math.min(sliderMax, v))),
+    (v: number) => {
+      const clamped = Math.max(sliderMin, Math.min(sliderMax, v));
+      setSalaryStr(String(clamped));
+    },
     [sliderMin, sliderMax]
   );
 
@@ -259,7 +263,7 @@ export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalcul
         <div className="flex gap-2" role="radiogroup" aria-label="Periode">
           {(["maand", "jaar"] as const).map((p) => (
             <button key={p} role="radio" aria-checked={period === p}
-              onClick={() => { setPeriod(p); if (p === "maand" && period === "jaar") setSalary(Math.round(salary / 12 / 50) * 50); if (p === "jaar" && period === "maand") setSalary(Math.round(salary * 12 / 600) * 600); }}
+              onClick={() => { setPeriod(p); setSalaryStr(String(p === "maand" && period === "jaar" ? Math.round(salaryNum / 12 / 50) * 50 : p === "jaar" && period === "maand" ? Math.round(salaryNum * 12 / 600) * 600 : salaryNum)); }}
               className={cn("flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-all", period === p ? "bg-blue-600 text-white shadow-sm" : "bg-gray-100 text-gray-600 hover:bg-gray-200")}
             >Per {p === "maand" ? "maand" : "jaar"}</button>
           ))}
@@ -269,14 +273,18 @@ export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalcul
         <div className="space-y-3">
           <div className="relative">
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400">€</span>
-            <input type="number" inputMode="decimal" value={salary}
-              onChange={(e) => { const v = Number(e.target.value); if (!isNaN(v) && v >= 0) setSalary(v); }}
-              min={sliderMin} max={sliderMax} step={period === "maand" ? 50 : 600}
+            <input type="text" inputMode="decimal" value={salaryStr}
+              onChange={(e) => {
+                const raw = e.target.value;
+                if (raw !== "" && !/^[\d.,]*$/.test(raw)) return;
+                setSalaryStr(raw);
+              }}
               aria-label={`Bruto salaris per ${period}`}
+              autoComplete="off"
               className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-7 pr-3 text-lg font-semibold text-gray-900 tabular-nums focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
             />
           </div>
-          <SalarySlider value={salary} onChange={handleSalaryChange} min={sliderMin} max={sliderMax} step={period === "maand" ? 50 : 600} label="Pas aan" ariaLabel={`Bruto salaris per ${period}`} />
+          <SalarySlider value={salaryNum} onChange={handleSalaryChange} min={sliderMin} max={sliderMax} step={period === "maand" ? 50 : 600} label="Pas aan" ariaLabel={`Bruto salaris per ${period}`} />
         </div>
 
         {/* Vakantiegeld + heffingskortingen */}
@@ -303,14 +311,14 @@ export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalcul
                   <label htmlFor="cataloguswaarde" className="text-sm text-gray-700">Cataloguswaarde</label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400">€</span>
-                    <input id="cataloguswaarde" type="number" value={catalogusWaarde} onChange={(e) => setCatalogusWaarde(Math.max(0, Number(e.target.value) || 0))} min={0} step={1000} className="block w-full rounded-lg border border-gray-300 bg-white py-2 pl-7 pr-3 text-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20" />
+                    <input id="cataloguswaarde" type="text" value={catalogusWaarde} onChange={(e) => setCatalogusWaarde(Math.max(0, Number(e.target.value) || 0))} min={0} step={1000} className="block w-full rounded-lg border border-gray-300 bg-white py-2 pl-7 pr-3 text-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20" />
                   </div>
                 </div>
                 <div className="space-y-1">
                   <label htmlFor="eigenBijdrage" className="text-sm text-gray-700">Eigen bijdrage (p/mnd)</label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400">€</span>
-                    <input id="eigenBijdrage" type="number" value={eigenBijdrage} onChange={(e) => setEigenBijdrage(Math.max(0, Number(e.target.value) || 0))} min={0} step={25} className="block w-full rounded-lg border border-gray-300 bg-white py-2 pl-7 pr-3 text-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20" />
+                    <input id="eigenBijdrage" type="text" value={eigenBijdrage} onChange={(e) => setEigenBijdrage(Math.max(0, Number(e.target.value) || 0))} min={0} step={25} className="block w-full rounded-lg border border-gray-300 bg-white py-2 pl-7 pr-3 text-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20" />
                   </div>
                 </div>
               </>
@@ -442,7 +450,7 @@ export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalcul
           <p className="text-xs text-gray-500">Bereken je netto maandinkomen op basis van je uurloon bij 32, 36 of 40 uur per week.</p>
           <div className="relative max-w-xs">
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400">€</span>
-            <input type="number" value={uurloon} onChange={(e) => setUurloon(Math.max(0, Number(e.target.value) || 0))} min={0} step={1} aria-label="Uurloon"
+            <input type="text" value={uurloon} onChange={(e) => setUurloon(Math.max(0, Number(e.target.value) || 0))} min={0} step={1} aria-label="Uurloon"
               className="block w-full rounded-lg border border-gray-300 bg-white py-2 pl-7 pr-3 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
             />
           </div>
@@ -503,7 +511,7 @@ function CbsBenchmarkSection({ nettoJaar }: { nettoJaar: number }) {
     <div className="space-y-4">
       <div className="flex items-center gap-3">
         <label htmlFor="benchmark-age" className="text-sm text-gray-700 shrink-0">Jouw leeftijd:</label>
-        <input id="benchmark-age" type="number" min={18} max={99} value={age} onChange={(e) => setAge(Number(e.target.value) || 35)} className="w-20 rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-center focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20" />
+        <input id="benchmark-age" type="text" min={18} max={99} value={age} onChange={(e) => setAge(e.target.value === '' ? 35 : Number(e.target.value))} className="w-20 rounded-lg border border-gray-300 px-3 py-1.5 text-sm text-center focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20" />
         <span className="text-xs text-gray-400">jaar</span>
       </div>
       <ResultBenchmark value={Math.round(nettoJaar / 12)} dataset={incomeData} userAge={age} label="Netto per maand" color="blue" />

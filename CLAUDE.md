@@ -201,6 +201,14 @@ src/lib/calculators/modules/[calculator-slug]/
 **Kopieer `src/lib/calculators/modules/_template/`** voor elke nieuwe calculator.
 Dit template bevat alle 6 bestanden met TODO's en een werkend voorbeeld van alle primitives.
 
+**✅ GEBRUIK ALTIJD de gedeelde input classes** uit `@/lib/calculators/ui-primitives`:
+- `INPUT_CLASSES` — voor alle `<input>` velden (standaard)
+- `SELECT_CLASSES` — voor alle `<select>` dropdowns
+- `inputCn(prefix)` — voor inputs met €-teken (geeft `pl-7` mee)
+- Of gebruik `<CalcInput>`, `<CalcSelect>` componenten die dit automatisch doen
+
+Nooit hand-rolled `className` voor inputs. Geen `type="number"` — altijd `type="text"`.
+
 **Let op bij verhuizingen:** Als een calculator van categorie verandert (bv. `geld-en-verzekeringen` → `hypotheek`):
 - Voeg een **308 redirect** toe in `next.config.ts` (`redirects()`)
 - Update de href in `popularTools[]` op de homepage

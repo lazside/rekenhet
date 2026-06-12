@@ -70,7 +70,7 @@ export default function ZelfstandigenaftrekCalculator() {
             <label htmlFor="winst" className="text-sm font-medium text-gray-700">Jaarwinst vóór belasting (€)</label>
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400">€</span>
-              <input id="winst" type="number" value={winst}
+              <input id="winst" type="text" value={winst}
                 onChange={(e) => setWinst(Math.max(0, Number(e.target.value) || 0))} min={0} step={1000}
                 className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-7 pr-3 text-lg font-semibold text-gray-900 tabular-nums focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
               />

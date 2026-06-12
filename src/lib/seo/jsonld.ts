@@ -264,7 +264,7 @@ export function categoryListPageSchemas(
   const breadcrumbs: { name: string; item: string }[] = [
     { name: "Home", item: "/" },
     { name: "Alle calculators", item: "/calculators" },
-    { name: category.title, item: `/calculators?categorie=${category.slug}` },
+    { name: category.title, item: `/${category.slug}` },
   ];
 
   return [
@@ -272,7 +272,7 @@ export function categoryListPageSchemas(
     webpageSchema(
       `${category.title} Calculators — Rekenhet.nl`,
       category.description,
-      `/calculators?categorie=${category.slug}`
+      `/${category.slug}`
     ),
   ];
 }
