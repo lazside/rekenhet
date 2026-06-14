@@ -11,16 +11,16 @@ import { numOnChange, numConvert } from "./input-helpers";
 
 /** Standaard input className — overal dezelfde look & feel */
 export const INPUT_CLASSES =
-  "block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all";
+  "block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums font-mono placeholder:text-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all";
 
 /** Standaard select className */
 export const SELECT_CLASSES =
-  "block w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20";
+  "block w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20";
 
 /** Input className met prefix spacing */
 export function inputCn(prefix?: string): string {
   return prefix
-    ? `block w-full rounded-lg border border-gray-300 bg-white py-2.5 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all pl-7 pr-3`
+    ? `block w-full rounded-lg border border-gray-300 bg-white py-2.5 text-sm text-gray-900 tabular-nums font-mono placeholder:text-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all pl-7 pr-3`
     : INPUT_CLASSES;
 }
 
@@ -46,7 +46,10 @@ export function CalcTooltip({ text }: { text: string }) {
 
 export function CalcCard({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div className={cn("rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-4", className)}>
+    <div className={cn(
+      "rounded-xl border border-gray-200 bg-white shadow-[0_1px_3px_0_rgb(0_0_0_/_0.04),0_1px_2px_-1px_rgb(0_0_0_/_0.06)] p-5 space-y-4 transition-all duration-200",
+      className
+    )}>
       {children}
     </div>
   );
@@ -172,7 +175,7 @@ export function CalcRange({ id, label, value, onChange, min, max, step = 1, form
     <div className="space-y-1.5">
       <div className="flex items-center justify-between">
         <label htmlFor={id} className="text-xs font-medium text-gray-500">{label}</label>
-        <span className="text-xs text-gray-400 tabular-nums">{formatValue ? formatValue(value) : value}</span>
+        <span className="text-xs text-gray-400 tabular-nums font-mono">{formatValue ? formatValue(value) : value}</span>
       </div>
       <input
         id={id} type="range" min={min} max={max} step={step}
@@ -180,12 +183,12 @@ export function CalcRange({ id, label, value, onChange, min, max, step = 1, form
         className="w-full h-2 rounded-full appearance-none cursor-pointer
           [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5
           [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white
-          [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-blue-600
+          [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-indigo-600
           [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-grab
           [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full
-          [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-blue-600
+          [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-indigo-600
           [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:cursor-grab"
-        style={{ background: `linear-gradient(to right, #2563eb 0%, #2563eb ${pct}%, #e5e7eb ${pct}%, #e5e7eb 100%)` }}
+        style={{ background: `linear-gradient(to right, #4f46e5 0%, #4f46e5 ${pct}%, #e5e7eb ${pct}%, #e5e7eb 100%)` }}
       />
     </div>
   );
@@ -262,18 +265,18 @@ interface CalcResultRowProps {
 
 export function CalcResultRow({ label, value, type = "default", tooltip }: CalcResultRowProps) {
   return (
-    <div className={cn("flex items-center justify-between rounded-xl px-5 py-3.5 transition-all", {
+    <div className={cn("flex items-center justify-between rounded-xl px-5 py-3.5 transition-all duration-200", {
       "bg-white border border-gray-100": type === "default",
       "bg-gradient-to-r from-emerald-50 to-white border border-emerald-100": type === "success",
       "bg-gradient-to-r from-amber-50 to-white border border-amber-100": type === "warning",
-      "bg-gradient-to-r from-blue-50 to-white border border-blue-100": type === "info",
-      "bg-gradient-to-r from-gray-100 to-white border border-gray-200 font-semibold": type === "highlight",
+      "bg-gradient-to-r from-indigo-50 to-white border border-indigo-100": type === "info",
+      "bg-gradient-to-r from-gray-50 to-white border border-gray-200 font-semibold": type === "highlight",
     })}>
       <div className="flex items-center gap-2">
         <span className="text-sm text-gray-600">{label}</span>
         {tooltip && <CalcTooltip text={tooltip} />}
       </div>
-      <span className={cn("text-sm font-bold tabular-nums tracking-tight", {
+      <span className={cn("text-sm font-bold font-mono tabular-nums tracking-tight", {
         "text-gray-900": type === "default" || type === "highlight",
         "text-emerald-700": type === "success",
         "text-amber-700": type === "warning",
@@ -301,7 +304,7 @@ export function CalcHero({ label, value, children, gradient = "from-blue-600 via
       <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
       <div className="relative">
         <p className="text-sm font-medium mb-1 opacity-80">{label}</p>
-        <p className="text-4xl sm:text-5xl font-bold tabular-nums tracking-tight drop-shadow-sm">{value}</p>
+        <p className="text-4xl sm:text-5xl font-bold font-mono tabular-nums tracking-tight drop-shadow-sm">{value}</p>
         {children && <div className="flex items-center gap-4 mt-3 flex-wrap">{children}</div>}
       </div>
     </div>

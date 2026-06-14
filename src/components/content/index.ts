@@ -1,1 +1,0 @@
-export { SeoContentLayout } from "./SeoContentLayout";

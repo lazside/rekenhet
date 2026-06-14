@@ -1,16 +1,40 @@
 import type { Metadata } from "next";
 import { LegalPageLayout } from "@/components/legal/LegalPageLayout";
 import { SITE_NAME } from "@/lib/seo/title-builder";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/jsonld";
+
+const SITE_URL = "https://www.rekenhet.nl";
 
 export const metadata: Metadata = {
   title: `Privacybeleid — ${SITE_NAME}`,
   description:
     "Lees hoe Rekenhet.nl omgaat met jouw privacy, cookies en gegevensverwerking. Informatie over Google AdSense, Google Analytics en jouw AVG-rechten.",
+  alternates: { canonical: `${SITE_URL}/privacy` },
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    siteName: "Rekenhet.nl",
+    title: `Privacybeleid — ${SITE_NAME}`,
+    description:
+      "Lees hoe Rekenhet.nl omgaat met jouw privacy, cookies en gegevensverwerking. Informatie over Google AdSense, Google Analytics en jouw AVG-rechten.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Privacybeleid — ${SITE_NAME}`,
+    description:
+      "Lees hoe Rekenhet.nl omgaat met jouw privacy, cookies en gegevensverwerking. Informatie over Google AdSense, Google Analytics en jouw AVG-rechten.",
+  },
 };
 
 export default function PrivacyPage() {
   return (
-    <LegalPageLayout title="Privacybeleid" lastUpdated="1 januari 2026">
+    <>
+      <JsonLd data={breadcrumbListSchema([
+        { name: "Home", item: SITE_URL },
+        { name: "Privacybeleid", item: `${SITE_URL}/privacy` },
+      ])} />
+      <LegalPageLayout title="Privacybeleid" lastUpdated="1 januari 2026">
       <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">
         1. Wie is verantwoordelijk?
       </h2>
@@ -135,5 +159,6 @@ export default function PrivacyPage() {
         regelmatig om op de hoogte te blijven.
       </p>
     </LegalPageLayout>
+    </>
   );
 }

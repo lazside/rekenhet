@@ -32,14 +32,16 @@ export function Footer() {
  {/* Column 1: Brand & About */}
  <div className="sm:col-span-2 md:col-span-1">
  <Link
- href="/"
- className="flex items-center gap-2 text-base font-semibold text-gray-900 mb-3"
+  href="/"
+  className="flex items-center gap-2 text-base font-semibold text-gray-900 mb-3 group"
  >
- <Calculator className="h-5 w-5 text-blue-600" />
- <span>
- Reken<span className="text-blue-600">het</span>
- <span className="text-gray-400 font-normal">.nl</span>
- </span>
+  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600 to-indigo-700 text-white shadow-sm transition-transform group-hover:scale-105">
+   <Calculator className="h-3.5 w-3.5" aria-hidden="true" />
+  </div>
+  <span>
+   Reken<span className="bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent">het</span>
+   <span className="text-gray-400 font-normal">.nl</span>
+  </span>
  </Link>
  <p className="text-sm text-slate-500 leading-relaxed mb-4">
  Rekenhet.nl is het moderne, onafhankelijke rekenplatform voor

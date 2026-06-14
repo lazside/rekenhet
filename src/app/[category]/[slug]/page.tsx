@@ -13,6 +13,8 @@ import { getCalculatorUrl, getCategoryUrl } from "@/lib/seo/title-builder";
 import { getCalculatorComponent, hasCalculatorComponent } from "@/lib/calculators/component-registry";
 import { CalculatorErrorBoundary } from "@/components/calculator/CalculatorErrorBoundary";
 import { CalculatorSkeleton } from "@/components/calculator/CalculatorSkeleton";
+import { getContentPageForCalculator } from "@/content";
+import type { FaqItem } from "@/types";
 
 interface Props {
   params: Promise<{ category: string; slug: string }>;
@@ -37,6 +39,7 @@ export default async function CalculatorPage({ params }: Props) {
   const calculator = getCalculatorBySlug(slug);
   const categoryMeta = getCategoryBySlug(category);
   const faqs = getCalculatorFaqs(slug);
+  const contentPage = getContentPageForCalculator(slug);
 
   if (!calculator || calculator.categorySlug !== category) {
     notFound();
@@ -44,6 +47,13 @@ export default async function CalculatorPage({ params }: Props) {
 
   const CalculatorComponent = getCalculatorComponent(slug);
   const hasComponent = hasCalculatorComponent(slug);
+
+  // Merge content page FAQs with registry FAQs (content page wins for same questions)
+  const allFaqs: FaqItem[] = contentPage?.faqs?.length
+    ? contentPage.faqs
+    : faqs.length > 0
+      ? faqs
+      : [];
 
   const breadcrumbItems = [
     { name: "Home", item: "/" },
@@ -83,11 +93,15 @@ export default async function CalculatorPage({ params }: Props) {
         categorySlug={category}
         currentSlug={slug}
         description={calculator.description}
+        contentPage={contentPage ?? undefined}
       >
         <article className="space-y-8">
-          <p className="text-gray-600 leading-relaxed">
-            {calculator.description}
-          </p>
+          {/* SEO Intro paragraph from content page */}
+          {contentPage?.seo?.intro && (
+            <p className="text-gray-600 leading-relaxed">
+              {contentPage.seo.intro}
+            </p>
+          )}
 
           {hasComponent && CalculatorComponent ? (
             <CalculatorErrorBoundary>
@@ -97,15 +111,16 @@ export default async function CalculatorPage({ params }: Props) {
             <CalculatorSkeleton />
           )}
 
-          {faqs.length > 0 && (
+          {/* FAQ Section — use content page FAQs if available */}
+          {allFaqs.length > 0 && (
             <section className="mt-10 pt-6 border-t border-gray-100" aria-labelledby="faq-heading">
               <h2 id="faq-heading" className="text-lg font-semibold text-gray-900 mb-4">
                 Veelgestelde vragen over {calculator.title.toLowerCase()}
               </h2>
               <div className="space-y-4">
-                {faqs.map((faq, i) => (
-                  <details key={i} className="group rounded-lg border border-gray-200 [&[open]]:border-blue-200">
-                    <summary className="flex cursor-pointer items-center justify-between px-4 py-3 text-sm font-medium text-gray-900 hover:text-blue-600">
+                {allFaqs.map((faq, i) => (
+                  <details key={i} className="group rounded-lg border border-gray-200 [&[open]]:border-indigo-200">
+                    <summary className="flex cursor-pointer items-center justify-between px-4 py-3 text-sm font-medium text-gray-900 hover:text-indigo-600">
                       {faq.question}
                       <ChevronRight className="h-4 w-4 text-gray-400 transition-transform group-open:rotate-90" />
                     </summary>
@@ -113,6 +128,13 @@ export default async function CalculatorPage({ params }: Props) {
                   </details>
                 ))}
               </div>
+            </section>
+          )}
+
+          {/* SEO Conclusion paragraph from content page */}
+          {contentPage?.seo?.conclusion && (
+            <section className="rounded-xl bg-gray-50 p-6">
+              <p className="text-gray-700 leading-relaxed">{contentPage.seo.conclusion}</p>
             </section>
           )}
 

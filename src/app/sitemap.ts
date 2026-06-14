@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllCalculators } from "@/data/calculators";
 import { categories } from "@/data/categories";
-import { getAllContentPages } from "@/content";
 import unitsData from "@/data/units.json";
 
 const SITE_URL = "https://www.rekenhet.nl";
@@ -66,7 +65,6 @@ function getEssentialConversionPairs(): string[] {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const calculators = getAllCalculators();
-  const contentPages = getAllContentPages();
 
   const entries: MetadataRoute.Sitemap = [
     // Static
@@ -95,14 +93,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: BUILD_DATE,
       changeFrequency: changeFreq(calc.categorySlug),
       priority: prio(calc.featured, calc.categorySlug),
-    })),
-
-    // SEO content
-    ...contentPages.map((page) => ({
-      url: `${SITE_URL}/calculators/${page.slug}` as const,
-      lastModified: BUILD_DATE,
-      changeFrequency: "monthly" as const,
-      priority: prio(true, page.calculator.categorySlug),
     })),
 
     // Bruto-netto/[amount]

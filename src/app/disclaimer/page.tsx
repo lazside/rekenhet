@@ -1,16 +1,40 @@
 import type { Metadata } from "next";
 import { LegalPageLayout } from "@/components/legal/LegalPageLayout";
 import { SITE_NAME } from "@/lib/seo/title-builder";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/jsonld";
+
+const SITE_URL = "https://www.rekenhet.nl";
 
 export const metadata: Metadata = {
   title: `Disclaimer — ${SITE_NAME}`,
   description:
     "Lees de disclaimer van Rekenhet.nl. Berekeningen zijn indicatief en er kunnen geen rechten aan worden ontleend. Raadpleeg een professional voor financieel advies.",
+  alternates: { canonical: `${SITE_URL}/disclaimer` },
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    siteName: "Rekenhet.nl",
+    title: `Disclaimer — ${SITE_NAME}`,
+    description:
+      "Lees de disclaimer van Rekenhet.nl. Berekeningen zijn indicatief en er kunnen geen rechten aan worden ontleend. Raadpleeg een professional voor financieel advies.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Disclaimer — ${SITE_NAME}`,
+    description:
+      "Lees de disclaimer van Rekenhet.nl. Berekeningen zijn indicatief en er kunnen geen rechten aan worden ontleend. Raadpleeg een professional voor financieel advies.",
+  },
 };
 
 export default function DisclaimerPage() {
   return (
-    <LegalPageLayout title="Disclaimer & Algemene Voorwaarden" lastUpdated="1 januari 2026">
+    <>
+      <JsonLd data={breadcrumbListSchema([
+        { name: "Home", item: SITE_URL },
+        { name: "Disclaimer", item: `${SITE_URL}/disclaimer` },
+      ])} />
+      <LegalPageLayout title="Disclaimer & Algemene Voorwaarden" lastUpdated="1 januari 2026">
       <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">
         1. Algemeen
       </h2>
@@ -113,5 +137,6 @@ export default function DisclaimerPage() {
         het contactformulier.
       </p>
     </LegalPageLayout>
+    </>
   );
 }

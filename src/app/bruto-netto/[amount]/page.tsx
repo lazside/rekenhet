@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
-    alternates: { canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://rekenhet.nl"}/bruto-netto/${amount}` },
+    alternates: { canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.rekenhet.nl"}/bruto-netto/${amount}` },
   };
 }
 
@@ -62,7 +62,7 @@ export default async function BrutoNettoAmountPage({ params }: Props) {
 
   const categorySlug = "werk-en-inkomen";
   const calculatorName = "Bruto Netto Salaris Calculator";
-  const canonicalUrl = `https://rekenhet.nl/bruto-netto/${amount}`;
+  const canonicalUrl = `https://www.rekenhet.nl/bruto-netto/${amount}`;
 
   // Pre-calculate a preview for OG/schema
   const preview = calculateNetSalary({
@@ -108,8 +108,8 @@ export default async function BrutoNettoAmountPage({ params }: Props) {
       <div className="mx-auto max-w-4xl">
         <div className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100">
-              <Euro className="h-5 w-5 text-blue-600" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-100">
+              <Euro className="h-5 w-5 text-indigo-600" />
             </div>
             <div>
               <h2 className="text-base font-semibold text-gray-900">
@@ -128,8 +128,8 @@ export default async function BrutoNettoAmountPage({ params }: Props) {
           <h2 className="text-xl font-bold text-gray-900 mb-6">Veelgestelde vragen</h2>
           <div className="space-y-3">
             {faqs.map((faq, i) => (
-              <details key={i} className="group rounded-xl border border-gray-200 bg-white shadow-sm open:border-blue-200 transition-all">
-                <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-medium text-gray-700 hover:text-blue-600">
+              <details key={i} className="group rounded-xl border border-gray-200 bg-white shadow-sm open:border-indigo-200 transition-all">
+                <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-sm font-medium text-gray-700 hover:text-indigo-600">
                   {faq.question}
                   <span className="text-gray-400 transition-transform group-open:rotate-180">▼</span>
                 </summary>
@@ -157,9 +157,9 @@ export default async function BrutoNettoAmountPage({ params }: Props) {
         categorySlug={categorySlug}
         faqs={faqs}
         breadcrumbs={[
-          { name: "Home", item: "https://rekenhet.nl" },
-          { name: "Werk & Inkomen", item: "https://rekenhet.nl/werk-en-inkomen" },
-          { name: "Bruto Netto Calculator", item: "https://rekenhet.nl/werk-en-inkomen/bruto-netto-salaris-calculator" },
+          { name: "Home", item: "https://www.rekenhet.nl" },
+          { name: "Werk & Inkomen", item: "https://www.rekenhet.nl/werk-en-inkomen" },
+          { name: "Bruto Netto Calculator", item: "https://www.rekenhet.nl/werk-en-inkomen/bruto-netto-salaris-calculator" },
           { name: `€${num.toLocaleString("nl-NL")} bruto`, item: canonicalUrl },
         ]}
       />

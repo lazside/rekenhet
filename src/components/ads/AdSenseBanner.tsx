@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   ADSENSE_PUBLISHER_ID,
@@ -149,12 +150,12 @@ export function AdSenseBanner({
             href={affiliate.url}
             target="_blank"
             rel="noopener noreferrer sponsored"
-            className="flex h-full w-full flex-col items-center justify-center p-4 text-center hover:bg-gray-50 transition-colors"
+            className="flex h-full w-full flex-col items-center justify-center p-4 text-center bg-gradient-to-b from-blue-50/40 to-white hover:from-blue-100/60 transition-all duration-200"
           >
-            <span className="text-lg mb-1">{affiliate.icon}</span>
+            <span className="text-xl mb-1.5">{affiliate.icon}</span>
             <p className="text-xs font-semibold text-gray-900 leading-tight">{affiliate.title}</p>
             <p className="text-[10px] text-gray-500 mt-0.5 leading-tight max-w-[240px]">{affiliate.description}</p>
-            <span className="mt-2 inline-flex items-center rounded-full bg-blue-600 px-2.5 py-1 text-[9px] font-medium text-white">
+            <span className="mt-2 inline-flex items-center rounded-full bg-gradient-to-r from-indigo-600 to-indigo-700 px-3 py-1 text-[9px] font-semibold text-white shadow-sm">
               {affiliate.cta}
             </span>
           </a>
@@ -226,7 +227,7 @@ export function AdZoneSidebar({ className }: { className?: string }) {
       )}
       aria-label="Advertentie zijbalk"
     >
-      <div className="sticky top-24">
+      <div className="sticky top-24 rounded-xl bg-gradient-to-b from-gray-50/30 to-transparent p-2">
         <AdSenseBanner
           slotId={process.env.NEXT_PUBLIC_AD_SLOT_SIDEBAR || "1234567891"}
           format="vertical"
@@ -244,7 +245,7 @@ export function AdZoneSidebar({ className }: { className?: string }) {
  */
 export function AdZoneInline({ className }: { className?: string }) {
   return (
-    <div className={cn("w-full", className)} aria-label="Advertentie na resultaten">
+    <div className={cn("w-full rounded-xl bg-gradient-to-b from-gray-50/20 to-transparent p-2", className)} aria-label="Advertentie na resultaten">
       {/* Desktop: 728×90 leaderboard */}
       <div className="hidden md:flex justify-center">
         <AdSenseBanner
@@ -308,11 +309,11 @@ export function AdZoneMobileAnchor() {
         {/* Close button */}
         <button
           onClick={handleDismiss}
-          className="absolute right-2 top-1 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-gray-200/80 text-gray-500 hover:bg-gray-300 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-xs transition-colors"
+          className="absolute right-2 top-1.5 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-gray-200/70 text-gray-400 hover:bg-gray-300 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[10px] transition-all duration-200"
           aria-label="Advertentie sluiten"
           title="Sluiten"
         >
-          ✕
+          <X className="h-3 w-3" />
         </button>
 
         <AdSenseBanner

@@ -3,11 +3,30 @@ import { Container } from "@/components/ui/Container";
 import LicensePlateInput from "@/components/vehicle/LicensePlateInput";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbListSchema, webApplicationSchema } from "@/lib/seo/jsonld";
+
+const SITE_URL = "https://www.rekenhet.nl";
 
 export const metadata: Metadata = {
   title: "Kenteken Check — Auto Gegevens & MRB Berekenen | Rekenhet.nl",
   description:
     "Voer een Nederlands kenteken in en ontdek direct merk, model, gewicht, CO₂-uitstoot, MRB (wegenbelasting) en bijtelling. Gebaseerd op RDW Open Data.",
+  alternates: { canonical: `${SITE_URL}/kenteken-check` },
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    siteName: "Rekenhet.nl",
+    title: "Kenteken Check — Auto Gegevens & MRB Berekenen | Rekenhet.nl",
+    description:
+      "Voer een Nederlands kenteken in en ontdek direct merk, model, gewicht, CO₂-uitstoot, MRB (wegenbelasting) en bijtelling. Gebaseerd op RDW Open Data.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kenteken Check — Auto Gegevens & MRB Berekenen | Rekenhet.nl",
+    description:
+      "Voer een Nederlands kenteken in en ontdek direct merk, model, gewicht, CO₂-uitstoot, MRB (wegenbelasting) en bijtelling. Gebaseerd op RDW Open Data.",
+  },
 };
 
 export default function KentekenCheckPage() {
@@ -34,6 +53,25 @@ export default function KentekenCheckPage() {
 
         <LicensePlateInput />
       </div>
+
+      {/* JSON-LD structured data */}
+      <JsonLd data={breadcrumbListSchema([
+        { name: "Home", item: SITE_URL },
+        { name: "Kenteken Check", item: `${SITE_URL}/kenteken-check` },
+      ])} />
+      <JsonLd data={webApplicationSchema(
+        {
+          slug: "kenteken-check",
+          categorySlug: "auto-vervoer",
+          title: "Kenteken Check",
+          description: "Voer een Nederlands kenteken in en ontdek direct merk, model, gewicht, CO₂-uitstoot, MRB en bijtelling.",
+          metaTitle: "Kenteken Check — Auto Gegevens & MRB Berekenen | Rekenhet.nl",
+          metaDescription: "Voer een Nederlands kenteken in en ontdek direct merk, model, gewicht, CO₂-uitstoot, MRB (wegenbelasting) en bijtelling.",
+          keywords: ["kenteken check", "rdw", "wegenbelasting", "mrb", "autogegevens"],
+          featured: false,
+        },
+        "auto-vervoer"
+      )} />
     </Container>
   );
 }

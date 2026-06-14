@@ -8,7 +8,7 @@ import { categories, getCategoryBySlug } from "@/data/categories";
 import { getCalculatorsByCategory, getAllCalculators } from "@/data/calculators";
 import { buildCategoryMetadata } from "@/lib/seo/title-builder";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { webApplicationSchema, breadcrumbListSchema } from "@/lib/seo/jsonld";
+import { webpageSchema, breadcrumbListSchema } from "@/lib/seo/jsonld";
 import { SITE_URL } from "@/lib/seo/title-builder";
 
 interface Props {
@@ -70,17 +70,10 @@ export default async function CategoryPage({ params }: Props) {
     <>
       {/* JSON-LD */}
       <JsonLd
-        data={webApplicationSchema(
-          {
-            slug: category,
-            categorySlug: category,
-            title: cat.title,
-            description: cat.description,
-            metaTitle: `${cat.title} Calculators — Rekenhet.nl`,
-            metaDescription: cat.description,
-            keywords: [],
-          },
-          category
+        data={webpageSchema(
+          `${cat.title} Calculators — Rekenhet.nl`,
+          cat.description,
+          `/${cat.slug}`
         )}
       />
       <JsonLd data={breadcrumbListSchema(breadcrumbItems)} />
@@ -107,20 +100,23 @@ export default async function CategoryPage({ params }: Props) {
         </nav>
 
         {/* Category header */}
-        <div className="flex items-start gap-4 mb-8">
-          <div
-            className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${cat.color} text-white shadow-sm`}
-          >
-            <cat.icon className="h-7 w-7" />
-          </div>
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              {cat.title}
-            </h1>
-            <p className="mt-1 text-gray-600 max-w-2xl">{cat.description}</p>
-            <p className="mt-1 text-sm text-gray-400">
-              {calculators.length} calculator{calculators.length !== 1 ? "s" : ""}
-            </p>
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 p-6 md:p-8 mb-8">
+          <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-indigo-50/40 to-amber-50/20 rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+          <div className="relative flex items-start gap-4">
+            <div
+              className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${cat.color} text-white shadow-sm`}
+            >
+              <cat.icon className="h-7 w-7" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+                {cat.title}
+              </h1>
+              <p className="mt-1 text-gray-600 max-w-2xl">{cat.description}</p>
+              <p className="mt-1 text-sm text-gray-400">
+                {calculators.length} calculator{calculators.length !== 1 ? "s" : ""}
+              </p>
+            </div>
           </div>
         </div>
 
@@ -139,13 +135,13 @@ export default async function CategoryPage({ params }: Props) {
           )}
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {calculators.map((calc) => (
-              <article key={calc.slug}>
+            {calculators.map((calc, i) => (
+              <article key={calc.slug} style={{ animationDelay: `${i * 50}ms` }} className="animate-card-enter">
                 <Link
                   href={`/${calc.categorySlug}/${calc.slug}`}
                   className="group block h-full"
                 >
-                  <Card className="h-full transition-all group-hover:shadow-md group-hover:border-blue-200">
+                  <Card className="h-full transition-all group-hover:shadow-md group-hover:border-indigo-200">
                     <CardContent className="p-5">
                       <div className="flex items-start gap-3">
                         <div
@@ -154,19 +150,19 @@ export default async function CategoryPage({ params }: Props) {
                           <cat.icon className="h-4 w-4" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <CardTitle className="text-base group-hover:text-blue-600 transition-colors">
+                          <CardTitle className="text-base group-hover:text-indigo-600 transition-colors">
                             {calc.title}
                           </CardTitle>
                           <CardDescription className="mt-1 line-clamp-2">
                             {calc.description}
                           </CardDescription>
                           {calc.featured && (
-                            <span className="mt-2 inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-medium text-blue-700">
+                            <span className="mt-2 inline-flex items-center rounded-full bg-indigo-100 px-2 py-0.5 text-[10px] font-medium text-indigo-700">
                               Populair
                             </span>
                           )}
                         </div>
-                        <ArrowRight className="h-4 w-4 text-gray-300 group-hover:text-blue-500 transition-colors shrink-0 self-center" />
+                        <ArrowRight className="h-4 w-4 text-gray-300 group-hover:text-indigo-500 transition-colors shrink-0 self-center" />
                       </div>
                     </CardContent>
                   </Card>

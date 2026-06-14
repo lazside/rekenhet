@@ -3,10 +3,27 @@ import { Container } from "@/components/ui/Container";
 import SolarCalculator from "@/components/solar/SolarCalculator";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbListSchema, webApplicationSchema } from "@/lib/seo/jsonld";
+
+const SITE_URL = "https://www.rekenhet.nl";
 
 export const metadata: Metadata = {
   title: "Zonnepanelen Opbrengst Calculator — PVGIS | Rekenhet.nl",
   description: "Bereken de jaarlijkse opbrengst van zonnepanelen op basis van regio, dakhelling en oriëntatie. Data van de Europese PVGIS API.",
+  alternates: { canonical: `${SITE_URL}/zonnepanelen-opbrengst` },
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    siteName: "Rekenhet.nl",
+    title: "Zonnepanelen Opbrengst Calculator — PVGIS | Rekenhet.nl",
+    description: "Bereken de jaarlijkse opbrengst van zonnepanelen op basis van regio, dakhelling en oriëntatie. Data van de Europese PVGIS API.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zonnepanelen Opbrengst Calculator — PVGIS | Rekenhet.nl",
+    description: "Bereken de jaarlijkse opbrengst van zonnepanelen op basis van regio, dakhelling en oriëntatie. Data van de Europese PVGIS API.",
+  },
 };
 
 export default function SolarPage() {
@@ -22,6 +39,25 @@ export default function SolarPage() {
         <p className="text-gray-600 mb-8">Bereken de verwachte jaarlijkse opbrengst van zonnepanelen op basis van jouw regio, dakhelling en oriëntatie. Data van de Europese PVGIS API.</p>
         <SolarCalculator />
       </div>
+
+      {/* JSON-LD structured data */}
+      <JsonLd data={breadcrumbListSchema([
+        { name: "Home", item: SITE_URL },
+        { name: "Zonnepanelen Opbrengst", item: `${SITE_URL}/zonnepanelen-opbrengst` },
+      ])} />
+      <JsonLd data={webApplicationSchema(
+        {
+          slug: "zonnepanelen-opbrengst",
+          categorySlug: "algemeen",
+          title: "Zonnepanelen Opbrengst Calculator",
+          description: "Bereken de jaarlijkse opbrengst van zonnepanelen op basis van regio, dakhelling en oriëntatie.",
+          metaTitle: "Zonnepanelen Opbrengst Calculator — PVGIS | Rekenhet.nl",
+          metaDescription: "Bereken de jaarlijkse opbrengst van zonnepanelen op basis van regio, dakhelling en oriëntatie.",
+          keywords: ["zonnepanelen opbrengst", "zonnepanelen", "pvgis", "zonne-energie"],
+          featured: false,
+        },
+        "algemeen"
+      )} />
     </Container>
   );
 }

@@ -3,10 +3,27 @@ import { Container } from "@/components/ui/Container";
 import PostcodeTaxWizard from "@/components/tax/PostcodeTaxWizard";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbListSchema, webApplicationSchema } from "@/lib/seo/jsonld";
+
+const SITE_URL = "https://www.rekenhet.nl";
 
 export const metadata: Metadata = {
   title: "Gemeentelijke Belastingen Check — OZB, Riool, Afval | Rekenhet.nl",
   description: "Ontdek de gemiddelde gemeentelijke lasten op basis van je postcode: OZB, rioolheffing en afvalstoffenheffing. Actuele CBS-tarieven.",
+  alternates: { canonical: `${SITE_URL}/gemeentelijke-belastingen` },
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    siteName: "Rekenhet.nl",
+    title: "Gemeentelijke Belastingen Check — OZB, Riool, Afval | Rekenhet.nl",
+    description: "Ontdek de gemiddelde gemeentelijke lasten op basis van je postcode: OZB, rioolheffing en afvalstoffenheffing. Actuele CBS-tarieven.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gemeentelijke Belastingen Check — OZB, Riool, Afval | Rekenhet.nl",
+    description: "Ontdek de gemiddelde gemeentelijke lasten op basis van je postcode: OZB, rioolheffing en afvalstoffenheffing. Actuele CBS-tarieven.",
+  },
 };
 
 export default function LocalTaxesPage() {
@@ -24,6 +41,25 @@ export default function LocalTaxesPage() {
         </div>
         <PostcodeTaxWizard />
       </div>
+
+      {/* JSON-LD structured data */}
+      <JsonLd data={breadcrumbListSchema([
+        { name: "Home", item: SITE_URL },
+        { name: "Gemeentelijke Belastingen", item: `${SITE_URL}/gemeentelijke-belastingen` },
+      ])} />
+      <JsonLd data={webApplicationSchema(
+        {
+          slug: "gemeentelijke-belastingen",
+          categorySlug: "algemeen",
+          title: "Gemeentelijke Belastingen Check",
+          description: "Ontdek de gemiddelde gemeentelijke lasten op basis van je postcode: OZB, rioolheffing en afvalstoffenheffing.",
+          metaTitle: "Gemeentelijke Belastingen Check — OZB, Riool, Afval | Rekenhet.nl",
+          metaDescription: "Ontdek de gemiddelde gemeentelijke lasten op basis van je postcode: OZB, rioolheffing en afvalstoffenheffing. Actuele CBS-tarieven.",
+          keywords: ["gemeentelijke belastingen", "ozb", "rioolheffing", "afvalstoffenheffing"],
+          featured: false,
+        },
+        "algemeen"
+      )} />
     </Container>
   );
 }

@@ -46,14 +46,16 @@ export function Header() {
  <div className="flex h-16 items-center justify-between gap-4">
  {/* Logo */}
  <Link
- href="/"
- className="flex items-center gap-2 text-xl font-bold text-gray-900 shrink-0"
+  href="/"
+  className="flex items-center gap-2 text-xl font-bold text-gray-900 shrink-0 group"
  >
- <Calculator className="h-6 w-6 text-blue-600" aria-hidden="true" />
- <span>
- Reken<span className="text-blue-600">het</span>
- <span className="text-gray-400 font-normal">.nl</span>
- </span>
+  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600 to-indigo-700 text-white shadow-sm transition-transform duration-200 group-hover:scale-105">
+   <Calculator className="h-4 w-4" aria-hidden="true" />
+  </div>
+  <span>
+   Reken<span className="bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent">het</span>
+   <span className="text-gray-400 font-normal">.nl</span>
+  </span>
  </Link>
 
  {/* Desktop navigation */}

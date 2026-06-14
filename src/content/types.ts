@@ -78,3 +78,13 @@ export function getAllContentSlugs(): string[] {
 export function getAllContentPages(): SeoContentPage[] {
   return [...registry];
 }
+
+/**
+ * Find the content page associated with a calculator slug.
+ * Each content page references a calculator via `calculator.componentSlug`.
+ */
+export function getContentPageForCalculator(
+  calculatorSlug: string,
+): SeoContentPage | undefined {
+  return registry.find((p) => p.calculator.componentSlug === calculatorSlug);
+}

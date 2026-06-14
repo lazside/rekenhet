@@ -134,7 +134,7 @@ export function HeroSearch() {
  }}
  onBlur={handleBlur}
  placeholder="Zoek een calculator..."
- className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-10 pr-4 text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 :text-slate-500 :border-blue-500"
+ className="w-full rounded-xl border border-gray-200 bg-white py-3.5 pl-10 pr-4 text-sm text-gray-900 shadow-[0_1px_3px_0_rgb(0_0_0_/_0.04)] transition-all placeholder:text-gray-400 focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:shadow-[0_4px_12px_-2px_rgb(37_99_235_/_0.1)]"
  aria-label="Zoek een calculator"
  aria-expanded={isOpen}
  aria-autocomplete="list"

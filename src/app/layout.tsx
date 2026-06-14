@@ -1,7 +1,22 @@
 import type { Metadata } from "next";
+import { IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { RootLayoutInner } from "@/components/layout/RootLayoutInner";
 import { SITE_NAME } from "@/lib/seo/title-builder";
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 const GOOGLE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "";
 
@@ -60,7 +75,7 @@ export default function RootLayout({
         {/* ═══ Print date ═══ */}
         <script dangerouslySetInnerHTML={{ __html: printDateScript() }} />
       </head>
-      <body>
+      <body className={`${ibmPlexSans.variable} ${jetbrainsMono.variable}`}>
         <div className="print-header" aria-hidden="true">
           <strong>Rekenhet.nl</strong>
           <span>— Calculatieoverzicht</span>

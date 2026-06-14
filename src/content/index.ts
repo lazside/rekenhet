@@ -3,23 +3,94 @@
  *
  * Import all content page files to register them.
  * Then export the lookup functions.
+ *
+ * ⚡ AUTO-GENERATED — do not edit manually.
+ * Run `npx tsx src/scripts/generate-content-pages.ts` to regenerate.
  */
+import "./pages/annuiteiten-lasten";
+import "./pages/aow-leeftijd";
+import "./pages/auto-motor-omrekenen";
+import "./pages/autokosten-bijtelling";
+import "./pages/bloeddruk";
+import "./pages/bmi";
+import "./pages/bonus-netto";
+import "./pages/box3";
+import "./pages/break-even-analyse";
 import "./pages/bruto-netto-salaris-2026";
-import "./pages/vakantiegeld-berekenen";
-import "./pages/parttime-salaris-berekenen";
-import "./pages/zwangerschap";
-import "./pages/ideaal-gewicht";
-import "./pages/investeringsaftrek";
-import "./pages/omzetbelasting";
-import "./pages/vakantiedagen";
-import "./pages/ontslagvergoeding";
-import "./pages/inflatie-calculator";
-import "./pages/winst-verlies";
+import "./pages/btw";
+import "./pages/btw-incl-excl";
+import "./pages/btw-privegebruik";
+import "./pages/calorie-verbruik-activiteit";
+import "./pages/caloriebehoefte";
+import "./pages/compound-interest";
+import "./pages/costplus-prijs";
+import "./pages/data-omrekenen";
+import "./pages/dertiende-maand";
+import "./pages/dividend";
+import "./pages/eigen-risico-zorg";
+import "./pages/eindejaarsuitkering";
+import "./pages/energie-omrekenen";
+import "./pages/energielabel";
+import "./pages/enkelvoudige-interest";
+import "./pages/extra-aflossen";
+import "./pages/fietsvermogen";
+import "./pages/fire";
+import "./pages/gewicht-omrekenen";
+import "./pages/hardlooppace";
+import "./pages/hartslagzones";
 import "./pages/huurtoeslag";
+import "./pages/huurverhoging";
+import "./pages/ideaal-gewicht";
+import "./pages/ideale-lengte-kind";
+import "./pages/inflatie-calculator";
+import "./pages/investeringsaftrek";
+import "./pages/isde-subsidie";
+import "./pages/kenteken-check";
+import "./pages/kinderalimentatie";
+import "./pages/kinderbijslag";
+import "./pages/koken-omrekenen";
+import "./pages/krediettermijn";
+import "./pages/kwadratische-vergelijking";
+import "./pages/lengte-omrekenen";
+import "./pages/lichaamsoppervlakte";
+import "./pages/lichaamsvet-percentage";
+import "./pages/lineaire-aflossing";
+import "./pages/maximale-hypotheek";
+import "./pages/omzetbelasting";
+import "./pages/ontslagvergoeding";
+import "./pages/oppervlakte";
+import "./pages/oppervlakte-omrekenen";
+import "./pages/overuren";
+import "./pages/overwaarde";
+import "./pages/parttime-salaris-berekenen";
+import "./pages/procenten";
+import "./pages/reiskosten-woonwerk";
+import "./pages/ritkosten";
+import "./pages/schenkbelasting";
+import "./pages/snelheidsboete";
+import "./pages/spaardoel";
+import "./pages/studieschuld-terugbetalen";
+import "./pages/thuiswerkvergoeding";
+import "./pages/uurtarief";
+import "./pages/uurtarief-kostprijs";
+import "./pages/vakantiedagen";
+import "./pages/vakantiegeld-berekenen";
+import "./pages/verhuiskosten";
+import "./pages/vermogensbelasting-box3";
+import "./pages/vof-winstverdeling";
+import "./pages/wandeltempo";
+import "./pages/waterbehoefte";
+import "./pages/winst-verlies";
+import "./pages/ww-uitkering";
+import "./pages/zelfstandigenaftrek";
+import "./pages/ziektewet-uitkering";
+import "./pages/zwangerschap";
+import "./pages/zzp-tarief";
 
 export {
   registerPages,
   getContentPage,
+  getContentPageForCalculator,
   getAllContentSlugs,
   getAllContentPages,
 } from "./types";

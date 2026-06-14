@@ -1,16 +1,40 @@
 import type { Metadata } from "next";
 import { LegalPageLayout } from "@/components/legal/LegalPageLayout";
 import { SITE_NAME } from "@/lib/seo/title-builder";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbListSchema } from "@/lib/seo/jsonld";
+
+const SITE_URL = "https://www.rekenhet.nl";
 
 export const metadata: Metadata = {
   title: `Cookieverklaring — ${SITE_NAME}`,
   description:
     "Overzicht van cookies die Rekenhet.nl gebruikt, waaronder Google AdSense cookies voor advertenties, en hoe u uw cookievoorkeuren kunt beheren.",
+  alternates: { canonical: `${SITE_URL}/cookies` },
+  openGraph: {
+    type: "website",
+    locale: "nl_NL",
+    siteName: "Rekenhet.nl",
+    title: `Cookieverklaring — ${SITE_NAME}`,
+    description:
+      "Overzicht van cookies die Rekenhet.nl gebruikt, waaronder Google AdSense cookies voor advertenties, en hoe u uw cookievoorkeuren kunt beheren.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Cookieverklaring — ${SITE_NAME}`,
+    description:
+      "Overzicht van cookies die Rekenhet.nl gebruikt, waaronder Google AdSense cookies voor advertenties, en hoe u uw cookievoorkeuren kunt beheren.",
+  },
 };
 
 export default function CookiesPage() {
   return (
-    <LegalPageLayout title="Cookieverklaring" lastUpdated="1 januari 2026">
+    <>
+      <JsonLd data={breadcrumbListSchema([
+        { name: "Home", item: SITE_URL },
+        { name: "Cookieverklaring", item: `${SITE_URL}/cookies` },
+      ])} />
+      <LegalPageLayout title="Cookieverklaring" lastUpdated="1 januari 2026">
       <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">
         1. Wat zijn cookies?
       </h2>
@@ -144,5 +168,6 @@ export default function CookiesPage() {
         meest actuele informatie.
       </p>
     </LegalPageLayout>
+    </>
   );
 }

@@ -102,11 +102,11 @@ export default async function LokaalCityPage({
           </p>
 
           {/* City badge */}
-          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 text-sm text-blue-700 border border-blue-100">
+          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-indigo-50 px-4 py-1.5 text-sm text-indigo-700 border border-indigo-100">
             <MapPin className="h-4 w-4" />
             {cityName}, {province}
             <span className="text-blue-400 mx-1">·</span>
-            <span className="text-blue-500">Postcodes: {entry.postcodePrefix}**</span>
+            <span className="text-indigo-500">Postcodes: {entry.postcodePrefix}**</span>
           </div>
         </div>
 
@@ -145,7 +145,7 @@ export default async function LokaalCityPage({
                   <Link
                     key={c.slug}
                     href={`/lokaal/${c.slug}`}
-                    className="flex items-center gap-1 rounded-lg bg-gray-50 px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                    className="flex items-center gap-1 rounded-lg bg-gray-50 px-3 py-2 text-sm text-gray-600 hover:bg-indigo-50 hover:text-indigo-700 transition-colors"
                   >
                     <ArrowRight className="h-3 w-3 shrink-0" />
                     {c.name}

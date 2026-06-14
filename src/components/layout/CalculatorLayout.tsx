@@ -7,6 +7,7 @@ import { getCalculatorsByCategory } from "@/data/calculators";
 import { ContextualOfferCard } from "@/components/affiliate/ContextualOfferCard";
 import { findBestOffer } from "@/lib/affiliate/lookup";
 import { CalculatorStats } from "@/components/stats/CalculatorStats";
+import type { SeoContentPage } from "@/content/types";
 
 interface CalculatorLayoutProps {
   children: React.ReactNode;
@@ -19,6 +20,8 @@ interface CalculatorLayoutProps {
   currentSlug?: string;
   /** Calculator description for sidebar */
   description?: string;
+  /** Optional content page data for enriched SEO content */
+  contentPage?: SeoContentPage;
 }
 
 /**
@@ -123,7 +126,7 @@ export function CalculatorLayout({
               <section aria-label="Zo gebruik je deze calculator">
                 <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
-                    <BookOpen className="h-4 w-4 text-blue-600" />
+                    <BookOpen className="h-4 w-4 text-indigo-600" />
                     <h3 className="text-sm font-semibold text-gray-900">Zo gebruik je deze calculator</h3>
                   </div>
                   <ol className="space-y-2.5">
@@ -146,7 +149,7 @@ export function CalculatorLayout({
               {categoryCalculators.length > 0 && (
                 <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
-                    <Calculator className="h-4 w-4 text-blue-600" />
+                    <Calculator className="h-4 w-4 text-indigo-600" />
                     <h3 className="text-sm font-semibold text-gray-900">
                       Meer in {category?.title || "deze categorie"}
                     </h3>
@@ -156,7 +159,7 @@ export function CalculatorLayout({
                       <Link
                         key={calc.slug}
                         href={`/${calc.categorySlug}/${calc.slug}`}
-                        className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-xs text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                        className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-xs text-gray-600 hover:bg-gray-50 hover:text-indigo-600 transition-colors"
                       >
                         <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gray-300" />
                         <span>{calc.title}</span>
@@ -166,7 +169,7 @@ export function CalculatorLayout({
                   {categoryCalculators.length > 5 && (
                     <Link
                       href={`/${categorySlug}`}
-                      className="mt-2 inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-700 font-medium"
+                      className="mt-2 inline-flex items-center gap-1 text-xs text-indigo-600 hover:text-indigo-700 font-medium"
                     >
                       Alle {categoryCalculators.length} bekijken
                       <ArrowRight className="h-3 w-3" />
@@ -234,7 +237,7 @@ export function CalculatorLayout({
                     <Link
                       key={calc.slug}
                       href={`/${calc.categorySlug}/${calc.slug}`}
-                      className="block rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                      className="block rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-xs text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
                     >
                       {calc.title}
                     </Link>

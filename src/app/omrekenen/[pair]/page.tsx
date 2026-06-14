@@ -13,7 +13,7 @@ import {
   findCategoryForUnit,
 } from "@/lib/units/converter";
 
-const SITE_URL = "https://rekenhet.nl";
+const SITE_URL = "https://www.rekenhet.nl";
 
 interface Props {
   params: Promise<{ pair: string }>;
@@ -98,9 +98,9 @@ export default async function OmrekenenPage({ params }: Props) {
                   <Link
                     key={catId}
                     href={`/omrekenen/${info?.example || "m-naar-cm"}`}
-                    className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow-md hover:border-blue-200 transition-all text-center"
+                    className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all text-center"
                   >
-                    <Icon className="h-5 w-5 mx-auto text-blue-500" />
+                    <Icon className="h-5 w-5 mx-auto text-indigo-500" />
                     <p className="text-sm font-medium text-gray-900 mt-1">{info?.label || catId}</p>
                     <p className="text-[10px] text-gray-400">Bekijken</p>
                   </Link>

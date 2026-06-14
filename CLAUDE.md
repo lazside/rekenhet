@@ -274,7 +274,33 @@ All public vars are prefixed `NEXT_PUBLIC_`. See `.env.example` for complete lis
 - Missing calculator slug → `notFound()` from `next/navigation`
 - Missing env vars → graceful fallback, never crash
 
-## 15. GIT COMMIT CONVENTIONS
+## 15. PROGRAMMATIC SEO CONTENT PAGES
+
+### Content page generator
+- **Script**: `src/scripts/generate-content-pages.ts`
+- **Usage**: `npx tsx src/scripts/generate-content-pages.ts [--force]`
+- `--force` regenerates all pages (overwrites existing)
+- Automatically skips calculators that already have a content page
+
+### How it works
+1. The script reads an embedded calculator registry (69 entries)
+2. For each calculator without an existing content page, it generates a unique `.ts` file in `src/content/pages/`
+3. Each page gets: SEO metadata, category-specific intro/conclusion, and 4-5 FAQ items
+4. Templates are category-aware (werk-en-inkomen, ondernemen, geld-en-verzekeringen, gezondheid, wiskunde, auto-vervoer, algemeen, hypotheek)
+5. Content is always in Dutch (nl_NL)
+
+### Adding a new calculator
+1. Add calculator to `src/data/calculators.ts`
+2. Add component to `component-registry.tsx`
+3. Run `npx tsx src/scripts/generate-content-pages.ts` to create its content page
+
+### Registry
+- `src/content/index.ts` imports all 79 content page files
+- `src/content/types.ts` defines the `SeoContentPage` interface
+- Sitemap at `src/app/sitemap.ts` auto-discovers pages via `getAllContentPages()`
+- Pages are SSG-rendered at `/calculators/[topic]` via `src/app/calculators/[topic]/page.tsx`
+
+## 16. GIT COMMIT CONVENTIONS
 Format: `type(scope): Dutch description`
 Types: feat, fix, refactor, perf, seo, style, content, chore
 

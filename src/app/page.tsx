@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
-  Calculator, ArrowRight, Sparkles, Heart, BookOpen,
+  Calculator, ArrowRight, Sparkles, Heart, BookOpen, Search, PenLine, BarChart3,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
@@ -73,7 +73,7 @@ export default function HomePage() {
 
       {/* ═══════ HERO ═══════ */}
       <header>
-        <section className="border-b border-gray-100 bg-gradient-to-b from-blue-50/50 to-white">
+        <section className="border-b border-gray-100 bg-gradient-to-b from-indigo-50/60 via-white to-white bg-grid-pattern">
           <Container className="py-16 md:py-20">
             <div className="mx-auto max-w-2xl text-center">
               <Badge variant="info" className="mb-4">
@@ -82,7 +82,7 @@ export default function HomePage() {
               </Badge>
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                 Slim, Snel & Nauwkeurig
-                <span className="text-blue-600"> Berekenen</span>
+                <span className="text-amber-500"> Berekenen</span>
               </h1>
               <p className="mt-4 text-lg text-gray-600">
                 BTW, salaris, hypotheek, BMI en meer. Al onze calculators zijn gratis,
@@ -110,7 +110,7 @@ export default function HomePage() {
                 { value: "100%", label: "Gratis te gebruiken", icon: Heart },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
-                  <stat.icon className="mx-auto mb-1 h-5 w-5 text-blue-500" />
+                  <stat.icon className="mx-auto mb-1 h-5 w-5 text-indigo-500" />
                   <p className="text-xl font-bold tabular-nums text-gray-900">{stat.value}</p>
                   <p className="text-xs text-gray-500">{stat.label}</p>
                 </div>
@@ -131,18 +131,18 @@ export default function HomePage() {
                   <Link
                     key={cat.slug}
                     href={`/${cat.slug}`}
-                    className="group flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:border-blue-200 hover:shadow-md hover:-translate-y-0.5"
+                    className="group flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:border-indigo-200 hover:shadow-md hover:-translate-y-0.5"
                   >
                     <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${cat.color} text-white`}>
                       <cat.icon className="h-5 w-5" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                      <p className="text-sm font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
                         {cat.title}
                       </p>
                       <p className="text-xs text-gray-400 mt-0.5">{count} calculators</p>
                     </div>
-                    <ArrowRight className="h-4 w-4 shrink-0 text-gray-300 group-hover:text-blue-500 transition-colors" />
+                    <ArrowRight className="h-4 w-4 shrink-0 text-gray-300 group-hover:text-indigo-500 transition-colors" />
                   </Link>
                 );
               })}
@@ -152,7 +152,7 @@ export default function HomePage() {
 
         {/* ── Nieuwste Calculators (programmatisch) ── */}
         {nieuwste.length > 0 && (
-          <section className="border-b border-gray-100 bg-gradient-to-r from-indigo-50/40 to-blue-50/40">
+          <section className="border-b border-gray-100 bg-gradient-to-r from-indigo-50/40 to-amber-50/20">
             <Container className="py-12">
               <div className="flex items-center gap-2 mb-6">
                 <Sparkles className="h-5 w-5 text-indigo-500" />
@@ -204,20 +204,25 @@ export default function HomePage() {
               </div>
               <Link
                 href="/calculators"
-                className="hidden items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors sm:flex"
+                className="hidden items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors sm:flex"
               >
                 Alle calculators
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {popular.map((calc) => {
+              {popular.map((calc, i) => {
                 const cat = categories.find((c) => c.slug === calc.categorySlug);
+                const isFirst = i === 0;
                 return (
                   <Link
                     key={calc.slug}
                     href={`/${calc.categorySlug}/${calc.slug}`}
-                    className="group flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:border-blue-200 hover:shadow-md hover:-translate-y-0.5"
+                    className={`group flex items-center gap-3 rounded-xl border bg-white p-4 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 ${
+                      isFirst
+                        ? "sm:col-span-2 border-indigo-200 bg-gradient-to-br from-indigo-50/30 to-white hover:border-indigo-300"
+                        : "border-gray-200 hover:border-indigo-200"
+                    }`}
                   >
                     {cat && (
                       <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${cat.color} text-white transition-transform duration-200 group-hover:scale-110`}>
@@ -225,12 +230,16 @@ export default function HomePage() {
                       </div>
                     )}
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                      <p className={`text-sm font-semibold transition-colors ${
+                        isFirst ? "text-indigo-900 group-hover:text-indigo-700" : "text-gray-900 group-hover:text-indigo-600"
+                      }`}>
                         {calc.title}
                       </p>
                       <p className="text-xs text-gray-500 truncate mt-0.5">{calc.description}</p>
                     </div>
-                    <ArrowRight className="h-4 w-4 shrink-0 text-gray-300 group-hover:text-blue-500 transition-colors" />
+                    <ArrowRight className={`h-4 w-4 shrink-0 transition-colors ${
+                      isFirst ? "text-indigo-400 group-hover:text-indigo-600" : "text-gray-300 group-hover:text-indigo-500"
+                    }`} />
                   </Link>
                 );
               })}
@@ -238,7 +247,7 @@ export default function HomePage() {
             <div className="mt-5 text-center sm:hidden">
               <Link
                 href="/calculators"
-                className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700"
+                className="inline-flex items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-700"
               >
                 Alle calculators bekijken
                 <ArrowRight className="h-4 w-4" />
@@ -247,19 +256,54 @@ export default function HomePage() {
           </Container>
         </section>
 
-        {/* ── How It Works ── */}
-        <section className="border-b border-gray-100">
+        {/* ── How It Works met icon cards ── */}
+        <section className="border-b border-gray-100 bg-gradient-to-b from-gray-50/30 to-white">
           <Container className="py-16">
-            <div className="rounded-2xl bg-gray-50 p-8 md:p-12">
-              <div className="mx-auto max-w-2xl text-center">
-                <Calculator className="mx-auto mb-4 h-10 w-10 text-blue-600" />
-                <h2 className="text-2xl font-bold text-gray-900">Hoe werkt Rekenhet.nl?</h2>
-                <p className="mt-3 leading-relaxed text-gray-600">
-                  Kies een calculator, vul je gegevens in en ontvang direct het resultaat.
-                  Al onze tools zijn gratis, vereisen geen registratie en werken op elk apparaat.
-                  Perfect voor werk, studie of je persoonlijke financiën.
-                </p>
-              </div>
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-bold text-gray-900">Hoe werkt Rekenhet.nl?</h2>
+              <p className="mt-2 text-sm text-gray-500">In drie eenvoudige stappen</p>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-3 max-w-3xl mx-auto">
+              {[
+                {
+                  step: "1",
+                  icon: Search,
+                  title: "Kies een calculator",
+                  desc: "Blader door 77+ gratis calculators of gebruik de zoekfunctie om snel te vinden wat je nodig hebt.",
+                },
+                {
+                  step: "2",
+                  icon: PenLine,
+                  title: "Vul je gegevens in",
+                  desc: "Voer je persoonlijke situatie in — de calculator werkt met de actuele 2026-tarieven en -regels.",
+                },
+                {
+                  step: "3",
+                  icon: BarChart3,
+                  title: "Zie direct het resultaat",
+                  desc: "Het resultaat verschijnt direct. Pas invoer aan voor verschillende scenario's. Geen registratie nodig.",
+                },
+              ].map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <div
+                    key={item.step}
+                    className="group relative rounded-xl border border-gray-200 bg-white p-6 text-center shadow-[0_1px_3px_0_rgb(0_0_0_/_0.04)] transition-all duration-200 hover:shadow-[0_4px_12px_-2px_rgb(0_0_0_/_0.08)] hover:-translate-y-1"
+                  >
+                    <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-50 to-amber-50 text-indigo-600 transition-transform duration-200 group-hover:scale-110">
+                      <IconComponent className="h-6 w-6" />
+                    </div>
+                    <p className="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">Stap {item.step}</p>
+                    <h3 className="text-sm font-semibold text-gray-900 mb-1">{item.title}</h3>
+                    <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-8 text-center">
+              <p className="text-xs text-gray-400">
+                Al onze tools zijn 100% gratis, up-to-date met 2026 en werken op elk apparaat.
+              </p>
             </div>
           </Container>
         </section>

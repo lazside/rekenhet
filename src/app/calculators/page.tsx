@@ -60,9 +60,9 @@ export default function CalculatorsPage() {
                     href={`/${calc.categorySlug}/${calc.slug}`}
                     className="group"
                   >
-                    <Card className="h-full cursor-pointer transition-all group-hover:border-blue-200 group-hover:shadow-sm">
+                    <Card className="h-full cursor-pointer transition-all group-hover:border-indigo-200 group-hover:shadow-sm">
                       <CardContent className="p-4">
-                        <CardTitle className="text-sm group-hover:text-blue-600 transition-colors">
+                        <CardTitle className="text-sm group-hover:text-indigo-600 transition-colors">
                           {calc.title}
                         </CardTitle>
                         <CardDescription className="mt-1 text-xs line-clamp-2">

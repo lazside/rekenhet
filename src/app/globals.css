@@ -2,12 +2,52 @@
 
 /*
  * Rekenhet.nl — Global Styles
- * Minimal, clean, high-contrast for calculator UX.
+ * Modern, clean, high-contrast for calculator UX.
+ * Uitsluitend light mode — alle dark: classes zijn verwijderd.
  */
 
-/* ─── Dark mode volledig verwijderd ──────────────────────────── */
-/* Alle dark: Tailwind classes zijn uit de codebase gestript.    */
-/* Uitsluitend light mode.                                       */
+/* ─── Theme Custom Properties (Tailwind v4) ─────────────────── */
+
+@theme {
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+
+  --color-accent: #f59e0b;
+  --color-accent-dark: #d97706;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
+
+  --color-surface: #ffffff;
+  --color-surface-subtle: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-border-hover: #d1d5db;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-tertiary: #9ca3af;
+
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --shadow-card-hover: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+  --shadow-elevated: 0 10px 25px -5px rgb(0 0 0 / 0.08), 0 4px 10px -6px rgb(0 0 0 / 0.06);
+  --shadow-hero: 0 4px 20px -4px rgb(37 99 235 / 0.15);
+}
 
 @layer base {
   html {
@@ -17,8 +57,8 @@
   }
 
   body {
-    @apply bg-white text-gray-900;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    @apply bg-surface text-text-primary;
+    font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
       Roboto, "Helvetica Neue", Arial, sans-serif;
     color-scheme: light;
   }
@@ -42,6 +82,12 @@
   input[type="number"] {
     -moz-appearance: textfield;
   }
+
+  /* Subtle selection color */
+  ::selection {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
 }
 
 /* ─── Animations ─────────────────────────────────────────────── */
@@ -62,12 +108,48 @@
   to { opacity: 1; }
 }
 
+@keyframes scale-in {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slide-down {
+  from { transform: translateY(-8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes card-enter {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
 .animate-slide-up {
-  animation: slide-up 0.35s ease-out;
+  animation: slide-up 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate-fade-in {
   animation: fade-in 0.2s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-slide-down {
+  animation: slide-down 0.2s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animate-card-enter {
+  animation: card-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* ─── Tailwind v4 Custom Utilities ───────────────────────────── */
@@ -76,6 +158,43 @@
   max-width: 48rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+@utility card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility gradient-brand {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+}
+
+@utility gradient-hero {
+  background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+}
+
+@utility bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgb(99 102 241 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(99 102 241 / 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* ─── Print Stylesheet ─────────────────────────────────────────── */
