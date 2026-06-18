@@ -3,7 +3,7 @@ import { getAllCalculators } from "@/data/calculators";
 import { categories } from "@/data/categories";
 import unitsData from "@/data/units.json";
 
-const SITE_URL = "https://www.rekenhet.nl";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.rekenhet.nl";
 const BUILD_DATE = new Date();
 
 interface UnitCategory {
@@ -21,6 +21,9 @@ const COMMON_AMOUNTS = [
   7500, 8000, 9000, 10000, 12500, 15000,
 ];
 
+/** Break sitemap into chunks of 500 to avoid Google's soft ceiling */
+const MAX_URLS_PER_SITEMAP = 500;
+
 function changeFreq(cat: string): "monthly" | "weekly" | "yearly" {
   const m: Record<string, "monthly" | "weekly" | "yearly"> = {
     gezondheid: "monthly", "werk-en-inkomen": "monthly",
@@ -37,47 +40,40 @@ function prio(featured?: boolean, slug?: string) {
   return Math.min(Math.round(b * 100) / 100, 0.96);
 }
 
-function getEssentialConversionPairs(): string[] {
-  const POPULAR: Record<string, string[] | undefined> = {
-    lengte: ["mm", "cm", "m", "km", "inch", "ft"],
-    gewicht: ["mg", "g", "kg", "ton"],
-    oppervlakte: ["cm2", "m2", "are", "ha", "km2"],
-    "auto-vermogen": undefined,
-    "auto-koppel": undefined,
-    druk: undefined,
-    energie: ["J", "kJ", "kcal", "kWh"],
-    elektrisch: ["W", "kW", "MW"],
-    inhoud: ["ml", "cl", "l"],
-    "keuken-gewicht": [],
-    datagrootte: ["B", "KB", "MB", "GB", "TB"],
-  };
-  const pairs: string[] = [];
-  for (const cat of UNIT_CATEGORIES) {
-    const pop = POPULAR[cat.id];
-    if (pop !== undefined && pop.length === 0) continue;
-    const units = pop === undefined ? cat.units : cat.units.filter(u => pop.includes(u.slug));
-    for (const from of units)
-      for (const to of units)
-        if (from.slug !== to.slug) pairs.push(`${from.slug}-naar-${to.slug}`);
-  }
-  return pairs;
+/** Only include the most popular conversion pairs to avoid thin content */
+function getPopularConversionPairs(): string[] {
+  const PAIRS = [
+    "cm-naar-m", "m-naar-cm", "mm-naar-cm", "cm-naar-mm",
+    "km-naar-m", "m-naar-km", "inch-naar-cm", "cm-naar-inch",
+    "gram-naar-kg", "kg-naar-gram", "mg-naar-gram", "gram-naar-mg",
+    "kg-naar-pond", "pond-naar-kg", "kg-naar-lbs", "lbs-naar-kg",
+    "m2-naar-cm2", "cm2-naar-m2", "m2-naar-ha", "ha-naar-m2",
+    "kW-naar-pk", "pk-naar-kW", "bar-naar-psi", "psi-naar-bar",
+    "Nm-naar-ft-lbs", "ft-lbs-naar-Nm",
+    "kWh-naar-J", "J-naar-kWh", "BTU-naar-kWh", "kWh-naar-BTU",
+    "W-naar-kW", "kW-naar-W",
+    "ml-naar-l", "l-naar-ml", "cups-naar-ml", "ml-naar-fl_oz",
+    "Mb-naar-MB", "MB-naar-Mb", "GB-naar-MB", "MB-naar-GB",
+  ];
+  return PAIRS;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const calculators = getAllCalculators();
 
   const entries: MetadataRoute.Sitemap = [
-    // Static
+    // Core static pages
     { url: SITE_URL, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 1.0 },
     { url: `${SITE_URL}/calculators`, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE_URL}/privacy`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.3 },
     { url: `${SITE_URL}/cookies`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${SITE_URL}/disclaimer`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.3 },
     { url: `${SITE_URL}/contact`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${SITE_URL}/updates`, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 0.6 },
     { url: `${SITE_URL}/kenteken-check`, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/gemeentelijke-belastingen`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.6 },
     { url: `${SITE_URL}/zonnepanelen-opbrengst`, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE_URL}/thuiswerken-vs-kantoor`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${SITE_URL}/disclaimer`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.3 },
 
     // Categories
     ...categories.map((cat) => ({
@@ -87,7 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     })),
 
-    // Calculators
+    // All calculators
     ...calculators.map((calc) => ({
       url: `${SITE_URL}/${calc.categorySlug}/${calc.slug}` as const,
       lastModified: BUILD_DATE,
@@ -103,8 +99,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
 
-    // Omrekenen/[pair] — alleen essentiële paren
-    ...getEssentialConversionPairs().map((pair) => ({
+    // Omrekenen/[pair] — only popular pairs (avoids thin content)
+    ...getPopularConversionPairs().map((pair) => ({
       url: `${SITE_URL}/omrekenen/${pair}` as const,
       lastModified: BUILD_DATE,
       changeFrequency: "monthly" as const,

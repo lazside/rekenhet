@@ -14,9 +14,9 @@
 // ─── Nationale basistarieven per 100kg per kwartaal (2026) ───
 
 const NATIONAL_RATES = {
-  benzine: 5.86,
-  diesel: 12.33,
-  lpg: 7.93,
+  benzine: 6.28,
+  diesel: 13.21,
+  lpg: 8.51,
 } as const;
 
 // ─── Provinciale opcenten 2026 (percentage bovenop nationale tarief) ──
