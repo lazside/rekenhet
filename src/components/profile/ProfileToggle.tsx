@@ -92,7 +92,7 @@ export function ProfileToggle({
  className={cn(
 "relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200",
 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
- enabled ?"bg-blue-600" :"bg-gray-200"
+ enabled ?"bg-indigo-600" :"bg-gray-200"
  )}
  >
  <span

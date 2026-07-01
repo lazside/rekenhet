@@ -45,7 +45,7 @@ export default function BmiCalculator() {
     <div className="space-y-6" role="form" aria-label="BMI calculator">
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-5">
         <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
-          <Scale className="h-4 w-4 text-blue-600" />
+          <Scale className="h-4 w-4 text-indigo-600" />
           Jouw gegevens
         </h2>
 
@@ -62,12 +62,12 @@ export default function BmiCalculator() {
               max={250}
               value={lengte}
               onChange={(e) => setLengte(Number(e.target.value))}
-              className="w-full accent-blue-600"
+              className="w-full accent-indigo-600"
               aria-label="Lengte in centimeters"
             />
             <div className="flex justify-between text-xs text-gray-400 mt-1">
               <span>100 cm</span>
-              <span className="font-semibold text-blue-600">{lengte} cm</span>
+              <span className="font-semibold text-indigo-600">{lengte} cm</span>
               <span>250 cm</span>
             </div>
           </div>
@@ -86,12 +86,12 @@ export default function BmiCalculator() {
               max={250}
               value={gewicht}
               onChange={(e) => setGewicht(Number(e.target.value))}
-              className="w-full accent-blue-600"
+              className="w-full accent-indigo-600"
               aria-label="Gewicht in kilogram"
             />
             <div className="flex justify-between text-xs text-gray-400 mt-1">
               <span>30 kg</span>
-              <span className="font-semibold text-blue-600">{gewicht} kg</span>
+              <span className="font-semibold text-indigo-600">{gewicht} kg</span>
               <span>250 kg</span>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default function BmiCalculator() {
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-4">
         <div className="text-center py-4">
           <p className="text-xs text-gray-500 mb-1">Jouw BMI</p>
-          <p className="text-5xl font-bold text-blue-600 tabular-nums">{bmi}</p>
+          <p className="text-5xl font-bold text-indigo-600 tabular-nums">{bmi}</p>
           <div className={cn("inline-block mt-2 rounded-full px-4 py-1 text-sm font-medium", cat.bg, cat.color)}>
             {cat.label}
           </div>

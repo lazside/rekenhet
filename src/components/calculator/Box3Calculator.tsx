@@ -3,18 +3,18 @@ export default function Box3Calculator() {
   const [s, setS] = useState(50000); const [b, setB] = useState(50000); const [sk, setSk] = useState(0); const [a, setA] = useState(true);
   const r = useMemo(() => berekenBox3({ sparen: s, beleggen: b, schulden: sk, alleenstaand: a }), [s, b, sk, a]);
   return (<div className="space-y-6"><div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-5">
-    <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Landmark className="h-4 w-4 text-blue-600" />Box 3 — Vermogen</h2>
+    <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Landmark className="h-4 w-4 text-indigo-600" />Box 3 — Vermogen</h2>
     <div className="grid grid-cols-2 gap-4">
-      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Banktegoeden (€)</label><input type="text" value={s} onChange={e=>setS(+e.target.value||0)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"/></div>
-      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Beleggingen (€)</label><input type="text" value={b} onChange={e=>setB(+e.target.value||0)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"/></div>
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Banktegoeden (€)</label><input type="text" value={s} onChange={e=>setS(+e.target.value||0)} className="input-base"/></div>
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Beleggingen (€)</label><input type="text" value={b} onChange={e=>setB(+e.target.value||0)} className="input-base"/></div>
     </div>
     <div className="grid grid-cols-2 gap-4">
-      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Schulden (€)</label><input type="text" value={sk} onChange={e=>setSk(+e.target.value||0)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"/></div>
-      <div className="flex items-end gap-2 pb-1"><button onClick={()=>setA(true)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${a?"bg-blue-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Alleenstaand</button><button onClick={()=>setA(false)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${!a?"bg-blue-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Samen</button></div>
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Schulden (€)</label><input type="text" value={sk} onChange={e=>setSk(+e.target.value||0)} className="input-base"/></div>
+      <div className="flex items-end gap-2 pb-1"><button onClick={()=>setA(true)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${a?"bg-indigo-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Alleenstaand</button><button onClick={()=>setA(false)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${!a?"bg-indigo-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Samen</button></div>
     </div>
   </div>
   <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-3">
-    <div className="rounded-xl bg-gradient-to-br from-blue-600 to-indigo-800 p-5 text-white shadow-lg text-center"><p className="text-sm text-blue-200">Box 3 belasting</p><p className="text-3xl font-bold tabular-nums mt-1">{formatEUR(r.belasting)}</p></div>
+    <div className="rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-800 p-5 text-white shadow-lg text-center"><p className="text-sm text-indigo-200">Box 3 belasting</p><p className="text-3xl font-bold tabular-nums mt-1">{formatEUR(r.belasting)}</p></div>
     <div className="grid grid-cols-2 gap-3">
       <div className="rounded-lg bg-gray-50 p-3 border border-gray-100"><p className="text-[10px] text-gray-500">Rendementsgrondslag</p><p className="text-sm font-bold tabular-nums">{formatEUR(r.rendementsgrondslag)}</p></div>
       <div className="rounded-lg bg-gray-50 p-3 border border-gray-100"><p className="text-[10px] text-gray-500">Heffingsvrij</p><p className="text-sm font-bold tabular-nums">{formatEUR(r.heffingsvrij)}</p></div>

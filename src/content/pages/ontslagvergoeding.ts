@@ -25,31 +25,23 @@ registerPages({
     categorySlug: "werk-en-inkomen",
   },
   categoryLabel: "Werk & Inkomen",
-  faqs: [
+    faqs: [
     {
-      question: "Hoe wordt de transitievergoeding berekend?",
-      answer:
-        "De transitievergoeding is ⅓ (0,33) maandsalaris per dienstjaar. Voor een werknemer met een salaris van €4.000 per maand en 10 dienstjaren is de transitievergoeding: 10 × (€4.000 × 0,33) = €13.200. De vergoeding is gemaximeerd op €94.000 (2026) of maximaal een jaarsalaris, afhankelijk van wat lager is.",
+      question: "Hoe berekent de Ontslagvergoeding mijn netto inkomen?",
+      answer: "Bereken je transitievergoeding en billijke vergoeding op basis van salaris, dienstjaren en leeftijd. De calculator houdt rekening met belastingschijven, heffingskortingen en premies volksverzekeringen voor 2026.",
     },
     {
-      question: "Heb ik recht op een transitievergoeding bij ontslag?",
-      answer:
-        "Je hebt recht op een transitievergoeding als je werkgever het initiatief neemt tot ontslag (ontslag door werkgever, niet vanwege ernstig verwijtbaar handelen aan jouw kant). Ook bij niet-verlenging van een tijdelijk contract heb je recht op een transitievergoeding. Bij ontslag wegens bedrijfseconomische redenen of langdurige arbeidsongeschiktheid heb je ook recht op de vergoeding.",
+      question: "Klopt de Ontslagvergoeding met de actuele belastingregels?",
+      answer: "Ja, de calculator werkt met de meest recente belastingtarieven en -regels voor 2026. We updaten de tool jaarlijks.",
     },
     {
-      question: "Wat is het verschil tussen transitievergoeding en billijke vergoeding?",
-      answer:
-        "De transitievergoeding is een wettelijke standaardvergoeding waar iedere werknemer recht op heeft bij ontslag (behalve bij verwijtbaar handelen). De billijke vergoeding is een extra vergoeding die de rechter kan toekennen als de werkgever ernstig verwijtbaar heeft gehandeld, bijvoorbeeld bij discriminatie of een plotseling ontslag zonder reden. De billijke vergoeding is niet gemaximeerd.",
+      question: "Houdt de calculator rekening met heffingskortingen?",
+      answer: "Ja, waar relevant worden de algemene heffingskorting en arbeidskorting meegenomen in de berekening, tenzij anders aangegeven.",
     },
     {
-      question: "Hoeveel dienstjaren tellen mee voor de transitievergoeding?",
-      answer:
-        "Alle dienstjaren tellen mee vanaf de eerste werkdag bij de werkgever. Tot 2020 gold er nog een differentiatie naar leeftijd (voor 50+ gold een hogere opbouw), maar sinds 2020 is dat afgeschaft. Elk dienstjaar telt gelijk: ⅓ maandsalaris per gewerkt jaar. De dienstjaren worden naar rato berekend als je geen volledig jaar hebt gewerkt.",
-    },
-    {
-      question: "Wordt er belasting geheven over de transitievergoeding?",
-      answer:
-        "Ja, de transitievergoeding wordt belast als loon uit vroegere dienstbetrekking. Het valt in de bijzondere beloningen en wordt belast tegen het bijzondere tarief, dat kan oplopen tot zo'n 49,5% (afhankelijk van je totale jaarinkomen). Je werkgever houdt hier loonbelasting op in. Houd er dus rekening mee dat je netto minder overhoudt dan het bruto berekende bedrag.",
-    },
+      question: "Kan ik de calculator ook gebruiken voor parttime berekeningen?",
+      answer: "Ja, de calculator werkt voor zowel fulltime als parttime dienstverbanden. Voer je contracturen in voor een nauwkeurige berekening.",
+    }
   ],
-});
+}
+);

@@ -15,26 +15,23 @@ registerPages({
     categorySlug: "gezondheid",
   },
   categoryLabel: "Gezondheid",
-  faqs: [
-  {
-    "question": "Wat is Lichaamsoppervlakte (BSA) Berekenen en hoe gebruik ik hem?",
-    "answer": "Lichaamsoppervlakte (BSA) Berekenen is een gratis online tool waarmee je bereken je body surface area (bsa) met mosteller, dubois of boyd formule. Je vult de gevraagde gegevens in en het resultaat verschijnt direct. De calculator werkt met de meest actuele gegevens en tarieven, zodat je altijd een reële uitkomst krijgt. Geen registratie nodig en volledig gratis te gebruiken."
-  },
-  {
-    "question": "Hoe nauwkeurig is Lichaamsoppervlakte (BSA) Berekenen?",
-    "answer": "De calculator werkt met de meest actuele standaardwaarden, wetenschappelijke formules of officiële tarieven. De uitkomst is een betrouwbare indicatie op basis van jouw invoer. Houd er rekening mee dat persoonlijke omstandigheden of afwijkingen van de standaard het resultaat kunnen beïnvloeden."
-  },
-  {
-    "question": "In welke situaties gebruik ik Lichaamsoppervlakte (BSA) Berekenen?",
-    "answer": "Je gebruikt deze calculator wanneer je snel inzicht wilt in je gezondheidsgegevens. Het is handig voor thuis, op het werk of onderweg. Omdat de tool gratis is en geen registratie vereist, kun je hem onbeperkt gebruiken voor verschillende scenario's."
-  },
-  {
-    "question": "Is deze calculator medisch advies?",
-    "answer": "Nee, deze calculator geeft een indicatie op basis van algemene formules en gemiddelden. Het is geen medisch advies en vervangt geen consult bij een arts of specialist. Gebruik de resultaten als richtlijn om je gezondheid te monitoren, maar raadpleeg altijd een deskundige voor persoonlijk medisch advies."
-  },
-  {
-    "question": "Welke andere calculators zijn handig om ook te gebruiken?",
-    "answer": "Naast Lichaamsoppervlakte (BSA) Berekenen zijn er op Rekenhet.nl nog meer handige calculators die je kunt gebruiken. Kijk ook eens naar de andere tools in de categorie Gezondheid. Ze vullen elkaar aan en geven je een completer beeld van je situatie."
-  }
-],
-});
+    faqs: [
+    {
+      question: "Hoe nauwkeurig is de Calculator?",
+      answer: "Gratis BSA calculator voor lichaamsoppervlakte met 3 formules. De calculator geeft een betrouwbare indicatie op basis van wetenschappelijke formules en standaardwaarden.",
+    },
+    {
+      question: "Is de Calculator een vervanging voor medisch advies?",
+      answer: "Nee, deze calculator is bedoeld als informatief hulpmiddel en vervangt geen medisch consult. Raadpleeg altijd een arts of specialist voor persoonlijk gezondheidsadvies.",
+    },
+    {
+      question: "Welke formule gebruikt de Calculator?",
+      answer: "De calculator gebruikt algemeen geaccepteerde wetenschappelijke formules en standaardwaarden. De exacte formule wordt bij de resultaten getoond.",
+    },
+    {
+      question: "Voor welke leeftijden is de Calculator geschikt?",
+      answer: "De calculator is geschikt voor volwassenen. Voor kinderen en jongeren tot 18 jaar kunnen afwijkende waarden en formules gelden.",
+    }
+  ],
+}
+);

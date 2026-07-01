@@ -24,21 +24,23 @@ registerPages({
     categorySlug: "werk-en-inkomen",
   },
   categoryLabel: "Werk & Inkomen",
-  faqs: [
+    faqs: [
     {
-      question: "Hoeveel vakantiegeld krijg ik bij een salaris van €45.000?",
-      answer:
-        "Bij een bruto jaarsalaris van €45.000 ontvang je 8% vakantiegeld, oftewel €3.600 bruto. Na belastingheffing houd je netto ongeveer €2.200 tot €2.500 over, afhankelijk van je totale inkomen en heffingskortingen.",
+      question: "Hoe berekent de Calculator mijn netto inkomen?",
+      answer: "Bereken je vakantiegeld over 2026. Ontdek wat 8% vakantietoeslag betekent voor jouw salaris en hoe het je nettosalaris en belastingdruk beïnvloedt. De calculator houdt rekening met belastingschijven, heffingskortingen en premies volksverzekeringen voor 2026.",
     },
     {
-      question: "Wanneer wordt vakantiegeld uitbetaald?",
-      answer:
-        "In Nederland wordt vakantiegeld meestal in mei uitbetaald. Veel werkgevers keren het tussen 1 mei en 1 juni uit. Sommige cao's hanteren een afwijkende regeling, bijvoorbeeld maandelijkse uitbetaling.",
+      question: "Klopt de Calculator met de actuele belastingregels?",
+      answer: "Ja, de calculator werkt met de meest recente belastingtarieven en -regels voor 2026. We updaten de tool jaarlijks.",
     },
     {
-      question: "Betaal ik belasting over mijn vakantiegeld?",
-      answer:
-        "Ja, over vakantiegeld betaal je inkomstenbelasting en premies volksverzekeringen. Het wordt bij je reguliere salaris opgeteld in de maand van uitbetaling, waardoor het totale inkomen in die maand hoger is en er meer belasting wordt ingehouden.",
+      question: "Houdt de calculator rekening met heffingskortingen?",
+      answer: "Ja, waar relevant worden de algemene heffingskorting en arbeidskorting meegenomen in de berekening, tenzij anders aangegeven.",
     },
+    {
+      question: "Kan ik de calculator ook gebruiken voor parttime berekeningen?",
+      answer: "Ja, de calculator werkt voor zowel fulltime als parttime dienstverbanden. Voer je contracturen in voor een nauwkeurige berekening.",
+    }
   ],
-});
+}
+);

@@ -15,26 +15,23 @@ registerPages({
     categorySlug: "werk-en-inkomen",
   },
   categoryLabel: "Werk & Inkomen",
-  faqs: [
-  {
-    "question": "Wat is Reiskosten Woon-Werk en hoe gebruik ik hem?",
-    "answer": "Reiskosten Woon-Werk is een gratis online tool waarmee je bereken de maandelijkse en jaarlijkse reiskostenvergoeding. Je vult de gevraagde gegevens in en het resultaat verschijnt direct. De calculator werkt met de meest actuele gegevens en tarieven, zodat je altijd een reële uitkomst krijgt. Geen registratie nodig en volledig gratis te gebruiken."
-  },
-  {
-    "question": "Zijn de tarieven en regels up-to-date voor 2026?",
-    "answer": "Ja, deze calculator werkt met de actuele 2026-tarieven en -regels. De bedragen worden jaarlijks bijgewerkt op basis van de officiële publicaties van de Belastingdienst, het UWV en andere overheidsinstanties. Je kunt er dus op vertrouwen dat de berekening klopt met de meest recente wet- en regelgeving."
-  },
-  {
-    "question": "In welke situaties gebruik ik Reiskosten Woon-Werk?",
-    "answer": "Je gebruikt deze calculator wanneer je snel inzicht wilt in een financiële situatie. Het is handig voor thuis, op het werk of onderweg. Omdat de tool gratis is en geen registratie vereist, kun je hem onbeperkt gebruiken voor verschillende scenario's."
-  },
-  {
-    "question": "Zijn er beperkingen waar ik rekening mee moet houden?",
-    "answer": "De calculator werkt met standaardwaarden en algemene formules. Bijzondere situaties of uitzonderingen worden niet altijd meegenomen. Gebruik de uitkomst als richtlijn en raadpleeg een deskundige voor een definitief advies op maat."
-  },
-  {
-    "question": "Welke andere calculators zijn handig om ook te gebruiken?",
-    "answer": "Naast Reiskosten Woon-Werk zijn er op Rekenhet.nl nog meer handige calculators die je kunt gebruiken. Kijk ook eens naar de andere tools in de categorie Werk & Inkomen. Ze vullen elkaar aan en geven je een completer beeld van je situatie."
-  }
-],
-});
+    faqs: [
+    {
+      question: "Hoe berekent de Reiskosten Woon-Werk mijn netto inkomen?",
+      answer: "Bereken de maandelijkse en jaarlijkse reiskostenvergoeding De calculator houdt rekening met belastingschijven, heffingskortingen en premies volksverzekeringen voor 2026.",
+    },
+    {
+      question: "Klopt de Reiskosten Woon-Werk met de actuele belastingregels?",
+      answer: "Ja, de calculator werkt met de meest recente belastingtarieven en -regels voor 2026. We updaten de tool jaarlijks.",
+    },
+    {
+      question: "Houdt de calculator rekening met heffingskortingen?",
+      answer: "Ja, waar relevant worden de algemene heffingskorting en arbeidskorting meegenomen in de berekening, tenzij anders aangegeven.",
+    },
+    {
+      question: "Kan ik de calculator ook gebruiken voor parttime berekeningen?",
+      answer: "Ja, de calculator werkt voor zowel fulltime als parttime dienstverbanden. Voer je contracturen in voor een nauwkeurige berekening.",
+    }
+  ],
+}
+);

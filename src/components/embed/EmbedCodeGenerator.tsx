@@ -37,7 +37,7 @@ export function EmbedCodeGenerator({
     return (
       <button
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-medium text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-all"
+        className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-medium text-gray-600 hover:bg-gray-50 hover:text-indigo-600 transition-all"
         aria-label="Embed code genereren"
       >
         <Code2 className="h-3.5 w-3.5" />
@@ -57,7 +57,7 @@ export function EmbedCodeGenerator({
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Code2 className="h-4 w-4 text-blue-600" />
+            <Code2 className="h-4 w-4 text-indigo-600" />
             <h3 className="text-sm font-semibold text-gray-900">Embed calculator</h3>
           </div>
           <button
@@ -98,7 +98,7 @@ export function EmbedCodeGenerator({
             step={10}
             value={height}
             onChange={(e) => setHeight(+e.target.value)}
-            className="flex-1 accent-blue-600"
+            className="flex-1 accent-indigo-600"
           />
         </div>
 
@@ -117,7 +117,7 @@ export function EmbedCodeGenerator({
               "flex-1 flex items-center justify-center gap-1.5 rounded-lg px-4 py-2.5 text-sm font-semibold transition-all",
               copied
                 ? "bg-emerald-100 text-emerald-700"
-                : "bg-blue-600 text-white hover:bg-blue-700"
+                : "bg-indigo-600 text-white hover:bg-indigo-700"
             )}
           >
             {copied ? (

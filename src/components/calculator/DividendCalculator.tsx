@@ -8,12 +8,12 @@ export default function DividendCalculator() {
     return { bruto: Math.round(brutoJaar), belasting: Math.round(belasting), nettoJaar: Math.round(netto), nettoMaand: Math.round(maand), effectief: Math.round(effectief * 100) / 100 };
   }, [i, d, h]);
   return (<div className="space-y-6"><div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-5">
-    <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Coins className="h-4 w-4 text-blue-600" />Dividend Berekenen</h2>
+    <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Coins className="h-4 w-4 text-indigo-600" />Dividend Berekenen</h2>
     <div className="grid grid-cols-2 gap-4">
-      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Investering (€)</label><input type="text" value={i} onChange={e=>setI(+e.target.value||0)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"/></div>
-      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Dividend (%)</label><input type="text" step="0.1" value={d} onChange={e=>setD(+e.target.value||0)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"/></div>
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Investering (€)</label><input type="text" value={i} onChange={e=>setI(+e.target.value||0)} className="input-base"/></div>
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Dividend (%)</label><input type="text" step="0.1" value={d} onChange={e=>setD(+e.target.value||0)} className="input-base"/></div>
     </div>
-    <div className="flex gap-2"><button onClick={()=>setH(true)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${h?"bg-blue-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Incl. dividendbelasting</button><button onClick={()=>setH(false)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${!h?"bg-blue-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Excl. belasting</button></div>
+    <div className="flex gap-2"><button onClick={()=>setH(true)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${h?"bg-indigo-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Incl. dividendbelasting</button><button onClick={()=>setH(false)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${!h?"bg-indigo-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Excl. belasting</button></div>
   </div>
   <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-3">
     <div className="rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 p-5 text-white shadow-lg text-center"><p className="text-sm text-amber-100">Dividend per jaar (netto)</p><p className="text-3xl font-bold tabular-nums mt-1">{formatEUR(r.nettoJaar)}</p></div>

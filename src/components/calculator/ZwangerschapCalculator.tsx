@@ -81,7 +81,7 @@ export default function ZwangerschapCalculator() {
               type="date"
               value={lmp}
               onChange={(e) => setLmp(e.target.value)}
-              className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+              className="input-base"
             />
           </div>
         ) : (
@@ -93,7 +93,7 @@ export default function ZwangerschapCalculator() {
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
-              className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+              className="input-base"
             />
           </div>
         )}
@@ -168,8 +168,8 @@ export default function ZwangerschapCalculator() {
 
             <div className="rounded-lg bg-blue-50 p-3 text-center border border-blue-100">
               <Baby className="h-4 w-4 text-blue-500 mx-auto mb-1" />
-              <p className="text-[10px] text-blue-600">Zwangerschapsduur</p>
-              <p className="text-sm font-bold text-blue-700 tabular-nums">
+              <p className="text-[10px] text-indigo-600">Zwangerschapsduur</p>
+              <p className="text-sm font-bold text-indigo-700 tabular-nums">
                 {r.dagenZwanger} dagen
               </p>
             </div>

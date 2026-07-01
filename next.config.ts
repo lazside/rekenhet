@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  /* ── Performance ──────────────────────────────────────── */
+  reactStrictMode: true,
+  poweredByHeader: false,
+  generateEtags: true,
+
   /* ── Static Generation ─────────────────────────────────── */
   output: undefined, // Set to "export" for pure SSG, leave undefined for hybrid
 
@@ -41,6 +46,10 @@ const nextConfig: NextConfig = {
           {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains; preload",
           },
         ],
       },

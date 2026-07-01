@@ -15,26 +15,23 @@ registerPages({
     categorySlug: "wiskunde",
   },
   categoryLabel: "Wiskunde",
-  faqs: [
-  {
-    "question": "Wat is Procenten Calculator en hoe gebruik ik hem?",
-    "answer": "Procenten Calculator is een gratis online tool waarmee je bereken eenvoudig procenten: deel van geheel, procentuele toename of afname. Je vult de gevraagde gegevens in en het resultaat verschijnt direct. De calculator werkt met de meest actuele gegevens en tarieven, zodat je altijd een reële uitkomst krijgt. Geen registratie nodig en volledig gratis te gebruiken."
-  },
-  {
-    "question": "Hoe nauwkeurig is Procenten Calculator?",
-    "answer": "De calculator werkt met de meest actuele standaardwaarden, wetenschappelijke formules of officiële tarieven. De uitkomst is een betrouwbare indicatie op basis van jouw invoer. Houd er rekening mee dat persoonlijke omstandigheden of afwijkingen van de standaard het resultaat kunnen beïnvloeden."
-  },
-  {
-    "question": "In welke situaties gebruik ik Procenten Calculator?",
-    "answer": "Je gebruikt deze calculator wanneer je snel inzicht wilt in een wiskundige berekening. Het is handig voor thuis, op het werk of onderweg. Omdat de tool gratis is en geen registratie vereist, kun je hem onbeperkt gebruiken voor verschillende scenario's."
-  },
-  {
-    "question": "Zijn er beperkingen waar ik rekening mee moet houden?",
-    "answer": "De calculator werkt met standaardwaarden en algemene formules. Bijzondere situaties of uitzonderingen worden niet altijd meegenomen. Gebruik de uitkomst als richtlijn en raadpleeg een deskundige voor een definitief advies op maat."
-  },
-  {
-    "question": "Wat kost het gebruik van deze calculator?",
-    "answer": "Helemaal niets! Alle calculators op Rekenhet.nl zijn volledig gratis te gebruiken. Je hoeft je niet te registreren, geen app te downloaden en geen persoonlijke gegevens achter te laten. Vul je gegevens in en het resultaat verschijnt direct."
-  }
-],
-});
+    faqs: [
+    {
+      question: "Hoe gebruik ik de Procenten Calculator?",
+      answer: "Voer eenvoudig de gevraagde waarden in en de calculator geeft direct het resultaat. Bij procenten calculator is het belangrijk dat je de juiste eenheden gebruikt voor een nauwkeurige uitkomst.",
+    },
+    {
+      question: "Is de Procenten Calculator geschikt voor middelbare school wiskunde?",
+      answer: "Ja, deze calculator is ideaal voor middelbare scholieren. Het helpt bij het controleren van huiswerk en het begrijpen van wiskundige concepten.",
+    },
+    {
+      question: "Werkt de Procenten Calculator ook met negatieve getallen?",
+      answer: "Ja, de calculator werkt met zowel positieve als negatieve getallen. Voer gewoon het minteken in voor negatieve waarden en de tool berekent correct.",
+    },
+    {
+      question: "Wat moet ik doen als ik een foutmelding krijg?",
+      answer: "Controleer of je geldige getallen hebt ingevoerd. Zorg dat je geen letters of speciale tekens gebruikt in de getalvelden.",
+    }
+  ],
+}
+);

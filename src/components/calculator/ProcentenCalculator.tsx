@@ -35,7 +35,7 @@ export default function ProcentenCalculator() {
     <div className="space-y-6" role="form" aria-label="Procenten calculator">
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-5">
         <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
-          <Percent className="h-4 w-4 text-blue-600" />
+          <Percent className="h-4 w-4 text-indigo-600" />
           Kies een berekening
         </h2>
 
@@ -53,7 +53,7 @@ export default function ProcentenCalculator() {
               className={cn(
                 "rounded-lg px-3 py-2 text-sm font-medium transition-all",
                 mode === m.value
-                  ? "bg-blue-600 text-white shadow-sm"
+                  ? "bg-indigo-600 text-white shadow-sm"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               )}
             >
@@ -74,7 +74,7 @@ export default function ProcentenCalculator() {
                 type="text"
                 value={a}
                 onChange={(e) => setA(e.target.value === '' ? 0 : Number(e.target.value))}
-                className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
               />
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function ProcentenCalculator() {
                 type="text"
                 value={b}
                 onChange={(e) => setB(e.target.value === '' ? 0 : Number(e.target.value))}
-                className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
               />
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function ProcentenCalculator() {
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
         <div className="text-center py-6">
           <p className="text-xs text-gray-500 mb-1">Resultaat</p>
-          <p className="text-2xl font-bold text-blue-600 tabular-nums">{resultLabel}</p>
+          <p className="text-2xl font-bold text-indigo-600 tabular-nums">{resultLabel}</p>
         </div>
       </div>
 

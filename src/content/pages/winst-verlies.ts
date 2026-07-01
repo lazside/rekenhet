@@ -25,31 +25,23 @@ registerPages({
     categorySlug: "ondernemen",
   },
   categoryLabel: "Ondernemen",
-  faqs: [
+    faqs: [
     {
-      question: "Hoe bereken ik mijn winst?",
-      answer:
-        "Winst bereken je door je totale omzet te verminderen met alle kosten. De formule is: Winst = Omzet - (Inkoop + Huur + Personeelskosten + Overige kosten). De calculator geeft ook direct de winstmarge (winst als percentage van de omzet) en het kostenpercentage (totale kosten als percentage van de omzet).",
+      question: "Hoe gebruik ik de Winst & Verlies voor mijn administratie?",
+      answer: "Bereken je winst, marge en kostenpercentage op basis van omzet en kosten. De resultaten kun je gebruiken als indicatie voor je administratie. Voor de definitieve aangifte raden we aan een boekhouder te raadplegen.",
     },
     {
-      question: "Wat is een gezonde winstmarge?",
-      answer:
-        "Een gezonde winstmarge verschilt per sector. Over het algemeen geldt: een marge van 10-20% is gezond voor de meeste bedrijven. Horeca heeft vaak lagere marges (5-10%), terwijl dienstverlening hogere marges kan hebben (20-40%). Vergelijk je marge altijd met branchegenoten voor een reëel beeld. Een negatieve marge betekent dat je verlies lijdt.",
+      question: "Zijn de tarieven in winst & verlies actueel voor 2026?",
+      answer: "Ja, alle belastingtarieven, percentages en drempelbedragen zijn bijgewerkt met de officiële 2026-waarden van de Belastingdienst.",
     },
     {
-      question: "Wat valt onder overige kosten?",
-      answer:
-        "Overige kosten zijn alle bedrijfskosten die niet onder inkoop, huur of personeelskosten vallen. Denk aan: verzekeringen, kantoorbenodigdheden, marketing- en advertentiekosten, reiskosten, afschrijvingen, rentelasten, advocaat- en adviseurskosten, abonnementen, en klein onderhoud. Het is belangrijk om al deze kosten goed te administreren voor een accuraat beeld.",
+      question: "Kan ik de resultaten gebruiken voor mijn belastingaangifte?",
+      answer: "De calculator geeft een betrouwbare indicatie, maar voor de officiële belastingaangifte raden we aan de berekeningen te verifiëren met een fiscaal adviseur.",
     },
     {
-      question: "Hoe kan ik mijn winstmarge verbeteren?",
-      answer:
-        "Je kunt je winstmarge verbeteren door (1) je omzet te verhogen zonder evenredige kostenstijging, bijvoorbeeld door prijsverhogingen of meer verkopen, (2) je kosten te verlagen door betere inkoopvoorwaarden of efficiëntere processen, (3) je productmix te optimaliseren door te focussen op producten met hogere marges, en (4) vaste kosten te delen met anderen of te variabiliseren.",
-    },
-    {
-      question: "Is winst hetzelfde als wat ik op mijn rekening krijg?",
-      answer:
-        "Nee, winst is niet hetzelfde als je banksaldo. Winst is het resultaat van omzet minus kosten op basis van facturatie (baten en lasten). Je kunt winst hebben terwijl er nog niet betaald is door klanten, of je kunt verlies hebben terwijl je bankrekening vol staat door een lening of investering. Daarnaast moet je over je winst nog belasting betalen (vennootschapsbelasting of inkomstenbelasting).",
-    },
+      question: "Wat zijn de voordelen voor mijn onderneming?",
+      answer: "De calculator geeft je snel inzicht in je financiële situatie, zodat je betere beslissingen kunt nemen voor je bedrijf. Geen registratie nodig.",
+    }
   ],
-});
+}
+);

@@ -33,7 +33,7 @@ export function InvestmentTimeline({
     <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-5">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <ChartLine className="h-4 w-4 text-blue-600" />
+          <ChartLine className="h-4 w-4 text-indigo-600" />
           <h3 className="text-sm font-semibold text-gray-900">{label}</h3>
         </div>
         <span className="text-xs text-gray-400">Jaar {selectedYear} van {timeline.length}</span>
@@ -47,12 +47,12 @@ export function InvestmentTimeline({
           max={timeline.length}
           value={selectedYear}
           onChange={(e) => setSelectedYear(+e.target.value)}
-          className="w-full accent-blue-600"
+          className="w-full accent-indigo-600"
           aria-label="Selecteer jaar"
         />
         <div className="flex justify-between text-[10px] text-gray-400">
           <span>Jaar 1</span>
-          <span className="font-semibold text-blue-600">Jaar {selectedYear}</span>
+          <span className="font-semibold text-indigo-600">Jaar {selectedYear}</span>
           <span>Jaar {timeline.length}</span>
         </div>
       </div>
@@ -109,7 +109,7 @@ export function InvestmentTimeline({
           icon={TrendingDown}
           label="Huidige waarde"
           value={formatEUR(current.depreciatedValue)}
-          color="text-blue-700"
+          color="text-indigo-700"
         />
         <DetailCard
           icon={PiggyBank}

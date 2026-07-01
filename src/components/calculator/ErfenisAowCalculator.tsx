@@ -34,27 +34,27 @@ export default function ErfenisAowCalculator() {
     <div className="space-y-6">
       {/* Tab switcher */}
       <div className="flex gap-2">
-        <button onClick={() => setTab("schenking")} className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${tab==="schenking"?"bg-blue-600 text-white shadow-sm":"bg-gray-100 text-gray-600 hover:bg-gray-200"}`}><Gift className="h-4 w-4 inline mr-1"/>Schenking/Erfenis</button>
-        <button onClick={() => setTab("aow")} className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${tab==="aow"?"bg-blue-600 text-white shadow-sm":"bg-gray-100 text-gray-600 hover:bg-gray-200"}`}><Clock className="h-4 w-4 inline mr-1"/>AOW-leeftijd</button>
+        <button onClick={() => setTab("schenking")} className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${tab==="schenking"?"bg-indigo-600 text-white shadow-sm":"bg-gray-100 text-gray-600 hover:bg-gray-200"}`}><Gift className="h-4 w-4 inline mr-1"/>Schenking/Erfenis</button>
+        <button onClick={() => setTab("aow")} className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${tab==="aow"?"bg-indigo-600 text-white shadow-sm":"bg-gray-100 text-gray-600 hover:bg-gray-200"}`}><Clock className="h-4 w-4 inline mr-1"/>AOW-leeftijd</button>
       </div>
 
       {/* Schenking tab */}
       {tab === "schenking" && (
         <>
           <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-4">
-            <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Gift className="h-4 w-4 text-blue-600" />Schenk-/Erfbelasting</h2>
+            <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Gift className="h-4 w-4 text-indigo-600" />Schenk-/Erfbelasting</h2>
             <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Bedrag (€)</label><input type="text" value={bedrag} onChange={e=>setBedrag(+e.target.value||0)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"/></div>
-              <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Relatie</label><select value={groep} onChange={e=>setGroep(e.target.value as Tariefgroep)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all">{(Object.entries(TARIEF_LABELS) as [Tariefgroep, string][]).map(([k,v])=> <option key={k} value={k}>{v}</option>)}</select></div>
+              <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Bedrag (€)</label><input type="text" value={bedrag} onChange={e=>setBedrag(+e.target.value||0)} className="input-base"/></div>
+              <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Relatie</label><select value={groep} onChange={e=>setGroep(e.target.value as Tariefgroep)} className="input-base">{(Object.entries(TARIEF_LABELS) as [Tariefgroep, string][]).map(([k,v])=> <option key={k} value={k}>{v}</option>)}</select></div>
             </div>
-            <div className="flex gap-2"><button onClick={()=>setErfenis(false)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${!erfenis?"bg-blue-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Schenking</button><button onClick={()=>setErfenis(true)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${erfenis?"bg-blue-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Erfenis</button></div>
+            <div className="flex gap-2"><button onClick={()=>setErfenis(false)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${!erfenis?"bg-indigo-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Schenking</button><button onClick={()=>setErfenis(true)} className={`flex-1 rounded-lg px-3 py-2.5 text-sm font-medium transition-all ${erfenis?"bg-indigo-600 text-white shadow-sm":"bg-gray-100 text-gray-600"}`}>Erfenis</button></div>
           </div>
 
           <div className={`rounded-xl border p-5 shadow-sm space-y-3 ${GROEP_KLEUREN[groep]}`}>
-            <div className="rounded-xl bg-gradient-to-br from-blue-600 to-indigo-800 p-5 text-white shadow-lg text-center">
-              <p className="text-sm text-blue-200">Te betalen belasting</p>
+            <div className="rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-800 p-5 text-white shadow-lg text-center">
+              <p className="text-sm text-indigo-200">Te betalen belasting</p>
               <p className="text-3xl font-bold tabular-nums mt-1">{formatEUR(schenkRes.belasting)}</p>
-              <p className="text-xs text-blue-300 mt-1">Effectief tarief: {schenkRes.effectiefTarief}%</p>
+              <p className="text-xs text-indigo-300 mt-1">Effectief tarief: {schenkRes.effectiefTarief}%</p>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-lg bg-white/80 p-3 text-center border"><p className="text-[10px] text-gray-500">Vrijstelling</p><p className="text-sm font-bold tabular-nums">{formatEUR(schenkRes.vrijstelling)}</p></div>
@@ -74,8 +74,8 @@ export default function ErfenisAowCalculator() {
       {tab === "aow" && (
         <>
           <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-4">
-            <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Clock className="h-4 w-4 text-blue-600" />AOW-leeftijd</h2>
-            <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Geboortedatum</label><input type="date" value={geboorteDatum} onChange={e=>setGeboorteDatum(e.target.value)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"/></div>
+            <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Clock className="h-4 w-4 text-indigo-600" />AOW-leeftijd</h2>
+            <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Geboortedatum</label><input type="date" value={geboorteDatum} onChange={e=>setGeboorteDatum(e.target.value)} className="input-base"/></div>
           </div>
           <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-3">
             <div className="rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 p-5 text-white shadow-lg text-center">

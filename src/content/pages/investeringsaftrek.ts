@@ -27,31 +27,23 @@ registerPages({
     categorySlug: "ondernemen",
   },
   categoryLabel: "Ondernemen",
-  faqs: [
+    faqs: [
     {
-      question: "Wat is de Kleinschaligheidsinvesteringsaftrek (KIA)?",
-      answer:
-        "De KIA is een fiscale regeling voor ondernemers die investeren in bedrijfsmiddelen. Bij een investering van meer dan €2.801 kun je 28% van het investeringsbedrag aftrekken van je winst, waardoor je minder inkomstenbelasting betaalt. Het maximale aftrekbedrag is afhankelijk van de hoogte van de investering. De KIA geldt voor de meeste bedrijfsmiddelen, met uitzondering van bijvoorbeeld personenauto's en grond.",
+      question: "Hoe gebruik ik de Investeringsaftrek voor mijn administratie?",
+      answer: "Bereken je investeringsaftrek voor KIA, MIA of EIA. Inclusief belastingbesparing op basis van 25,5%. De resultaten kun je gebruiken als indicatie voor je administratie. Voor de definitieve aangifte raden we aan een boekhouder te raadplegen.",
     },
     {
-      question: "Wat is het verschil tussen MIA en EIA?",
-      answer:
-        "De MIA (Milieu-investeringsaftrek) is voor bedrijfsmiddelen die milieuvriendelijker zijn dan standaard, met een aftrek van 36% van het investeringsbedrag. De EIA (Energie-investeringsaftrek) is voor energiebesparende bedrijfsmiddelen en duurzame energie-opties, met een aftrek van 45%. Beide regelingen zijn onderdeel van dezelfde fiscale stimulering, maar richten zich op verschillende type investeringen.",
+      question: "Zijn de tarieven in investeringsaftrek actueel voor 2026?",
+      answer: "Ja, alle belastingtarieven, percentages en drempelbedragen zijn bijgewerkt met de officiële 2026-waarden van de Belastingdienst.",
     },
     {
-      question: "Hoeveel belasting bespaar ik met investeringsaftrek?",
-      answer:
-        "De belastingbesparing is het aftrekbedrag vermenigvuldigd met je belastingtarief. De calculator gebruikt een standaard tarief van 25,5% (Vennootschapsbelasting). Bij een KIA-aftrek van €14.000 op een investering van €50.000 bespaar je ongeveer €3.570 aan belasting. Het exacte voordeel hangt af van je winstniveau en belastingtarief.",
+      question: "Kan ik de resultaten gebruiken voor mijn belastingaangifte?",
+      answer: "De calculator geeft een betrouwbare indicatie, maar voor de officiële belastingaangifte raden we aan de berekeningen te verifiëren met een fiscaal adviseur.",
     },
     {
-      question: "Voor welke investeringen geldt de EIA?",
-      answer:
-        "De EIA geldt voor energiebesparende bedrijfsmiddelen en duurzame energie-opties die voorkomen op de Energielijst. Denk aan zonnepanelen, warmtepompen, isolatie, energiezuinige verlichting, HR-ketels en warmteterugwinsystemen. De investering moet minimaal €2.500 bedragen en maximaal €149.000. Het aftrekpercentage is 45% voor 2026.",
-    },
-    {
-      question: "Kan ik KIA en MIA/EIA combineren?",
-      answer:
-        "Nee, voor dezelfde investering kun je niet zowel KIA als MIA of EIA toepassen. Je kiest de regeling die het voordeligst is. MIA en EIA hebben vaak hogere aftrekpercentages (36-45%) dan de KIA (28%), maar zijn alleen van toepassing op specifieke milieuvriendelijke of energiezuinige investeringen. Voor reguliere bedrijfsmiddelen gebruik je de KIA.",
-    },
+      question: "Wat zijn de voordelen voor mijn onderneming?",
+      answer: "De calculator geeft je snel inzicht in je financiële situatie, zodat je betere beslissingen kunt nemen voor je bedrijf. Geen registratie nodig.",
+    }
   ],
-});
+}
+);

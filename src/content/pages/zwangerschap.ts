@@ -28,30 +28,23 @@ registerPages({
     categorySlug: "gezondheid",
   },
   categoryLabel: "Gezondheid",
-  faqs: [
+    faqs: [
     {
-      question: "Hoe wordt de uitgerekende datum berekend?",
-      answer:
-        "De meest gebruikte methode is de Naegele-regel: eerste dag van de laatste menstruatie + 280 dagen (40 weken). De calculator ondersteunt ook berekening op basis van een echo-datum. Een zwangerschap duurt gemiddeld 40 weken, gerekend vanaf de eerste dag van de laatste menstruatie. De conceptie vindt ongeveer 2 weken later plaats, dus de eigenlijke zwangerschapsduur is ongeveer 38 weken.",
+      question: "Hoe nauwkeurig is de Zwangerschap?",
+      answer: "Bereken je uitgerekende datum, huidige zwangerschapsweek (+dagen) en trimester. Op basis van Naegele-regel of echo. De calculator geeft een betrouwbare indicatie op basis van wetenschappelijke formules en standaardwaarden.",
     },
     {
-      question: "Wat is het verschil tussen Naegele en echo?",
-      answer:
-        "De Naegele-regel gaat uit van een cyclus van 28 dagen en de eisprong op dag 14. Als je cyclus korter of langer is, of als je een onregelmatige cyclus hebt, kan de Naegele-datum afwijken. Een vroege echo (tussen 10-13 weken) meet de CRL (Crown-Rump Length) van de baby en geeft vaak een nauwkeurigere uitgerekende datum. In Nederland wordt bij voorkeur de echo-termijn aangehouden als er een verschil is van meer dan 7 dagen met de Naegele-datum.",
+      question: "Is de Zwangerschap een vervanging voor medisch advies?",
+      answer: "Nee, deze calculator is bedoeld als informatief hulpmiddel en vervangt geen medisch consult. Raadpleeg altijd een arts of specialist voor persoonlijk gezondheidsadvies.",
     },
     {
-      question: "Hoeveel maanden ben ik zwanger?",
-      answer:
-        "Een zwangerschap duurt ongeveer 9 maanden of 40 weken. Een zwangerschapsmaand is gemiddeld 4 weken. De calculator toont je huidige zwangerschapsmaand op basis van je week. Week 1-4 is maand 1, week 5-8 is maand 2, enzovoort. Na 40 weken (10 maanden) ben je uitgerekend. Dit wijkt af van de kalendermaanden omdat een maand gemiddeld 4,3 weken duurt.",
+      question: "Welke formule gebruikt de Zwangerschap?",
+      answer: "De calculator gebruikt algemeen geaccepteerde wetenschappelijke formules en standaardwaarden. De exacte formule wordt bij de resultaten getoond.",
     },
     {
-      "question": "Vanaf wanneer kun je de baby voelen?",
-      "answer": "De meeste vrouwen voelen de eerste bewegingen tussen week 16 en 24 van de zwangerschap. Bij een eerste zwangerschap merk je het vaak rond week 20-22, bij een volgende zwangerschap eerder, rond week 16-18. De eerste bewegingen voelen als een zacht 'fladderen' of 'belletjes' en worden naarmate de zwangerschap vordert sterker en duidelijker herkenbaar als trapjes en draaibewegingen."
-    },
-    {
-      question: "Wat zijn de trimesters van een zwangerschap?",
-      answer:
-        "Een zwangerschap wordt verdeeld in drie trimesters van ongeveer 13 weken. Het eerste trimester (week 1-13) is de periode van innesteling en orgaanvorming — veel vrouwen hebben last van vermoeidheid en misselijkheid. Het tweede trimester (week 14-26) staat in het teken van snelle groei en de eerste bewegingen — vaak ervaren als de prettigste fase. Het derde trimester (week 27-40) is de eindspurt: de baby groeit hard, oefent met ademhalen en draait zich in de juiste positie voor de geboorte.",
-    },
+      question: "Voor welke leeftijden is de Zwangerschap geschikt?",
+      answer: "De calculator is geschikt voor volwassenen. Voor kinderen en jongeren tot 18 jaar kunnen afwijkende waarden en formules gelden.",
+    }
   ],
-});
+}
+);

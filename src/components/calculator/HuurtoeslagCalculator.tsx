@@ -197,7 +197,7 @@ export default function HuurtoeslagCalculator() {
  <label className="text-xs font-medium text-gray-500">
  Kale huur (€/mnd)
  </label>
- <input type="text" value={kaleHuur} onChange={(e) => setKaleHuur(e.target.value === '' ? 0 : parseFloat(e.target.value))} min={0} max={1200} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" />
+ <input type="text" value={kaleHuur} onChange={(e) => setKaleHuur(e.target.value === '' ? 0 : parseFloat(e.target.value))} min={0} max={1200} className="input-base" />
  </div>
 
  {/* Servicekosten */}
@@ -205,7 +205,7 @@ export default function HuurtoeslagCalculator() {
  <label className="text-xs font-medium text-gray-500">
  Servicekosten (€/mnd)
  </label>
- <input type="text" value={serviceKosten} onChange={(e) => setServiceKosten(e.target.value === '' ? 0 : parseFloat(e.target.value))} min={0} max={500} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" />
+ <input type="text" value={serviceKosten} onChange={(e) => setServiceKosten(e.target.value === '' ? 0 : parseFloat(e.target.value))} min={0} max={500} className="input-base" />
  </div>
 
  {/* Inkomen */}
@@ -213,7 +213,7 @@ export default function HuurtoeslagCalculator() {
  <label className="text-xs font-medium text-gray-500">
  Toetsingsinkomen (€/jr)
  </label>
- <input type="text" value={inkomen} onChange={(e) => setInkomen(e.target.value === '' ? 0 : parseFloat(e.target.value))} min={0} max={200000} step={500} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" />
+ <input type="text" value={inkomen} onChange={(e) => setInkomen(e.target.value === '' ? 0 : parseFloat(e.target.value))} min={0} max={200000} step={500} className="input-base" />
  </div>
 
  {/* Vermogen */}
@@ -221,13 +221,13 @@ export default function HuurtoeslagCalculator() {
  <label className="text-xs font-medium text-gray-500">
  Vermogen Box 3 (€)
  </label>
- <input type="text" value={vermogen} onChange={(e) => setVermogen(e.target.value === '' ? 0 : parseFloat(e.target.value))} min={0} max={500000} step={1000} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" />
+ <input type="text" value={vermogen} onChange={(e) => setVermogen(e.target.value === '' ? 0 : parseFloat(e.target.value))} min={0} max={500000} step={1000} className="input-base" />
  </div>
 
  {/* Leeftijd */}
  <div className="space-y-1">
  <label className="text-xs font-medium text-gray-500">Leeftijd</label>
- <select value={leeftijd} onChange={(e) => setLeeftijd(e.target.value as LeeftijdGroep)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all">
+ <select value={leeftijd} onChange={(e) => setLeeftijd(e.target.value as LeeftijdGroep)} className="input-base">
  <option value="23ofouder">23 jaar of ouder</option>
  <option value="onder23">Jonger dan 23 jaar</option>
  </select>
@@ -236,7 +236,7 @@ export default function HuurtoeslagCalculator() {
  {/* Huishouden */}
  <div className="space-y-1">
  <label className="text-xs font-medium text-gray-500">Huishouden</label>
- <select value={huishouden} onChange={(e) => setHuishouden(e.target.value as Huishouden)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all">
+ <select value={huishouden} onChange={(e) => setHuishouden(e.target.value as Huishouden)} className="input-base">
  <option value="alleenstaand">Alleenstaand</option>
  <option value="meerpersoons">Meerpersoonshuishouden</option>
  <option value="medebewoner">Medebewoner / Student</option>
@@ -249,7 +249,7 @@ export default function HuurtoeslagCalculator() {
  <label className="text-xs font-medium text-gray-500">
  Maandelijkse bijdrage aan hoofdhuurder (€)
  </label>
- <input type="text" value={medebewonerBijdrage} onChange={(e) => setMedebewonerBijdrage(e.target.value === '' ? 0 : parseFloat(e.target.value))} min={0} max={1000} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" />
+ <input type="text" value={medebewonerBijdrage} onChange={(e) => setMedebewonerBijdrage(e.target.value === '' ? 0 : parseFloat(e.target.value))} min={0} max={1000} className="input-base" />
  </div>
  )}
  </div>

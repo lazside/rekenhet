@@ -99,7 +99,7 @@ function ShareEmailModal({
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Mail className="h-5 w-5 text-blue-600" />
+            <Mail className="h-5 w-5 text-indigo-600" />
             <h2 className="text-base font-semibold text-gray-900">E-mail resultaat</h2>
           </div>
           <button
@@ -130,7 +130,7 @@ function ShareEmailModal({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="jouw@email.nl"
-                className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
               />
             </div>
 
@@ -139,7 +139,7 @@ function ShareEmailModal({
                 type="checkbox"
                 checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
-                className="mt-0.5 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                className="mt-0.5 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
               />
               <span className="text-xs text-gray-500 leading-relaxed">
                 Ik wil op de hoogte blijven van nieuwe calculators en tips.
@@ -154,7 +154,7 @@ function ShareEmailModal({
             <button
               type="submit"
               disabled={status === "sending"}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-50 transition-colors"
             >
               {status === "sending" ? (
                 <Loader2 className="h-4 w-4 animate-spin" />

@@ -1,4 +1,3 @@
-"use client";
 
 import { ExternalLink, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -71,7 +70,7 @@ export function ContextualOfferCard({ offer, className }: ContextualOfferCardPro
         href={trackUrl}
         target="_blank"
         rel="noopener noreferrer sponsored"
-        className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition-all hover:bg-indigo-700 hover:shadow focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       >
         <span>{offer.cta}</span>
         <ExternalLink

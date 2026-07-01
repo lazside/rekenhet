@@ -1,4 +1,3 @@
-"use client";
 
 import { Calculator, Layers, Calendar, TrendingUp } from "lucide-react";
 import { getAllCalculators } from "@/data/calculators";
@@ -15,7 +14,7 @@ export function CalculatorStats({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`rounded-xl border border-gray-200 bg-white p-5 shadow-sm ${compact ? "" : ""}`}>
       <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
-        <TrendingUp className="h-4 w-4 text-blue-600" />
+        <TrendingUp className="h-4 w-4 text-indigo-600" />
         Rekenhet.nl in cijfers
       </h3>
       <div className={`grid ${compact ? "grid-cols-3" : "grid-cols-2"} gap-3`}>

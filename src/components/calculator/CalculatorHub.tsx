@@ -70,13 +70,13 @@ export default function CalculatorHub() {
  <div key={f.key} className={`space-y-1 ${spanClass}`}>
  <label className="text-xs font-medium text-gray-500">{f.label}</label>
  {f.type ==="select" ? (
- <select value={String(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: e.target.value }))} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all">
+ <select value={String(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: e.target.value }))} className="input-base">
  {f.options?.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
  </select>
  ) : f.type ==="date" ? (
- <input type="date" value={String(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: e.target.value }))} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" />
+ <input type="date" value={String(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: e.target.value }))} className="input-base" />
  ) : (
- <input type="text" value={Number(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: parseFloat(e.target.value) || 0 }))} min={f.min} max={f.max} step={f.step ?? 1} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" />
+ <input type="text" value={Number(values[f.key] ?? f.default)} onChange={(e) => setValues((p) => ({ ...p, [f.key]: parseFloat(e.target.value) || 0 }))} min={f.min} max={f.max} step={f.step ?? 1} className="input-base" />
  )}
  </div>
  );
@@ -92,11 +92,11 @@ export default function CalculatorHub() {
  const display = renderValue(raw, out);
  const isPrimary = out.primary;
  return isPrimary ? (
- <div key={out.key} className="col-span-2 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-700 p-4 text-white text-center shadow-sm">
- <p className="text-xs text-blue-200">{out.label}</p>
+ <div key={out.key} className="col-span-2 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 p-4 text-white text-center shadow-sm">
+ <p className="text-xs text-indigo-200">{out.label}</p>
  <p className="text-xl font-bold tabular-nums mt-1">
  {display}
- {out.suffix ? <span className="text-sm font-normal text-blue-200 ml-1">{out.suffix}</span> : null}
+ {out.suffix ? <span className="text-sm font-normal text-indigo-200 ml-1">{out.suffix}</span> : null}
  </p>
  </div>
  ) : (

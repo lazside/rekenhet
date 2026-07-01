@@ -15,26 +15,23 @@ registerPages({
     categorySlug: "auto-vervoer",
   },
   categoryLabel: "Auto & Vervoer",
-  faqs: [
-  {
-    "question": "Wat is Snelheidsboete Calculator en hoe gebruik ik hem?",
-    "answer": "Snelheidsboete Calculator is een gratis online tool waarmee je bereken direct je boete bij te hard rijden. voor snelwegen en binnenwegen. 2026 om-tarieven. Je vult de gevraagde gegevens in en het resultaat verschijnt direct. De calculator werkt met de meest actuele gegevens en tarieven, zodat je altijd een reële uitkomst krijgt. Geen registratie nodig en volledig gratis te gebruiken."
-  },
-  {
-    "question": "Hoe nauwkeurig is Snelheidsboete Calculator?",
-    "answer": "De calculator werkt met de meest actuele standaardwaarden, wetenschappelijke formules of officiële tarieven. De uitkomst is een betrouwbare indicatie op basis van jouw invoer. Houd er rekening mee dat persoonlijke omstandigheden of afwijkingen van de standaard het resultaat kunnen beïnvloeden."
-  },
-  {
-    "question": "In welke situaties gebruik ik Snelheidsboete Calculator?",
-    "answer": "Je gebruikt deze calculator wanneer je snel inzicht wilt in een financiële situatie. Het is handig voor thuis, op het werk of onderweg. Omdat de tool gratis is en geen registratie vereist, kun je hem onbeperkt gebruiken voor verschillende scenario's."
-  },
-  {
-    "question": "Zijn er beperkingen waar ik rekening mee moet houden?",
-    "answer": "De calculator werkt met standaardwaarden en algemene formules. Bijzondere situaties of uitzonderingen worden niet altijd meegenomen. Gebruik de uitkomst als richtlijn en raadpleeg een deskundige voor een definitief advies op maat."
-  },
-  {
-    "question": "Welke andere calculators zijn handig om ook te gebruiken?",
-    "answer": "Naast Snelheidsboete Calculator zijn er op Rekenhet.nl nog meer handige calculators die je kunt gebruiken. Kijk ook eens naar de andere tools in de categorie Auto & Vervoer. Ze vullen elkaar aan en geven je een completer beeld van je situatie."
-  }
-],
-});
+    faqs: [
+    {
+      question: "Hoe gebruik ik de Snelheidsboete Calculator?",
+      answer: "Bereken direct je boete bij te hard rijden. Voor snelwegen en binnenwegen. Boetebedragen op basis van 2026 OM-tarieven. Voer de gevraagde gegevens in en ontvang direct het resultaat.",
+    },
+    {
+      question: "Zijn de gegevens in snelheidsboete calculator actueel?",
+      answer: "Ja, de calculator gebruikt actuele tarieven, boetebedragen en RDW-gegevens voor 2026.",
+    },
+    {
+      question: "Kan ik de tool vertrouwen voor officiële doeleinden?",
+      answer: "De calculator geeft een betrouwbare indicatie. Voor officiële documenten raden we aan de gegevens te verifiëren bij de betreffende instantie.",
+    },
+    {
+      question: "Werkt de calculator ook voor elektrische auto's?",
+      answer: "Ja, waar relevant houdt de calculator rekening met elektrische voertuigen, inclusief lagere wegenbelasting en bijtellingspercentages.",
+    }
+  ],
+}
+);

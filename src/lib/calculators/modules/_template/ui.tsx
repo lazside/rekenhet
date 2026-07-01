@@ -34,7 +34,7 @@ export default function MijnCalculator() {
 
       {/* ═══════ INPUT SECTIE ═══════ */}
       <CalcCard>
-        <CalcSectionTitle icon={<Calculator className="h-4 w-4 text-blue-600" />} title="Jouw gegevens" />
+        <CalcSectionTitle icon={<Calculator className="h-4 w-4 text-indigo-600" />} title="Jouw gegevens" />
 
         <CalcInput
           id="voorbeeld-input"
@@ -76,7 +76,7 @@ export default function MijnCalculator() {
 
       {/* ═══════ RESULTATEN SECTIE ═══════ */}
       <CalcCard>
-        <CalcSectionTitle icon={<Calculator className="h-4 w-4 text-blue-600" />} title="Jouw resultaat" />
+        <CalcSectionTitle icon={<Calculator className="h-4 w-4 text-indigo-600" />} title="Jouw resultaat" />
 
         {/* Hero — primair resultaat */}
         <CalcHero

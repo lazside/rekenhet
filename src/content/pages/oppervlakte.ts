@@ -15,26 +15,23 @@ registerPages({
     categorySlug: "wiskunde",
   },
   categoryLabel: "Wiskunde",
-  faqs: [
-  {
-    "question": "Wat is Oppervlakte Berekenen en hoe gebruik ik hem?",
-    "answer": "Oppervlakte Berekenen is een gratis online tool waarmee je bereken de oppervlakte van cirkel, driehoek, rechthoek, cilinder, bol en kegel. Je vult de gevraagde gegevens in en het resultaat verschijnt direct. De calculator werkt met de meest actuele gegevens en tarieven, zodat je altijd een reële uitkomst krijgt. Geen registratie nodig en volledig gratis te gebruiken."
-  },
-  {
-    "question": "Hoe nauwkeurig is Oppervlakte Berekenen?",
-    "answer": "De calculator werkt met de meest actuele standaardwaarden, wetenschappelijke formules of officiële tarieven. De uitkomst is een betrouwbare indicatie op basis van jouw invoer. Houd er rekening mee dat persoonlijke omstandigheden of afwijkingen van de standaard het resultaat kunnen beïnvloeden."
-  },
-  {
-    "question": "In welke situaties gebruik ik Oppervlakte Berekenen?",
-    "answer": "Je gebruikt deze calculator wanneer je snel inzicht wilt in een wiskundige berekening. Het is handig voor thuis, op het werk of onderweg. Omdat de tool gratis is en geen registratie vereist, kun je hem onbeperkt gebruiken voor verschillende scenario's."
-  },
-  {
-    "question": "Zijn er beperkingen waar ik rekening mee moet houden?",
-    "answer": "De calculator werkt met standaardwaarden en algemene formules. Bijzondere situaties of uitzonderingen worden niet altijd meegenomen. Gebruik de uitkomst als richtlijn en raadpleeg een deskundige voor een definitief advies op maat."
-  },
-  {
-    "question": "Welke andere calculators zijn handig om ook te gebruiken?",
-    "answer": "Naast Oppervlakte Berekenen zijn er op Rekenhet.nl nog meer handige calculators die je kunt gebruiken. Kijk ook eens naar de andere tools in de categorie Wiskunde. Ze vullen elkaar aan en geven je een completer beeld van je situatie."
-  }
-],
-});
+    faqs: [
+    {
+      question: "Hoe gebruik ik de Oppervlakte & Volume?",
+      answer: "Voer eenvoudig de gevraagde waarden in en de calculator geeft direct het resultaat. Bij oppervlakte & volume is het belangrijk dat je de juiste eenheden gebruikt voor een nauwkeurige uitkomst.",
+    },
+    {
+      question: "Is de Oppervlakte & Volume geschikt voor middelbare school wiskunde?",
+      answer: "Ja, deze calculator is ideaal voor middelbare scholieren. Het helpt bij het controleren van huiswerk en het begrijpen van wiskundige concepten.",
+    },
+    {
+      question: "Werkt de Oppervlakte & Volume ook met negatieve getallen?",
+      answer: "Ja, de calculator werkt met zowel positieve als negatieve getallen. Voer gewoon het minteken in voor negatieve waarden en de tool berekent correct.",
+    },
+    {
+      question: "Wat moet ik doen als ik een foutmelding krijg?",
+      answer: "Controleer of je geldige getallen hebt ingevoerd. Zorg dat je geen letters of speciale tekens gebruikt in de getalvelden.",
+    }
+  ],
+}
+);

@@ -26,31 +26,23 @@ registerPages({
     categorySlug: "gezondheid",
   },
   categoryLabel: "Gezondheid",
-  faqs: [
+    faqs: [
     {
-      question: "Wat is het verschil tussen de Devine, Robinson en Miller formules?",
-      answer:
-        "De Devine-formule is oorspronkelijk ontwikkeld voor het berekenen van medicijndoseringen en geeft voor mannen: 50 kg + 2,3 kg per 2,54 cm boven 152,4 cm, en voor vrouwen: 45,5 kg + 2,3 kg per 2,54 cm boven 152,4 cm. Robinson geeft iets lagere waarden (52 kg + 1,9 kg per inch voor mannen) en Miller geeft de laagste waarden (56,2 kg + 1,41 kg per inch voor mannen). Ze zijn allemaal richtlijnen, geen absolute waarheden.",
+      question: "Hoe nauwkeurig is de Ideaal Gewicht?",
+      answer: "Bereken je ideale gewicht op basis van lengte en geslacht met Devine, Robinson en Miller formules. De calculator geeft een betrouwbare indicatie op basis van wetenschappelijke formules en standaardwaarden.",
     },
     {
-      question: "Is BMI hetzelfde als ideaal gewicht?",
-      answer:
-        "Nee, BMI (Body Mass Index) is een verhouding tussen gewicht en lengte, terwijl ideaal gewicht een specifiek streefgewicht in kilo's is op basis van formules. BMI geeft een categorie (ondergewicht, gezond, overgewicht, obesitas), terwijl ideaal gewicht een concreet getal geeft. Beide zijn indicaties, maar geen van beide houdt rekening met spiermassa of lichaamsbouw.",
+      question: "Is de Ideaal Gewicht een vervanging voor medisch advies?",
+      answer: "Nee, deze calculator is bedoeld als informatief hulpmiddel en vervangt geen medisch consult. Raadpleeg altijd een arts of specialist voor persoonlijk gezondheidsadvies.",
     },
     {
-      question: "Hoeveel mag ik wegen bij 180 cm?",
-      answer:
-        "Bij een lengte van 180 cm geeft de Devine-formule voor een man een ideaal gewicht van ongeveer 77 kg en voor een vrouw ongeveer 72,5 kg. Robinson geeft 75 kg (man) en 72 kg (vrouw), Miller geeft 71 kg (man) en 70 kg (vrouw). Een gezond BMI-bereik voor 180 cm is tussen de 60 en 81 kg.",
+      question: "Welke formule gebruikt de Ideaal Gewicht?",
+      answer: "De calculator gebruikt algemeen geaccepteerde wetenschappelijke formules en standaardwaarden. De exacte formule wordt bij de resultaten getoond.",
     },
     {
-      question: "Kan mijn ideale gewicht veranderen met de leeftijd?",
-      answer:
-        "Ja, naarmate je ouder wordt verandert je lichaamssamenstelling. Spiermassa neemt vaak af en vetmassa kan toenemen. De formules voor ideaal gewicht houden echter geen rekening met leeftijd. Het is daarom goed om naast deze formules ook naar andere indicatoren te kijken, zoals je middelomtrek, energieniveau en eventuele gezondheidsklachten.",
-    },
-    {
-      question: "Waarom gebruiken deze formules inches in plaats van centimeters?",
-      answer:
-        "De formules van Devine, Robinson en Miller zijn ontwikkeld in de Verenigde Staten, waar het imperiale stelsel wordt gebruikt. De formules rekenen met een basislengte van 5 voet (152,4 cm) en een correctie per extra inch (2,54 cm) boven die lengte. Onze calculator rekent dit automatisch voor je om.",
-    },
+      question: "Voor welke leeftijden is de Ideaal Gewicht geschikt?",
+      answer: "De calculator is geschikt voor volwassenen. Voor kinderen en jongeren tot 18 jaar kunnen afwijkende waarden en formules gelden.",
+    }
   ],
-});
+}
+);

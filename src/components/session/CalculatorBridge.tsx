@@ -41,7 +41,7 @@ export function CalculatorBridge({
   return (
     <div className="rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-5 shadow-sm">
       <div className="flex items-center gap-2 mb-3">
-        <Calculator className="h-4 w-4 text-blue-600" />
+        <Calculator className="h-4 w-4 text-indigo-600" />
         <h3 className="text-sm font-semibold text-gray-900">
           Verder rekenen met je resultaat
         </h3>
@@ -57,12 +57,12 @@ export function CalculatorBridge({
             className="flex items-center justify-between rounded-lg border border-blue-100 bg-white px-4 py-3 text-sm hover:border-blue-300 hover:shadow-sm transition-all group"
           >
             <div>
-              <span className="font-medium text-gray-900 group-hover:text-blue-700 transition-colors">
+              <span className="font-medium text-gray-900 group-hover:text-indigo-700 transition-colors">
                 {t.label}
               </span>
               <p className="text-xs text-gray-400 mt-0.5">{t.description}</p>
             </div>
-            <ArrowRight className="h-4 w-4 text-blue-400 group-hover:text-blue-600 transition-colors shrink-0" />
+            <ArrowRight className="h-4 w-4 text-blue-400 group-hover:text-indigo-600 transition-colors shrink-0" />
           </Link>
         ))}
       </div>

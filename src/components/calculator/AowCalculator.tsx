@@ -3,8 +3,8 @@ export default function AowCalculator() {
   const [d, setD] = useState("1990-01-01"); const r = useMemo(() => berekenAow({ geboortedatum: d }), [d]);
   return (<div className="space-y-6">
     <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-4">
-      <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Clock className="h-4 w-4 text-blue-600" />AOW-leeftijd</h2>
-      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Geboortedatum</label><input type="date" value={d} onChange={e=>setD(e.target.value)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"/></div>
+      <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2"><Clock className="h-4 w-4 text-indigo-600" />AOW-leeftijd</h2>
+      <div className="space-y-1.5"><label className="text-sm font-medium text-gray-700">Geboortedatum</label><input type="date" value={d} onChange={e=>setD(e.target.value)} className="input-base"/></div>
     </div>
     <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-3">
       <div className="rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 p-5 text-white shadow-lg text-center"><p className="text-sm text-emerald-200">AOW-leeftijd</p><p className="text-3xl font-bold mt-1">{r.aowLeeftijd}</p></div>

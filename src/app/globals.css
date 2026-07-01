@@ -25,15 +25,6 @@
 
   --color-accent: #f59e0b;
   --color-accent-dark: #d97706;
-  --color-brand-100: #dbeafe;
-  --color-brand-200: #bfdbfe;
-  --color-brand-300: #93c5fd;
-  --color-brand-400: #60a5fa;
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;
-  --color-brand-700: #1d4ed8;
-  --color-brand-800: #1e40af;
-  --color-brand-900: #1e3a8a;
 
   --color-surface: #ffffff;
   --color-surface-subtle: #f9fafb;
@@ -70,7 +61,7 @@
 
   /* Focus-visible ring for keyboard navigation */
   :focus-visible {
-    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+    @apply outline-none ring-2 ring-indigo-500 ring-offset-2;
   }
 
   /* Remove default number input spinners */
@@ -173,11 +164,15 @@
 }
 
 @utility gradient-brand {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
 }
 
 @utility gradient-hero {
   background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+}
+
+@utility input-base {
+  @apply block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all;
 }
 
 @utility bg-grid-pattern {

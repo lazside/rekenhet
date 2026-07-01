@@ -15,26 +15,23 @@ registerPages({
     categorySlug: "hypotheek",
   },
   categoryLabel: "Hypotheek & Wonen",
-  faqs: [
-  {
-    "question": "Wat is Sneltest Maximale Hypotheek en hoe gebruik ik hem?",
-    "answer": "Sneltest Maximale Hypotheek is een gratis online tool waarmee je ontdek snel wat je maximale hypotheek is op basis van inkomen, rente en looptijd. Je vult de gevraagde gegevens in en het resultaat verschijnt direct. De calculator werkt met de meest actuele gegevens en tarieven, zodat je altijd een reële uitkomst krijgt. Geen registratie nodig en volledig gratis te gebruiken."
-  },
-  {
-    "question": "Zijn de tarieven en regels up-to-date voor 2026?",
-    "answer": "Ja, deze calculator werkt met de actuele 2026-tarieven en -regels. De bedragen worden jaarlijks bijgewerkt op basis van de officiële publicaties van de Belastingdienst, het UWV en andere overheidsinstanties. Je kunt er dus op vertrouwen dat de berekening klopt met de meest recente wet- en regelgeving."
-  },
-  {
-    "question": "In welke situaties gebruik ik Sneltest Maximale Hypotheek?",
-    "answer": "Je gebruikt deze calculator wanneer je snel inzicht wilt in een financiële situatie. Het is handig voor thuis, op het werk of onderweg. Omdat de tool gratis is en geen registratie vereist, kun je hem onbeperkt gebruiken voor verschillende scenario's."
-  },
-  {
-    "question": "Kan ik vertrouwen op deze berekening voor mijn hypotheekaanvraag?",
-    "answer": "De calculator geeft een indicatie van wat er financieel mogelijk is op basis van de standaard Nibud-leennormen. Een hypotheekverstrekker doet een volledige toets op basis van je complete financiële situatie. Gebruik deze tool als eerste indicatie, maar vraag altijd een hypotheekadviseur om een definitieve berekening."
-  },
-  {
-    "question": "Welke andere calculators zijn handig om ook te gebruiken?",
-    "answer": "Naast Sneltest Maximale Hypotheek zijn er op Rekenhet.nl nog meer handige calculators die je kunt gebruiken. Kijk ook eens naar de andere tools in de categorie Hypotheek & Wonen. Ze vullen elkaar aan en geven je een completer beeld van je situatie."
-  }
-],
-});
+    faqs: [
+    {
+      question: "Hoe wordt met de sneltest maximale hypotheek berekend?",
+      answer: "Ontdek snel wat je maximale hypotheek is op basis van je inkomen, partnerinkomen, rente en looptijd. De berekening is gebaseerd op de actuele hypotheeknormen en toetsingsrente van 2026.",
+    },
+    {
+      question: "Zijn de rente en normen up-to-date?",
+      answer: "Ja, de calculator gebruikt de actuele toetsingsrente en hypotheeknormen voor 2026 zoals vastgesteld door de NIBUD en AFM.",
+    },
+    {
+      question: "Is de uitkomst een definitieve hypotheekofferte?",
+      answer: "Nee, de calculator geeft een indicatie van je maximale hypotheek. Voor een definitieve offerte moet je een hypotheekadviseur raadplegen.",
+    },
+    {
+      question: "Welke factoren beïnvloeden de maximale hypotheek?",
+      answer: "Je inkomen, partnerinkomen, rentestand, looptijd en eventuele studieschuld zijn de belangrijkste factoren.",
+    }
+  ],
+}
+);

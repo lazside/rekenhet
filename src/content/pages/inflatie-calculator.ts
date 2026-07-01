@@ -26,31 +26,23 @@ registerPages({
     categorySlug: "geld-en-verzekeringen",
   },
   categoryLabel: "Geld & Verzekeringen",
-  faqs: [
+    faqs: [
     {
-      question: "Wat is inflatie en waarom is het belangrijk?",
-      answer:
-        "Inflatie is de mate waarin prijzen van goederen en diensten stijgen. Een inflatie van 3% betekent dat wat je vorig jaar voor €100 kocht, dit jaar €103 kost. Hierdoor wordt je geld minder waard naarmate de tijd verstrijkt. Daarom is het belangrijk om rekening te houden met inflatie bij sparen, beleggen en pensioenplanning. De Europese Centrale Bank streeft naar een inflatie van ongeveer 2%.",
+      question: "Hoe wordt de berekening van inflatie calculator gemaakt?",
+      answer: "De calculator werkt met de actuele 2026-tarieven en -regels van de Belastingdienst en andere officiële instanties. De berekening geeft een betrouwbare indicatie op basis van jouw invoer.",
     },
     {
-      question: "Wat is de gemiddelde inflatie in Nederland?",
-      answer:
-        "De gemiddelde inflatie in Nederland schommelt. Historisch lag deze rond de 2-3% per jaar, maar in 2022-2023 was er een uitzonderlijk hoge inflatie van 10-12% door energieprijzen en grondstoffenschaarste. Over de afgelopen 20 jaar (2004-2024) ligt het gemiddelde rond de 2,5%. Voor lange termijn berekeningen kun je rekenen met een inflatie van 2-3%.",
+      question: "Zijn de tarieven voor inflatie calculator up-to-date voor 2026?",
+      answer: "Ja, alle tarieven in deze calculator zijn bijgewerkt met de officiële 2026-bedragen. We updaten de calculators jaarlijks na publicatie van nieuwe tarieven.",
     },
     {
-      question: "Hoe bereken ik de gecorrigeerde waarde van een bedrag?",
-      answer:
-        "De gecorrigeerde waarde wordt berekend met de formule: bedrag × (1 + inflatiepercentage/100)^(aantal jaren). Een voorbeeld: €10.000 met 3% inflatie over 6 jaar wordt €10.000 × 1,03^6 = €11.940. Dit betekent dat je €11.940 nodig hebt in 2026 om dezelfde koopkracht te hebben als €10.000 in 2020.",
+      question: "Is de uitkomst van inflatie calculator bindend?",
+      answer: "Nee, de calculator geeft een indicatieve berekening. Voor definitief advies over jouw persoonlijke financiële situatie raden we aan een financieel adviseur te raadplegen.",
     },
     {
-      question: "Wat is het verschil tussen nominale en reële waarde?",
-      answer:
-        "De nominale waarde is het bedrag zoals het op het briefje staat, zonder correctie voor inflatie. De reële waarde is het bedrag gecorrigeerd voor inflatie — het weerspiegelt de werkelijke koopkracht. €10.000 nominaal in 2026 is misschien maar €8.500 reëel waard in koopkracht van 2020. Deze calculator toont het gecorrigeerde bedrag (de nominale waarde die nodig is om dezelfde reële waarde te behouden).",
-    },
-    {
-      question: "Hoe bescherm ik mijn spaargeld tegen inflatie?",
-      answer:
-        "Om je spaargeld te beschermen tegen inflatie kun je verschillende dingen doen: (1) Beleg in aandelen of indexfondsen, die historisch gezien een hoger rendement bieden dan inflatie. (2) Overweeg obligaties of inflatiegerelateerde producten. (3) Spaar op een spaarrekening met een rente die hoger is dan de inflatie. (4) Investeer in tastbare activa zoals vastgoed. Houd er wel rekening mee dat beleggen risico's met zich meebrengt.",
-    },
+      question: "Wat is het verschil tussen bruto en netto bij deze tool?",
+      answer: "Bruto is het bedrag vóór belasting en premies, netto is wat je daadwerkelijk ontvangt of betaalt. De calculator toont beide waarden.",
+    }
   ],
-});
+}
+);

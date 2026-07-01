@@ -13,7 +13,7 @@ function Toggle({ label, checked, onChange, id }: {
       <label htmlFor={id} className="text-sm text-gray-700 cursor-pointer select-none">{label}</label>
       <button
         id={id} role="switch" aria-checked={checked} onClick={() => onChange(!checked)}
-        className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full transition-colors ${checked ? "bg-blue-600" : "bg-gray-300"}`}
+        className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full transition-colors ${checked ? "bg-indigo-600" : "bg-gray-300"}`}
       >
         <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white shadow-sm transition-transform ${checked ? "translate-x-[18px]" : "translate-x-[3px]"}`} />
       </button>
@@ -34,7 +34,7 @@ function ResultRow({ label, value, type = "default", big }: {
   };
   const colors: Record<string, string> = {
     default: "text-gray-900", success: "text-emerald-700", warning: "text-amber-700",
-    info: "text-blue-700", highlight: "text-gray-900",
+    info: "text-indigo-700", highlight: "text-gray-900",
   };
   return (
     <div className={`${base} ${styles[type]}`}>
@@ -61,7 +61,7 @@ export default function ZelfstandigenaftrekCalculator() {
       {/* ── Input ── */}
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-4">
         <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
-          <Calculator className="h-4 w-4 text-blue-600" />
+          <Calculator className="h-4 w-4 text-indigo-600" />
           Jouw ondernemingsgegevens
         </h2>
 
@@ -72,7 +72,7 @@ export default function ZelfstandigenaftrekCalculator() {
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400">€</span>
               <input id="winst" type="text" value={winst}
                 onChange={(e) => setWinst(Math.max(0, Number(e.target.value) || 0))} min={0} step={1000}
-                className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-7 pr-3 text-lg font-semibold text-gray-900 tabular-nums focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-7 pr-3 text-lg font-semibold text-gray-900 tabular-nums focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
               />
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function ZelfstandigenaftrekCalculator() {
 
         {/* Aftrekposten */}
         <div className="rounded-lg bg-blue-50 border border-blue-100 p-4 space-y-2">
-          <p className="text-xs font-semibold text-blue-700 uppercase tracking-wider flex items-center gap-1.5">
+          <p className="text-xs font-semibold text-indigo-700 uppercase tracking-wider flex items-center gap-1.5">
             <Percent className="h-3 w-3" />Ondernemersaftrek 2026
           </p>
           {result.zelfstandigenaftrek > 0 && (
@@ -118,16 +118,16 @@ export default function ZelfstandigenaftrekCalculator() {
           {result.startersaftrek > 0 && (
             <div className="flex justify-between text-sm"><span className="text-gray-600">Startersaftrek</span><span className="font-bold text-gray-900 tabular-nums">− {formatEUR(result.startersaftrek)}</span></div>
           )}
-          <div className="flex justify-between text-sm font-semibold border-t border-blue-200 pt-1.5 mt-1.5">
-            <span className="text-blue-800">Totale ondernemersaftrek</span>
-            <span className="text-blue-800 tabular-nums">{formatEUR(result.totaleOndernemersaftrek)}</span>
+          <div className="flex justify-between text-sm font-semibold border-t border-indigo-200 pt-1.5 mt-1.5">
+            <span className="text-indigo-800">Totale ondernemersaftrek</span>
+            <span className="text-indigo-800 tabular-nums">{formatEUR(result.totaleOndernemersaftrek)}</span>
           </div>
           {result.mkbVrijstellingBedrag > 0 && (
             <div className="flex justify-between text-sm"><span className="text-gray-600">MKB-winstvrijstelling ({result.mkbPercentage}%)</span><span className="font-bold text-gray-900 tabular-nums">− {formatEUR(result.mkbVrijstellingBedrag)}</span></div>
           )}
-          <div className="flex justify-between text-sm font-semibold border-t border-blue-200 pt-1.5 mt-1.5">
-            <span className="text-blue-800">Belastbare winst</span>
-            <span className="text-blue-800 tabular-nums">{formatEUR(result.belastbareWinst)}</span>
+          <div className="flex justify-between text-sm font-semibold border-t border-indigo-200 pt-1.5 mt-1.5">
+            <span className="text-indigo-800">Belastbare winst</span>
+            <span className="text-indigo-800 tabular-nums">{formatEUR(result.belastbareWinst)}</span>
           </div>
         </div>
 

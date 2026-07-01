@@ -31,7 +31,7 @@ export function BenefitsImpactPanel({ toetsingsinkomen, showKindToggle = true }:
     <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-5">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Wallet className="h-4 w-4 text-blue-600" />
+          <Wallet className="h-4 w-4 text-indigo-600" />
           <h3 className="text-sm font-semibold text-gray-900">Toeslagen Impact</h3>
         </div>
         {showKindToggle && (

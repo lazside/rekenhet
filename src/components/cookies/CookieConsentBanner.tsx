@@ -67,7 +67,7 @@ export function CookieConsentBanner() {
         <div className="rounded-2xl border border-gray-200 bg-white shadow-2xl p-5 md:p-6">
           <div className="flex items-start gap-4">
             {/* Icon */}
-            <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+            <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-indigo-600">
               <Cookie className="h-5 w-5" />
             </div>
 
@@ -83,7 +83,7 @@ export function CookieConsentBanner() {
                 plaatsen van deze cookies. Je kunt ook weigeren. Lees meer in ons{" "}
                 <Link
                   href="/privacy"
-                  className="text-blue-600 hover:text-blue-700 underline"
+                  className="text-indigo-600 hover:text-indigo-700 underline"
                   onClick={() => setVisible(false)}
                 >
                   privacybeleid
@@ -91,7 +91,7 @@ export function CookieConsentBanner() {
                 en onze{" "}
                 <Link
                   href="/cookies"
-                  className="text-blue-600 hover:text-blue-700 underline"
+                  className="text-indigo-600 hover:text-indigo-700 underline"
                   onClick={() => setVisible(false)}
                 >
                   cookieverklaring
@@ -110,7 +110,7 @@ export function CookieConsentBanner() {
               </button>
               <button
                 onClick={handleAccept}
-                className="rounded-lg bg-blue-600 px-4 py-2 text-xs font-medium text-white hover:bg-blue-700 transition-colors shadow-sm"
+                className="rounded-lg bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700 transition-colors shadow-sm"
               >
                 Accepteren
               </button>

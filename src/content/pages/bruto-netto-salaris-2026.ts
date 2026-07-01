@@ -24,26 +24,23 @@ registerPages({
     categorySlug: "werk-en-inkomen",
   },
   categoryLabel: "Werk & Inkomen",
-  faqs: [
+    faqs: [
     {
-      question: "Wat is het nettosalaris in 2026 bij een bruto salaris van €50.000?",
-      answer:
-        "Bij een bruto jaarsalaris van €50.000 in 2026, met vakantietoeslag en beide heffingskortingen, hou je ongeveer €35.000 tot €37.000 netto over per jaar. Dit is afhankelijk van je persoonlijke situatie en of je vakantietoeslag al in het bruto bedrag is verwerkt.",
+      question: "Hoe berekent de Calculator mijn netto inkomen?",
+      answer: "Bereken je netto salaris voor 2026 met de actuele belastingschijven. Vul je bruto jaarsalaris in en ontvang direct je netto maandloon, vakantietoeslag en belastingdruk. De calculator houdt rekening met belastingschijven, heffingskortingen en premies volksverzekeringen voor 2026.",
     },
     {
-      question: "Verandert de belasting in 2026 ten opzichte van 2025?",
-      answer:
-        "Ja, de belastingschijven en heffingskortingen worden jaarlijks geïndexeerd. In 2026 zijn de tarieven licht aangepast ten opzichte van 2025. De eerste schijf kent een tarief van 35,82%, de tweede 37,48% en de derde 49,50%. Gebruik de calculator voor de exacte bedragen.",
+      question: "Klopt de Calculator met de actuele belastingregels?",
+      answer: "Ja, de calculator werkt met de meest recente belastingtarieven en -regels voor 2026. We updaten de tool jaarlijks.",
     },
     {
-      question: "Hoeveel vakantiegeld ontvang ik in 2026?",
-      answer:
-        "Het vakantiegeld is 8% van je bruto jaarsalaris en wordt meestal in mei uitbetaald. Bij een bruto salaris van €50.000 ontvang je ongeveer €4.000 bruto aan vakantietoeslag. In de calculator kun je aangeven of deze al in je salaris is verwerkt.",
+      question: "Houdt de calculator rekening met heffingskortingen?",
+      answer: "Ja, waar relevant worden de algemene heffingskorting en arbeidskorting meegenomen in de berekening, tenzij anders aangegeven.",
     },
     {
-      question: "Wat is het effectieve belastingtarief in 2026?",
-      answer:
-        "Het effectieve belastingtarief is het percentage dat je daadwerkelijk betaalt over je totale inkomen, na aftrek van heffingskortingen. Voor de meeste werknemers ligt dit tussen de 25% en 40%, afhankelijk van hun inkomen. De calculator toont dit direct.",
-    },
+      question: "Kan ik de calculator ook gebruiken voor parttime berekeningen?",
+      answer: "Ja, de calculator werkt voor zowel fulltime als parttime dienstverbanden. Voer je contracturen in voor een nauwkeurige berekening.",
+    }
   ],
-});
+}
+);

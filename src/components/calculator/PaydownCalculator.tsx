@@ -21,14 +21,14 @@ export default function PaydownCalculator() {
       {/* Inputs */}
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-5">
         <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
-          <Landmark className="h-4 w-4 text-blue-600" /> Extra Aflossen Hypotheek
+          <Landmark className="h-4 w-4 text-indigo-600" /> Extra Aflossen Hypotheek
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Hypotheek (€)</label><input type="text" value={h} onChange={e => setH(+e.target.value||0)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" /></div>
-          <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Rente (%)</label><input type="text" step="0.1" value={r} onChange={e => setR(+e.target.value||0)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" /></div>
-          <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Looptijd (jr)</label><input type="text" value={l} onChange={e => setL(+e.target.value||0)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" /></div>
-          <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Extra aflossing (€)</label><input type="text" value={e} onChange={e => setE(+e.target.value||0)} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" /></div>
-          <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">In jaar</label><input type="text" min={1} max={l} value={sj} onChange={e => setSj(Math.min(l, Math.max(1, +e.target.value||1)))} className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 px-3 text-sm text-gray-900 tabular-nums placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" /></div>
+          <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Hypotheek (€)</label><input type="text" value={h} onChange={e => setH(+e.target.value||0)} className="input-base" /></div>
+          <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Rente (%)</label><input type="text" step="0.1" value={r} onChange={e => setR(+e.target.value||0)} className="input-base" /></div>
+          <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Looptijd (jr)</label><input type="text" value={l} onChange={e => setL(+e.target.value||0)} className="input-base" /></div>
+          <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Extra aflossing (€)</label><input type="text" value={e} onChange={e => setE(+e.target.value||0)} className="input-base" /></div>
+          <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">In jaar</label><input type="text" min={1} max={l} value={sj} onChange={e => setSj(Math.min(l, Math.max(1, +e.target.value||1)))} className="input-base" /></div>
         </div>
       </div>
 
@@ -47,7 +47,7 @@ export default function PaydownCalculator() {
       {/* Chart */}
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
         <div className="flex items-center gap-2 mb-3">
-          <TrendingDown className="h-4 w-4 text-blue-600" />
+          <TrendingDown className="h-4 w-4 text-indigo-600" />
           <h3 className="text-sm font-semibold text-gray-900">Restschuld vergelijking</h3>
         </div>
         <div className="relative h-40 w-full">

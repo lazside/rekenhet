@@ -42,8 +42,8 @@ export function Footer() {
             {/* Brand */}
             <div className="sm:col-span-2 lg:col-span-1">
               <Link href="/" className="flex items-center gap-2 text-base font-bold text-gray-900 mb-3">
-                <Calculator className="h-5 w-5 text-blue-600" />
-                <span>Reken<span className="text-blue-600">het</span><span className="text-gray-400 font-normal">.nl</span></span>
+                <Calculator className="h-5 w-5 text-indigo-600" />
+                <span>Reken<span className="text-indigo-600">het</span><span className="text-gray-400 font-normal">.nl</span></span>
               </Link>
               <p className="text-xs text-gray-500 leading-relaxed mb-4">
                 Gratis online calculators voor werk & inkomen, ondernemen, geld & verzekeringen, gezondheid en wiskunde.
@@ -51,7 +51,7 @@ export function Footer() {
               </p>
               <div className="flex flex-wrap gap-2">
                 {INFO_LINKS.map((l) => (
-                  <Link key={l.href} href={l.href} className="text-xs text-blue-600 hover:text-blue-700 hover:underline">
+                  <Link key={l.href} href={l.href} className="text-xs text-indigo-600 hover:text-indigo-700 hover:underline">
                     {l.label}
                   </Link>
                 ))}
@@ -65,13 +65,13 @@ export function Footer() {
                 <ul className="space-y-1.5">
                   {g.calcs.map((c) => (
                     <li key={c.href}>
-                      <Link href={c.href} className="text-xs text-gray-500 hover:text-blue-600 transition-colors">
+                      <Link href={c.href} className="text-xs text-gray-500 hover:text-indigo-600 transition-colors">
                         {c.label}
                       </Link>
                     </li>
                   ))}
                   <li>
-                    <Link href={`/${g.slug}`} className="inline-flex items-center gap-0.5 text-xs font-medium text-blue-600 hover:text-blue-700 mt-1">
+                    <Link href={`/${g.slug}`} className="inline-flex items-center gap-0.5 text-xs font-medium text-indigo-600 hover:text-indigo-700 mt-1">
                       Alle {g.title.toLowerCase()} <ChevronRight className="h-3 w-3" />
                     </Link>
                   </li>
@@ -84,7 +84,7 @@ export function Footer() {
                 <ul className="space-y-1.5">
                   {catGroups.slice(3).map((g) => (
                     <li key={g.slug}>
-                      <Link href={`/${g.slug}`} className="text-xs text-gray-500 hover:text-blue-600 transition-colors">
+                      <Link href={`/${g.slug}`} className="text-xs text-gray-500 hover:text-indigo-600 transition-colors">
                         {g.title}
                       </Link>
                     </li>

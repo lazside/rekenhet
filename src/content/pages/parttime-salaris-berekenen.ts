@@ -24,21 +24,23 @@ registerPages({
     categorySlug: "werk-en-inkomen",
   },
   categoryLabel: "Werk & Inkomen",
-  faqs: [
+    faqs: [
     {
-      question: "Hoeveel verdien ik netto bij 32 uur werken?",
-      answer:
-        "Bij 32 uur (80% van een fulltime dienstverband van 40 uur) ontvang je 80% van het fulltime salaris. Bij een fulltime salaris van €50.000 bruto is dat €40.000 bruto per jaar. Het nettobedrag hangt af van heffingskortingen en je persoonlijke situatie. Gebruik de calculator voor een exacte berekening.",
+      question: "Hoe berekent de Calculator mijn netto inkomen?",
+      answer: "Bereken je parttime salaris op basis van je fulltime salaris en contracturen. Ontdek wat je netto verdient bij 24, 28 of 32 uur per week. De calculator houdt rekening met belastingschijven, heffingskortingen en premies volksverzekeringen voor 2026.",
     },
     {
-      question: "Hoe bereken ik mijn parttime percentage?",
-      answer:
-        "Je parttime percentage bereken je door je contracturen te delen door de fulltime uren en te vermenigvuldigen met 100. Bij 24 uur werken in een 40-urige werkweek is dat (24/40) × 100 = 60%. Dit percentage vermenigvuldig je met je fulltime salaris voor je bruto parttime salaris.",
+      question: "Klopt de Calculator met de actuele belastingregels?",
+      answer: "Ja, de calculator werkt met de meest recente belastingtarieven en -regels voor 2026. We updaten de tool jaarlijks.",
     },
     {
-      question: "Blijven heffingskortingen gelijk bij parttime werken?",
-      answer:
-        "Heffingskortingen zoals de algemene heffingskorting en arbeidskorting zijn inkomensafhankelijk. Bij een lager parttime inkomen kan de arbeidskorting lager uitvallen, maar de algemene heffingskorting kan juist hoger zijn omdat je in een lagere schijf valt. De calculator houdt hier rekening mee.",
+      question: "Houdt de calculator rekening met heffingskortingen?",
+      answer: "Ja, waar relevant worden de algemene heffingskorting en arbeidskorting meegenomen in de berekening, tenzij anders aangegeven.",
     },
+    {
+      question: "Kan ik de calculator ook gebruiken voor parttime berekeningen?",
+      answer: "Ja, de calculator werkt voor zowel fulltime als parttime dienstverbanden. Voer je contracturen in voor een nauwkeurige berekening.",
+    }
   ],
-});
+}
+);

@@ -15,26 +15,23 @@ registerPages({
     categorySlug: "gezondheid",
   },
   categoryLabel: "Gezondheid",
-  faqs: [
-  {
-    "question": "Wat is BMI Calculator en hoe gebruik ik hem?",
-    "answer": "BMI Calculator is een gratis online tool waarmee je bereken je body mass index op basis van je lengte en gewicht. Je vult de gevraagde gegevens in en het resultaat verschijnt direct. De calculator werkt met de meest actuele gegevens en tarieven, zodat je altijd een reële uitkomst krijgt. Geen registratie nodig en volledig gratis te gebruiken."
-  },
-  {
-    "question": "Hoe nauwkeurig is BMI Calculator?",
-    "answer": "De calculator werkt met de meest actuele standaardwaarden, wetenschappelijke formules of officiële tarieven. De uitkomst is een betrouwbare indicatie op basis van jouw invoer. Houd er rekening mee dat persoonlijke omstandigheden of afwijkingen van de standaard het resultaat kunnen beïnvloeden."
-  },
-  {
-    "question": "In welke situaties gebruik ik BMI Calculator?",
-    "answer": "Je gebruikt deze calculator wanneer je snel inzicht wilt in je gezondheidsgegevens. Het is handig voor thuis, op het werk of onderweg. Omdat de tool gratis is en geen registratie vereist, kun je hem onbeperkt gebruiken voor verschillende scenario's."
-  },
-  {
-    "question": "Is deze calculator medisch advies?",
-    "answer": "Nee, deze calculator geeft een indicatie op basis van algemene formules en gemiddelden. Het is geen medisch advies en vervangt geen consult bij een arts of specialist. Gebruik de resultaten als richtlijn om je gezondheid te monitoren, maar raadpleeg altijd een deskundige voor persoonlijk medisch advies."
-  },
-  {
-    "question": "Wat kost het gebruik van deze calculator?",
-    "answer": "Helemaal niets! Alle calculators op Rekenhet.nl zijn volledig gratis te gebruiken. Je hoeft je niet te registreren, geen app te downloaden en geen persoonlijke gegevens achter te laten. Vul je gegevens in en het resultaat verschijnt direct."
-  }
-],
-});
+    faqs: [
+    {
+      question: "Hoe nauwkeurig is de BMI Calculator?",
+      answer: "Bereken je Body Mass Index op basis van je lengte en gewicht. Ontdek direct of je een gezond gewicht hebt en ontvang persoonlijk advies. De calculator geeft een betrouwbare indicatie op basis van wetenschappelijke formules en standaardwaarden.",
+    },
+    {
+      question: "Is de BMI Calculator een vervanging voor medisch advies?",
+      answer: "Nee, deze calculator is bedoeld als informatief hulpmiddel en vervangt geen medisch consult. Raadpleeg altijd een arts of specialist voor persoonlijk gezondheidsadvies.",
+    },
+    {
+      question: "Welke formule gebruikt de BMI Calculator?",
+      answer: "De calculator gebruikt algemeen geaccepteerde wetenschappelijke formules en standaardwaarden. De exacte formule wordt bij de resultaten getoond.",
+    },
+    {
+      question: "Voor welke leeftijden is de BMI Calculator geschikt?",
+      answer: "De calculator is geschikt voor volwassenen. Voor kinderen en jongeren tot 18 jaar kunnen afwijkende waarden en formules gelden.",
+    }
+  ],
+}
+);

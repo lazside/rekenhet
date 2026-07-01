@@ -243,7 +243,7 @@ export function CalcToggle({ id, label, checked, onChange, tooltip }: CalcToggle
         id={id} role="switch" aria-checked={checked} onClick={() => onChange(!checked)}
         className={cn(
           "relative inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
-          checked ? "bg-blue-600" : "bg-gray-300"
+          checked ? "bg-indigo-600" : "bg-gray-300"
         )}
       >
         <span className={cn("inline-block h-3.5 w-3.5 transform rounded-full bg-white shadow-sm transition-transform", checked ? "translate-x-[18px]" : "translate-x-[3px]")} />
@@ -280,7 +280,7 @@ export function CalcResultRow({ label, value, type = "default", tooltip }: CalcR
         "text-gray-900": type === "default" || type === "highlight",
         "text-emerald-700": type === "success",
         "text-amber-700": type === "warning",
-        "text-blue-700": type === "info",
+        "text-indigo-700": type === "info",
       })}>{value}</span>
     </div>
   );
@@ -297,7 +297,7 @@ interface CalcHeroProps {
   gradient?: string;
 }
 
-export function CalcHero({ label, value, children, gradient = "from-blue-600 via-blue-700 to-indigo-800" }: CalcHeroProps) {
+export function CalcHero({ label, value, children, gradient = "from-indigo-600 via-indigo-700 to-indigo-800" }: CalcHeroProps) {
   return (
     <div className={cn("relative overflow-hidden rounded-2xl bg-gradient-to-br p-6 text-white shadow-lg", gradient)}>
       <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />

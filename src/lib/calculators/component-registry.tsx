@@ -174,7 +174,7 @@ export function getCalculatorComponent(
   const DynamicComponent = dynamic(loader, {
     loading: () => (
       <div className="flex items-center justify-center py-16 text-gray-400">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-blue-600 border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-indigo-600 border-t-transparent" />
       </div>
     ),
   });

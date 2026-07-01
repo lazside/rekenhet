@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -99,7 +100,7 @@ export default function OmrekenenHub() {
         {Object.entries(CATEGORIES).map(([key, val]) => (
           <div key={key} className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-3">
-              <val.icon className="h-5 w-5 text-blue-600" />
+              <val.icon className="h-5 w-5 text-indigo-600" />
               <h2 className="text-sm font-semibold text-gray-900">{val.name} omrekenen</h2>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -107,7 +108,7 @@ export default function OmrekenenHub() {
                 <Link
                   key={`${from}-${to}`}
                   href={`/omrekenen/${from}-naar-${to}`}
-                  className="rounded-lg bg-gray-50 px-3 py-2.5 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors text-center border border-transparent hover:border-blue-100"
+                  className="rounded-lg bg-gray-50 px-3 py-2.5 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-indigo-700 transition-colors text-center border border-transparent hover:border-blue-100"
                 >
                   {from} → {to}
                 </Link>
@@ -115,7 +116,7 @@ export default function OmrekenenHub() {
             </div>
             <Link
               href={`/omrekenen/${val.pairs[0][0]}-naar-${val.pairs[0][1]}`}
-              className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700"
+              className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-indigo-600 hover:text-indigo-700"
             >
               Alle {val.name.toLowerCase()} omrekeningen <ArrowRight className="h-3 w-3" />
             </Link>
@@ -129,7 +130,7 @@ export default function OmrekenenHub() {
     <div className="space-y-6">
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
         <div className="flex items-center gap-2 mb-4">
-          <cat.icon className="h-5 w-5 text-blue-600" />
+          <cat.icon className="h-5 w-5 text-indigo-600" />
           <h2 className="text-sm font-semibold text-gray-900">{cat.name} omrekenen</h2>
         </div>
         <p className="text-sm text-gray-600 mb-4">
@@ -140,7 +141,7 @@ export default function OmrekenenHub() {
             <Link
               key={`${from}-${to}`}
               href={`/omrekenen/${from}-naar-${to}`}
-              className="rounded-lg bg-gray-50 px-3 py-3 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors text-center border border-transparent hover:border-blue-100"
+              className="rounded-lg bg-gray-50 px-3 py-3 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-indigo-700 transition-colors text-center border border-transparent hover:border-blue-100"
               title={label}
             >
               <span className="text-sm font-semibold">{from} → {to}</span>

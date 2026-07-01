@@ -68,7 +68,7 @@ export default function CommuteComparison() {
       {/* Inputs */}
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-4">
         <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
-          <ArrowRightLeft className="h-4 w-4 text-blue-600" />
+          <ArrowRightLeft className="h-4 w-4 text-indigo-600" />
           Woon-werk vergelijking
         </h2>
         <div className="grid grid-cols-2 gap-3">
@@ -80,7 +80,7 @@ export default function CommuteComparison() {
           <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">Dagen thuis/week</label><input type="number" min={0} max={5} value={daysThuis} onChange={e=>setDaysThuis(Math.min(5,Math.max(0,+e.target.value||0)))} className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm" /></div>
           <div className="space-y-1.5"><label className="text-xs font-medium text-gray-500">KM-vergoeding (€)</label><input type="number" step="0.01" value={kmRate} onChange={e=>setKmRate(+e.target.value||0)} className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm" /></div>
         </div>
-        <button onClick={handleCalculate} disabled={loading||!fromPostcode} className="w-full rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-all flex items-center justify-center gap-2">
+        <button onClick={handleCalculate} disabled={loading||!fromPostcode} className="w-full rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-50 transition-all flex items-center justify-center gap-2">
           {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Car className="h-4 w-4" />}
           {loading ? "Bezig..." : "Bereken reisafstand"}
         </button>
@@ -96,7 +96,7 @@ export default function CommuteComparison() {
             <Briefcase className="h-4 w-4" /> {routeData.toName}
           </div>
           <div className="grid grid-cols-2 gap-4 mt-3">
-            <div className="rounded-lg bg-blue-50 p-3 text-center"><p className="text-[10px] text-blue-600">Afstand (enkele reis)</p><p className="text-lg font-bold text-blue-700 tabular-nums">{routeData.distanceKm} km</p></div>
+            <div className="rounded-lg bg-blue-50 p-3 text-center"><p className="text-[10px] text-indigo-600">Afstand (enkele reis)</p><p className="text-lg font-bold text-blue-700 tabular-nums">{routeData.distanceKm} km</p></div>
             <div className="rounded-lg bg-amber-50 p-3 text-center"><p className="text-[10px] text-amber-600">Reistijd (enkele reis)</p><p className="text-lg font-bold text-amber-700 tabular-nums">{routeData.durationMin} min</p></div>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function CommuteComparison() {
             {/* Kantoor */}
             <div className="rounded-xl border-2 border-blue-100 bg-white p-5 shadow-sm">
               <div className="flex items-center gap-2 mb-4">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100"><Briefcase className="h-4 w-4 text-blue-600" /></div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100"><Briefcase className="h-4 w-4 text-indigo-600" /></div>
                 <div><h3 className="text-sm font-semibold text-gray-900">Kantoordag</h3><p className="text-xs text-gray-500">{comparison.daysKantoor} dagen/week</p></div>
               </div>
               <ul className="space-y-2.5">

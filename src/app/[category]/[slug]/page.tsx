@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { CalculatorLayout } from "@/components/layout/CalculatorLayout";
@@ -104,9 +105,11 @@ export default async function CalculatorPage({ params }: Props) {
           )}
 
           {hasComponent && CalculatorComponent ? (
-            <CalculatorErrorBoundary>
-              <CalculatorComponent />
-            </CalculatorErrorBoundary>
+            <Suspense fallback={<CalculatorSkeleton />}>
+              <CalculatorErrorBoundary>
+                <CalculatorComponent />
+              </CalculatorErrorBoundary>
+            </Suspense>
           ) : (
             <CalculatorSkeleton />
           )}

@@ -21,8 +21,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const GOOGLE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "";
+const PLAUSIBLE_URL = process.env.NEXT_PUBLIC_PLAUSIBLE_URL || "";
+const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN || "";
+const SHOW_ANALYTICS = !!(PLAUSIBLE_URL && PLAUSIBLE_DOMAIN);
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: { default: `${SITE_NAME} — Gratis Online Calculators`, template: `%s` },
   description: "Gratis online calculators voor werk & inkomen, ondernemen, geld & verzekeringen, gezondheid, wiskunde en meer. Snel, eenvoudig en betrouwbaar.",
   keywords: ["rekenhet", "online calculator", "gratis rekenen", "btw calculator", "salaris calculator"],
@@ -39,7 +43,12 @@ export const metadata: Metadata = {
     description: "Gratis online calculators voor werk & inkomen, ondernemen, geld & verzekeringen, gezondheid en wiskunde.",
   },
   ...(GOOGLE_VERIFICATION ? { verification: { google: GOOGLE_VERIFICATION } } : {}),
-  alternates: { canonical: SITE_URL },
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      nl: SITE_URL,
+    },
+  },
 };
 
 function printDateScript(): string {
@@ -75,6 +84,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebSite) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }} />
         <script dangerouslySetInnerHTML={{ __html: printDateScript() }} />
+        {SHOW_ANALYTICS && (
+          <script
+            defer
+            data-domain={PLAUSIBLE_DOMAIN}
+            src={`${PLAUSIBLE_URL}/js/script.js`}
+          />
+        )}
       </head>
       <body className={`${ibmPlexSans.variable} ${jetbrainsMono.variable}`}>
         <div className="print-header" aria-hidden="true">

@@ -27,31 +27,23 @@ registerPages({
     categorySlug: "geld-en-verzekeringen",
   },
   categoryLabel: "Geld & Verzekeringen",
-  faqs: [
+    faqs: [
     {
-      question: "Hoe wordt huurtoeslag berekend in 2026?",
-      answer:
-        "De huurtoeslag wordt berekend door eerst je rekenhuur (kale huur + servicekosten, max €879,66) te bepalen. Hiervan wordt de drempelhuur afgetrokken: een inkomensafhankelijk deel (15,3% voor alleenstaanden, 13% voor meerpersoonshuishoudens). Het resterende bedrag (de basishuur) wordt voor 65% vergoed, tot maximaal de aftoppingsgrens. Ook wordt getoetst of je vermogen onder de vrijstellingsgrens ligt (€63.285 voor alleenstaanden, €126.570 voor meerpersoonshuishoudens).",
+      question: "Hoe wordt de berekening van huurtoeslag berekenen 2026 gemaakt?",
+      answer: "De calculator werkt met de actuele 2026-tarieven en -regels van de Belastingdienst en andere officiële instanties. De berekening geeft een betrouwbare indicatie op basis van jouw invoer.",
     },
     {
-      question: "Wat is de maximale huur voor huurtoeslag in 2026?",
-      answer:
-        "In 2026 mag de rekenhuur (kale huur + servicekosten) maximaal €879,66 per maand zijn om in aanmerking te komen voor huurtoeslag. Daarnaast geldt de aftoppingsgrens: voor alleenstaanden is dat €652,07 en voor meerpersoonshuishoudens €698,75. De toeslag wordt berekend over het deel van de huur tot deze aftoppingsgrens. De kwaliteitskortingsgrens ligt op €300,69 — het deel van de huur tot deze grens wordt volledig meegenomen in de toeslagberekening.",
+      question: "Zijn de tarieven voor huurtoeslag berekenen 2026 up-to-date voor 2026?",
+      answer: "Ja, alle tarieven in deze calculator zijn bijgewerkt met de officiële 2026-bedragen. We updaten de calculators jaarlijks na publicatie van nieuwe tarieven.",
     },
     {
-      question: "Tot welk inkomen krijg je huurtoeslag in 2026?",
-      answer:
-        "Er is geen vaste inkomensgrens voor huurtoeslag — het hangt af van je huurhoogte, huishoudsituatie en leeftijd. Hoe hoger je inkomen, hoe hoger de drempelhuur en hoe lager de toeslag. Bij een inkomen boven ongeveer €45.000 (alleenstaand) of €55.000 (meerpersoons) is de toeslag meestal nihil, tenzij je huur erg hoog is. De calculator berekent dit nauwkeurig op basis van jouw situatie.",
+      question: "Is de uitkomst van huurtoeslag berekenen 2026 bindend?",
+      answer: "Nee, de calculator geeft een indicatieve berekening. Voor definitief advies over jouw persoonlijke financiële situatie raden we aan een financieel adviseur te raadplegen.",
     },
     {
-      question: "Is huurtoeslag hetzelfde als de eenmalige huursubsidie?",
-      answer:
-        "Nee, huurtoeslag is een maandelijkse tegemoetkoming van de Belastingdienst die je elk jaar opnieuw kunt aanvragen. Dit is iets anders dan de eenmalige huursubsidie (starterslening of inrichtingskrediet) die sommige gemeenten verstrekken. De huurtoeslag wordt achteraf vastgesteld op basis van je definitieve inkomen, dus het is belangrijk om wijzigingen in je inkomen door te geven.",
-    },
-    {
-      question: "Hoe vraag ik huurtoeslag aan?",
-      answer:
-        "Huurtoeslag vraag je aan via de Belastingdienst Toeslagen. Dit kan via de website toeslagen.nl met je DigiD. Je hebt nodig: je burgerservicenummer (BSN), je huurcontract, de huurprijs en je inkomen. De toeslag wordt met terugwerkende kracht toegekend vanaf de ingangsdatum van je huurcontract, mits je binnen 3 maanden na de ingangsdatum aanvraagt. De uitbetaling gebeurt maandelijks rond de 20e.",
-    },
+      question: "Wat is het verschil tussen bruto en netto bij deze tool?",
+      answer: "Bruto is het bedrag vóór belasting en premies, netto is wat je daadwerkelijk ontvangt of betaalt. De calculator toont beide waarden.",
+    }
   ],
-});
+}
+);

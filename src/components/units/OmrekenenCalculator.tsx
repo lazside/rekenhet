@@ -70,14 +70,14 @@ export default function OmrekenenCalculator({ fromSlug, toSlug }: OmrekenenCalcu
   return (
     <div className="space-y-6">
       {/* ── 1. Instant Answer Hero Card ── */}
-      <div className="rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 p-6 text-white shadow-lg">
-        <p className="text-sm text-blue-200 font-medium mb-1">Direct antwoord</p>
+      <div className="rounded-2xl bg-gradient-to-br from-indigo-600 to-indigo-700 p-6 text-white shadow-lg">
+        <p className="text-sm text-indigo-200 font-medium mb-1">Direct antwoord</p>
         <p className="text-2xl md:text-3xl font-bold tracking-tight">
           1 {fromUnit.singular} ={" "}
           {convert(1, fromSlug, toSlug).toLocaleString("nl-NL", { maximumFractionDigits: 6 })}{" "}
           {toUnit.singular}
         </p>
-        <p className="text-sm text-blue-200 mt-2">
+        <p className="text-sm text-indigo-200 mt-2">
           {cat.icon} {cat.name} &middot; {fromUnit.singular} naar {toUnit.singular}
         </p>
       </div>
@@ -85,7 +85,7 @@ export default function OmrekenenCalculator({ fromSlug, toSlug }: OmrekenenCalcu
       {/* ── 2. Two-Way Calculator ── */}
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
         <div className="flex items-center gap-2 mb-4">
-          <Calculator className="h-4 w-4 text-blue-600" />
+          <Calculator className="h-4 w-4 text-indigo-600" />
           <h2 className="text-sm font-semibold text-gray-900">
             {fromUnit.plural} naar {toUnit.plural} omrekenen
           </h2>
@@ -103,7 +103,7 @@ export default function OmrekenenCalculator({ fromSlug, toSlug }: OmrekenenCalcu
               inputMode="decimal"
               value={fromValue}
               onChange={(e) => handleFromChange(e.target.value)}
-              className="block w-full rounded-xl border-2 border-blue-100 bg-blue-50/50 px-4 py-3.5 text-lg font-bold text-gray-900 tabular-nums focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all outline-none"
+              className="block w-full rounded-xl border-2 border-blue-100 bg-blue-50/50 px-4 py-3.5 text-lg font-bold text-gray-900 tabular-nums focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 transition-all outline-none"
               aria-label={`Aantal ${fromUnit.plural}`}
             />
           </div>
@@ -118,7 +118,7 @@ export default function OmrekenenCalculator({ fromSlug, toSlug }: OmrekenenCalcu
               window.history.pushState(null, "", url);
               window.location.reload();
             }}
-            className="mt-6 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-gray-200 bg-white text-gray-400 hover:border-blue-300 hover:text-blue-600 hover:bg-blue-50 transition-all"
+            className="mt-6 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-gray-200 bg-white text-gray-400 hover:border-blue-300 hover:text-indigo-600 hover:bg-blue-50 transition-all"
             aria-label="Omwisselen"
           >
             <ArrowRightLeft className="h-4 w-4" />
@@ -145,7 +145,7 @@ export default function OmrekenenCalculator({ fromSlug, toSlug }: OmrekenenCalcu
       {/* ── 3. Quick Reference Table ── */}
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
         <div className="flex items-center gap-2 mb-3">
-          <BarChart3 className="h-4 w-4 text-blue-600" />
+          <BarChart3 className="h-4 w-4 text-indigo-600" />
           <h3 className="text-sm font-semibold text-gray-900">Snelle omrekentabel</h3>
         </div>
         <div className="overflow-x-auto">
@@ -186,7 +186,7 @@ export default function OmrekenenCalculator({ fromSlug, toSlug }: OmrekenenCalcu
       {/* ── 4. Formula Explanation ── */}
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
         <div className="flex items-center gap-2 mb-3">
-          <BookOpen className="h-4 w-4 text-blue-600" />
+          <BookOpen className="h-4 w-4 text-indigo-600" />
           <h3 className="text-sm font-semibold text-gray-900">Hoe reken je {fromUnit.plural} naar {toUnit.plural} om?</h3>
         </div>
         <p className="text-sm text-gray-700 leading-relaxed">{formula}</p>
@@ -210,7 +210,7 @@ export default function OmrekenenCalculator({ fromSlug, toSlug }: OmrekenenCalcu
                 <a
                   key={slug}
                   href={`/omrekenen/${fromSlug}-naar-${slug}`}
-                  className="rounded-lg bg-gray-50 px-3 py-2.5 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors text-center border border-transparent hover:border-blue-100"
+                  className="rounded-lg bg-gray-50 px-3 py-2.5 text-xs font-medium text-gray-700 hover:bg-blue-50 hover:text-indigo-700 transition-colors text-center border border-transparent hover:border-blue-100"
                 >
                   {fromSlug} → {slug}
                 </a>

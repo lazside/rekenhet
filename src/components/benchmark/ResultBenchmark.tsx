@@ -138,7 +138,7 @@ export function ResultBenchmark({
   else { tier = "lagere inkomensgroep"; tierIcon = "💪"; }
 
   const colors = {
-    blue: { text: "text-blue-700", bg: "bg-blue-50", border: "border-blue-100", badge: "bg-blue-600" },
+    blue: { text: "text-blue-700", bg: "bg-blue-50", border: "border-blue-100", badge: "bg-indigo-600" },
     emerald: { text: "text-emerald-700", bg: "bg-emerald-50", border: "border-emerald-100", badge: "bg-emerald-600" },
     amber: { text: "text-amber-700", bg: "bg-amber-50", border: "border-amber-100", badge: "bg-amber-600" },
   };

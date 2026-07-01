@@ -13,7 +13,7 @@ import type { Category } from "@/types";
 
 const SITE_NAME = "Rekenhet.nl";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.rekenhet.nl";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.png`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.svg`;
 const SEPARATOR = "|";
 const BRAND = SITE_NAME;
 

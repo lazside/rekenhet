@@ -140,7 +140,7 @@ export default function CookiesPage() {
           <strong>Google&apos;s advertentie-instellingen:</strong> Bezoek{" "}
           <a
             href="https://adssettings.google.com"
-            className="text-blue-600 underline"
+            className="text-indigo-600 underline"
             target="_blank"
             rel="noopener noreferrer"
           >

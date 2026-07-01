@@ -1,19 +1,22 @@
 import type { MetadataRoute } from "next";
+import fs from "fs";
+import path from "path";
 import { getAllCalculators } from "@/data/calculators";
 import { categories } from "@/data/categories";
-import unitsData from "@/data/units.json";
+import { getAllContentPages } from "@/content";
+import citiesData from "@/data/cities.json";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.rekenhet.nl";
 const BUILD_DATE = new Date();
 
-interface UnitCategory {
-  id: string;
+interface CityEntry {
+  slug: string;
   name: string;
-  baseUnit: string;
-  units: { id: string; slug: string }[];
+  province: string;
+  postcodePrefix: string;
 }
 
-const UNIT_CATEGORIES = (unitsData as { categories: UnitCategory[] }).categories;
+const cities = citiesData as CityEntry[];
 
 const COMMON_AMOUNTS = [
   2000, 2500, 2800, 3000, 3200, 3500, 3800, 4000,
@@ -21,14 +24,26 @@ const COMMON_AMOUNTS = [
   7500, 8000, 9000, 10000, 12500, 15000,
 ];
 
-/** Break sitemap into chunks of 500 to avoid Google's soft ceiling */
-const MAX_URLS_PER_SITEMAP = 500;
+/** Cache file modification dates to differentiate lastModified across pages */
+const FILE_DATE_CACHE = new Map<string, Date>();
+
+function getFileDate(filePath: string): Date {
+  if (FILE_DATE_CACHE.has(filePath)) return FILE_DATE_CACHE.get(filePath)!;
+  try {
+    const stat = fs.statSync(path.join(process.cwd(), filePath));
+    FILE_DATE_CACHE.set(filePath, stat.mtime);
+    return stat.mtime;
+  } catch {
+    return BUILD_DATE;
+  }
+}
 
 function changeFreq(cat: string): "monthly" | "weekly" | "yearly" {
   const m: Record<string, "monthly" | "weekly" | "yearly"> = {
     gezondheid: "monthly", "werk-en-inkomen": "monthly",
     ondernemen: "monthly", wiskunde: "yearly",
     algemeen: "monthly", "geld-en-verzekeringen": "monthly", hypotheek: "monthly",
+    "auto-vervoer": "monthly",
   };
   return m[cat] || "monthly";
 }
@@ -60,51 +75,77 @@ function getPopularConversionPairs(): string[] {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const calculators = getAllCalculators();
+  const contentPages = getAllContentPages();
+
+  // Build a map of calculator slug → content page date for differentiation
+  const calcContentDate = new Map<string, Date>();
+  contentPages.forEach((cp) => {
+    const fileDate = getFileDate(`src/content/pages/${cp.slug}.ts`);
+    calcContentDate.set(cp.calculator.componentSlug, fileDate);
+  });
 
   const entries: MetadataRoute.Sitemap = [
-    // Core static pages
+    // ── Core static pages (with differentiated dates) ──
     { url: SITE_URL, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${SITE_URL}/calculators`, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${SITE_URL}/privacy`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${SITE_URL}/cookies`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${SITE_URL}/disclaimer`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.3 },
-    { url: `${SITE_URL}/contact`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${SITE_URL}/updates`, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 0.6 },
-    { url: `${SITE_URL}/kenteken-check`, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${SITE_URL}/gemeentelijke-belastingen`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${SITE_URL}/zonnepanelen-opbrengst`, lastModified: BUILD_DATE, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${SITE_URL}/thuiswerken-vs-kantoor`, lastModified: BUILD_DATE, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/calculators`, lastModified: getFileDate("src/app/calculators/page.tsx"), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${SITE_URL}/over-ons`, lastModified: getFileDate("src/app/over-ons/page.tsx"), changeFrequency: "monthly", priority: 0.4 },
+    { url: `${SITE_URL}/veelgestelde-vragen`, lastModified: getFileDate("src/app/veelgestelde-vragen/page.tsx"), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${SITE_URL}/privacy`, lastModified: getFileDate("src/app/privacy/page.tsx"), changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/cookies`, lastModified: getFileDate("src/app/cookies/page.tsx"), changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/disclaimer`, lastModified: getFileDate("src/app/disclaimer/page.tsx"), changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/contact`, lastModified: getFileDate("src/app/contact/page.tsx"), changeFrequency: "monthly", priority: 0.5 },
 
-    // Categories
-    ...categories.map((cat) => ({
-      url: `${SITE_URL}/${cat.slug}` as const,
-      lastModified: BUILD_DATE,
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
-    })),
+    // ── Standalone tool pages ──
+    { url: `${SITE_URL}/kenteken-check`, lastModified: getFileDate("src/app/kenteken-check/page.tsx"), changeFrequency: "weekly", priority: 0.7 },
+    { url: `${SITE_URL}/gemeentelijke-belastingen`, lastModified: getFileDate("src/app/gemeentelijke-belastingen/page.tsx"), changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/zonnepanelen-opbrengst`, lastModified: getFileDate("src/app/zonnepanelen-opbrengst/page.tsx"), changeFrequency: "weekly", priority: 0.7 },
+    { url: `${SITE_URL}/thuiswerken-vs-kantoor`, lastModified: getFileDate("src/app/thuiswerken-vs-kantoor/page.tsx"), changeFrequency: "monthly", priority: 0.6 },
 
-    // All calculators
-    ...calculators.map((calc) => ({
-      url: `${SITE_URL}/${calc.categorySlug}/${calc.slug}` as const,
-      lastModified: BUILD_DATE,
-      changeFrequency: changeFreq(calc.categorySlug),
-      priority: prio(calc.featured, calc.categorySlug),
-    })),
+    // ── Categories ──
+    ...categories.map((cat) => {
+      const catDate = getFileDate(`src/app/${cat.slug}/page.tsx`);
+      return {
+        url: `${SITE_URL}/${cat.slug}` as const,
+        lastModified: catDate,
+        changeFrequency: "weekly" as const,
+        priority: 0.8,
+      };
+    }),
 
-    // Bruto-netto/[amount]
+    // ── All calculators ──
+    ...calculators.map((calc) => {
+      const contentDate = calcContentDate.get(calc.slug);
+      const date = contentDate || getFileDate(`src/app/${calc.categorySlug}/${calc.slug}/page.tsx`) || BUILD_DATE;
+      return {
+        url: `${SITE_URL}/${calc.categorySlug}/${calc.slug}` as const,
+        lastModified: date,
+        changeFrequency: changeFreq(calc.categorySlug),
+        priority: prio(calc.featured, calc.categorySlug),
+      };
+    }),
+
+    // ── Bruto-netto/[amount] ──
     ...COMMON_AMOUNTS.map((amount) => ({
       url: `${SITE_URL}/bruto-netto/${amount}` as const,
-      lastModified: BUILD_DATE,
+      lastModified: getFileDate("src/app/bruto-netto/[amount]/page.tsx"),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
 
-    // Omrekenen/[pair] — only popular pairs (avoids thin content)
+    // ── Omrekenen/[pair] — only popular pairs (avoids thin content) ──
     ...getPopularConversionPairs().map((pair) => ({
       url: `${SITE_URL}/omrekenen/${pair}` as const,
-      lastModified: BUILD_DATE,
+      lastModified: getFileDate("src/app/omrekenen/[pair]/page.tsx"),
       changeFrequency: "monthly" as const,
       priority: 0.5,
+    })),
+
+    // ── Lokale belastingen per stad ──
+    ...cities.slice(0, 100).map((city) => ({
+      url: `${SITE_URL}/lokaal/${city.slug}` as const,
+      lastModified: getFileDate("src/data/cities.json"),
+      changeFrequency: "monthly" as const,
+      priority: 0.4,
     })),
   ];
 

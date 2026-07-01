@@ -174,7 +174,7 @@ export function AdSenseBanner({
       <div
         ref={containerRef}
         className={cn(
-          "flex items-center justify-center rounded-lg bg-blue-50 border border-blue-200 text-xs text-blue-500 font-medium",
+          "flex items-center justify-center rounded-lg bg-blue-50 border border-indigo-200 text-xs text-blue-500 font-medium",
           size.className,
           className
         )}
@@ -309,7 +309,7 @@ export function AdZoneMobileAnchor() {
         {/* Close button */}
         <button
           onClick={handleDismiss}
-          className="absolute right-2 top-1.5 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-gray-200/70 text-gray-400 hover:bg-gray-300 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[10px] transition-all duration-200"
+          className="absolute right-2 top-1.5 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-gray-200/70 text-gray-400 hover:bg-gray-300 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-[10px] transition-all duration-200"
           aria-label="Advertentie sluiten"
           title="Sluiten"
         >

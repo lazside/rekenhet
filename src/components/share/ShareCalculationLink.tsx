@@ -54,7 +54,7 @@ export function ShareCalculationLink({
         "inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium transition-all",
         copied
           ? "bg-emerald-100 text-emerald-700"
-          : "bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600",
+          : "bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-indigo-600",
         className
       )}
     >

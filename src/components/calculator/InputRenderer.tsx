@@ -21,7 +21,7 @@ export function InputFieldRenderer({
   error,
 }: InputFieldRendererProps) {
   const baseInput =
-    "block w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all";
+    "block w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all";
 
   const inputClasses = cn(baseInput, error && "border-red-500 focus:border-red-500 focus:ring-red-500/20");
 
@@ -81,7 +81,7 @@ export function InputFieldRenderer({
               min={field.min ?? 0}
               max={field.max ?? 100}
               step={field.step ?? 1}
-              className="w-full accent-blue-600"
+              className="w-full accent-indigo-600"
               value={value}
               onChange={(e) => onChange(field.id, e.target.value)}
             />
@@ -138,7 +138,7 @@ export function ResultValue({ label, value, type = "default" }: ResultValueProps
           "text-gray-900": type === "default" || type === "highlight",
           "text-emerald-700": type === "success",
           "text-amber-700": type === "warning",
-          "text-blue-700": type === "info",
+          "text-indigo-700": type === "info",
         })}
       >
         {value}

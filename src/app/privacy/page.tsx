@@ -92,7 +92,7 @@ export default function PrivacyPage() {
         meer op{" "}
         <a
           href="https://policies.google.com/privacy"
-          className="text-blue-600 underline"
+          className="text-indigo-600 underline"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -109,7 +109,7 @@ export default function PrivacyPage() {
         kunt uw toestemming op elk moment intrekken door uw
         browserinstellingen aan te passen of door uw cookievoorkeuren te
         wissen. Zie onze{" "}
-        <a href="/cookies" className="text-blue-600 underline">
+        <a href="/cookies" className="text-indigo-600 underline">
           cookieverklaring
         </a>{" "}
         voor een volledig overzicht.
@@ -133,7 +133,7 @@ export default function PrivacyPage() {
         verwijzen wij voor de uitoefening van uw rechten naar{" "}
         <a
           href="https://policies.google.com/privacy"
-          className="text-blue-600 underline"
+          className="text-indigo-600 underline"
           target="_blank"
           rel="noopener noreferrer"
         >

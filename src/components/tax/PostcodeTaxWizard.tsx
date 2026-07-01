@@ -71,7 +71,7 @@ export default function PostcodeTaxWizard({ initialPostcode }: PostcodeTaxWizard
       {/* Input */}
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-4">
         <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
-          <MapPin className="h-4 w-4 text-blue-600" />
+          <MapPin className="h-4 w-4 text-indigo-600" />
           Gemeentelijke belastingen check
         </h2>
 
@@ -83,7 +83,7 @@ export default function PostcodeTaxWizard({ initialPostcode }: PostcodeTaxWizard
               onChange={(e) => setPostcode(e.target.value.toUpperCase())}
               placeholder="Vul je postcode in (bijv. 3011)"
               maxLength={7}
-              className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base font-semibold tracking-wider focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none"
+              className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base font-semibold tracking-wider focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 outline-none"
               aria-label="Postcode"
             />
           </div>
@@ -93,7 +93,7 @@ export default function PostcodeTaxWizard({ initialPostcode }: PostcodeTaxWizard
           <div className="rounded-lg bg-blue-50 border border-blue-100 p-3">
             <p className="text-sm font-medium text-blue-800">
               {lookup.municipality}
-              {lookup.province && <span className="font-normal text-blue-600"> ({lookup.province})</span>}
+              {lookup.province && <span className="font-normal text-indigo-600"> ({lookup.province})</span>}
             </p>
           </div>
         )}
@@ -105,13 +105,13 @@ export default function PostcodeTaxWizard({ initialPostcode }: PostcodeTaxWizard
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setHuishouden("enkel")}
-              className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${huishouden === "enkel" ? "bg-blue-600 text-white shadow-sm" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
+              className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${huishouden === "enkel" ? "bg-indigo-600 text-white shadow-sm" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
             >
               Alleenstaand
             </button>
             <button
               onClick={() => setHuishouden("meer")}
-              className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${huishouden === "meer" ? "bg-blue-600 text-white shadow-sm" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
+              className={`flex-1 rounded-lg px-4 py-2.5 text-sm font-medium transition-all ${huishouden === "meer" ? "bg-indigo-600 text-white shadow-sm" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
             >
               Meerpersoons
             </button>
@@ -123,7 +123,7 @@ export default function PostcodeTaxWizard({ initialPostcode }: PostcodeTaxWizard
               type="number"
               value={woz}
               onChange={(e) => setWoz(+e.target.value || 0)}
-              className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+              className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
             />
           </div>
         </div>
@@ -133,15 +133,15 @@ export default function PostcodeTaxWizard({ initialPostcode }: PostcodeTaxWizard
       {taxBreakdown && (
         <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm space-y-3">
           <h3 className="text-sm font-semibold text-gray-900">Jaarlijkse lasten {lookup?.municipality}</h3>
-          <div className="rounded-xl bg-gradient-to-br from-blue-600 to-indigo-800 p-5 text-white shadow-lg text-center">
-            <p className="text-sm text-blue-200">Totaal per jaar</p>
+          <div className="rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-800 p-5 text-white shadow-lg text-center">
+            <p className="text-sm text-indigo-200">Totaal per jaar</p>
             <p className="text-3xl font-bold tabular-nums mt-1">{formatEUR(taxBreakdown.totaal)}</p>
           </div>
 
           <div className="grid grid-cols-3 gap-3 mt-3">
             <div className="rounded-lg bg-blue-50 p-3 text-center border border-blue-100">
               <Home className="h-4 w-4 text-blue-500 mx-auto mb-1" />
-              <p className="text-[10px] text-blue-600 font-medium uppercase">OZB</p>
+              <p className="text-[10px] text-indigo-600 font-medium uppercase">OZB</p>
               <p className="text-sm font-bold text-blue-700 tabular-nums">{formatEUR(taxBreakdown.ozb)}</p>
               <p className="text-[9px] text-blue-400">({taxBreakdown.ozbPct.toFixed(3)}%)</p>
             </div>

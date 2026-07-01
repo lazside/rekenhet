@@ -68,8 +68,8 @@ export default function SolarCalculator() {
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <label className="text-sm font-medium text-gray-700">Aantal panelen</label>
-            <input type="range" min={1} max={50} value={panels} onChange={(e) => setPanels(+e.target.value)} className="w-full accent-blue-600" />
-            <div className="flex justify-between text-xs text-gray-400"><span>1</span><span className="font-semibold text-blue-600">{panels}</span><span>50</span></div>
+            <input type="range" min={1} max={50} value={panels} onChange={(e) => setPanels(+e.target.value)} className="w-full accent-indigo-600" />
+            <div className="flex justify-between text-xs text-gray-400"><span>1</span><span className="font-semibold text-indigo-600">{panels}</span><span>50</span></div>
           </div>
           <div className="space-y-1.5">
             <label className="text-sm font-medium text-gray-700">Wattpiek (Wp)</label>
@@ -86,7 +86,7 @@ export default function SolarCalculator() {
         {/* Pitch slider */}
         <div className="space-y-1.5">
           <label className="text-sm font-medium text-gray-700">Dakhelling: {pitch}°</label>
-          <input type="range" min={5} max={60} value={pitch} onChange={(e) => setPitch(+e.target.value)} className="w-full accent-blue-600" />
+          <input type="range" min={5} max={60} value={pitch} onChange={(e) => setPitch(+e.target.value)} className="w-full accent-indigo-600" />
           <div className="flex justify-between text-xs text-gray-400"><span>5°</span><span>{pitch}°</span><span>60°</span></div>
         </div>
 
@@ -98,7 +98,7 @@ export default function SolarCalculator() {
               <button
                 key={d.azimuth}
                 onClick={() => setAzimuth(d.azimuth)}
-                className={`rounded-lg px-2 py-2.5 text-xs font-medium transition-all text-center ${azimuth === d.azimuth ? "bg-blue-600 text-white shadow-sm ring-2 ring-blue-300" : "bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200"}`}
+                className={`rounded-lg px-2 py-2.5 text-xs font-medium transition-all text-center ${azimuth === d.azimuth ? "bg-indigo-600 text-white shadow-sm ring-2 ring-blue-300" : "bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200"}`}
               >
                 <span className="block text-sm">{d.icon}</span>
                 {d.label}
@@ -110,7 +110,7 @@ export default function SolarCalculator() {
         <button
           onClick={handleCalculate}
           disabled={loading}
-          className="w-full rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+          className="w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
         >
           {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Zap className="h-4 w-4" />}
           {loading ? "Bezig..." : "Bereken opbrengst"}
@@ -147,7 +147,7 @@ export default function SolarCalculator() {
           {/* Monthly bar chart */}
           {result.monthlyData.length > 0 && (
             <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-              <div className="flex items-center gap-2 mb-4"><BarChart3 className="h-4 w-4 text-blue-600" /><h3 className="text-sm font-semibold text-gray-900">Maandelijkse opbrengst</h3></div>
+              <div className="flex items-center gap-2 mb-4"><BarChart3 className="h-4 w-4 text-indigo-600" /><h3 className="text-sm font-semibold text-gray-900">Maandelijkse opbrengst</h3></div>
               <div className="flex items-end gap-1.5 h-32">
                 {result.monthlyData.map((m, i) => {
                   const max = Math.max(...result.monthlyData.map(x => x.kwh));
@@ -170,7 +170,7 @@ export default function SolarCalculator() {
             <div className="grid grid-cols-3 gap-3 mb-4">
               <div className="rounded-lg bg-gray-50 p-3 text-center border border-gray-100"><p className="text-[10px] text-gray-500">Investering</p><p className="text-sm font-bold text-gray-900 tabular-nums">{formatEUR(result.financial.totalCost)}</p></div>
               <div className="rounded-lg bg-emerald-50 p-3 text-center border border-emerald-100"><p className="text-[10px] text-emerald-600">Besparing/jr</p><p className="text-sm font-bold text-emerald-700 tabular-nums">{formatEUR(result.financial.savingsPerYear)}</p></div>
-              <div className="rounded-lg bg-blue-50 p-3 text-center border border-blue-100"><p className="text-[10px] text-blue-600">Terugverdientijd</p><p className="text-sm font-bold text-blue-700 tabular-nums">{result.financial.paybackYears} jaar</p></div>
+              <div className="rounded-lg bg-blue-50 p-3 text-center border border-blue-100"><p className="text-[10px] text-indigo-600">Terugverdientijd</p><p className="text-sm font-bold text-blue-700 tabular-nums">{result.financial.paybackYears} jaar</p></div>
             </div>
 
             {/* ROI chart */}

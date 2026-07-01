@@ -144,7 +144,7 @@ export default function ContactForm() {
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors"
           >
             Terug naar home
           </Link>
@@ -185,7 +185,7 @@ export default function ContactForm() {
                 { icon: Building2, title: "Zakelijk", desc: "Adverteren, partnerships of samenwerkingen." },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-100 text-indigo-600">
                     <item.icon className="h-4 w-4" />
                   </div>
                   <div>
@@ -201,11 +201,11 @@ export default function ContactForm() {
                 <strong>Reactietijd:</strong> We streven ernaar om binnen 24 uur
                 te reageren op werkdagen. Voor dringende vragen kun je ons ook
                 vinden via onze{" "}
-                <Link href="/privacy" className="text-blue-600 underline">
+                <Link href="/privacy" className="text-indigo-600 underline">
                   privacy
                 </Link>{" "}
                 en{" "}
-                <Link href="/disclaimer" className="text-blue-600 underline">
+                <Link href="/disclaimer" className="text-indigo-600 underline">
                   disclaimer
                 </Link>{" "}
                 pagina&apos;s.
@@ -221,7 +221,7 @@ export default function ContactForm() {
               noValidate
             >
               <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                <Mail className="h-5 w-5 text-blue-600" />
+                <Mail className="h-5 w-5 text-indigo-600" />
                 Stuur een bericht
               </h2>
 
@@ -246,7 +246,7 @@ export default function ContactForm() {
                   }}
                   onBlur={() => validateField("name", name)}
                   placeholder="Jouw naam"
-                  className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
                   aria-label="Naam"
                 />
               </FormField>
@@ -262,7 +262,7 @@ export default function ContactForm() {
                   }}
                   onBlur={() => validateField("email", email)}
                   placeholder="jouw@email.nl"
-                  className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
                   aria-label="E-mailadres"
                 />
               </FormField>
@@ -277,7 +277,7 @@ export default function ContactForm() {
                     validateField("subject", e.target.value);
                   }}
                   onBlur={() => validateField("subject", subject)}
-                  className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
                   aria-label="Onderwerp"
                 >
                   {SUBJECTS.map((s) => (
@@ -294,7 +294,7 @@ export default function ContactForm() {
                   <select
                     value={calculatorSlug}
                     onChange={(e) => setCalculatorSlug(e.target.value)}
-                    className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20"
                     aria-label="Selecteer calculator"
                   >
                     <option value="">— Selecteer —</option>
@@ -318,7 +318,7 @@ export default function ContactForm() {
                   onBlur={() => validateField("message", message)}
                   rows={5}
                   placeholder="Beschrijf je vraag, bug of suggestie..."
-                  className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 resize-y min-h-[120px]"
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 resize-y min-h-[120px]"
                   aria-label="Bericht"
                 />
                 <p className="text-xs text-gray-400 mt-1 text-right">
@@ -337,7 +337,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 transition-all shadow-sm"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white hover:bg-indigo-700 disabled:opacity-50 transition-all shadow-sm"
               >
                 {status === "sending" ? (
                   <Loader2 className="h-4 w-4 animate-spin" />

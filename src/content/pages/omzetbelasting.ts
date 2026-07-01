@@ -26,30 +26,23 @@ registerPages({
     categorySlug: "ondernemen",
   },
   categoryLabel: "Ondernemen",
-  faqs: [
+    faqs: [
     {
-      question: "Wat is het verschil tussen BTW en omzetbelasting?",
-      answer:
-        "Omzetbelasting is de officiële naam van de belasting die je betaalt over geleverde goederen en diensten. BTW (Belasting over de Toegevoegde Waarde) is dezelfde belasting; de termen worden door elkaar gebruikt. In Nederland hanteren we drie BTW-tarieven: 21% (algemeen tarief voor de meeste goederen en diensten), 9% (verlaagd tarief voor bijvoorbeeld levensmiddelen, boeken en medicijnen), en 0% voor bijvoorbeeld export.",
+      question: "Hoe gebruik ik de Omzetbelasting voor mijn administratie?",
+      answer: "Bereken de af te dragen BTW op basis van omzet, BTW-tarief en voorbelasting. De resultaten kun je gebruiken als indicatie voor je administratie. Voor de definitieve aangifte raden we aan een boekhouder te raadplegen.",
     },
     {
-      question: "Wat is voorbelasting?",
-      answer:
-        "Voorbelasting is de BTW die jij betaalt op inkopen en kosten voor je onderneming. Denk aan BTW op ingekochte goederen, kantoorbenodigdheden, verbouwingen of diensten van derden. Deze voorbelasting mag je aftrekken van de BTW die je aan je klanten hebt berekend. Het verschil draag je af aan de Belastingdienst. Als de voorbelasting hoger is dan de BTW op je verkopen, krijg je het verschil terug.",
+      question: "Zijn de tarieven in omzetbelasting actueel voor 2026?",
+      answer: "Ja, alle belastingtarieven, percentages en drempelbedragen zijn bijgewerkt met de officiële 2026-waarden van de Belastingdienst.",
     },
     {
-      "question": "Hoe vaak doe ik BTW-aangifte?",
-      "answer": "De meeste ondernemers doen elk kwartaal BTW-aangifte. Je kunt ook kiezen voor maandaangifte (bij hoge BTW-bedragen) of jaaraangifte (als je gebruikmaakt van de kleineondernemersregeling). De Belastingdienst stelt het tijdvak vast op basis van je omzet en aangiftegeschiedenis. De aangifte moet uiterlijk een maand na afloop van het tijdvak zijn ingediend."
+      question: "Kan ik de resultaten gebruiken voor mijn belastingaangifte?",
+      answer: "De calculator geeft een betrouwbare indicatie, maar voor de officiële belastingaangifte raden we aan de berekeningen te verifiëren met een fiscaal adviseur.",
     },
     {
-      question: "Wat gebeurt er als ik te weinig BTW afdraag?",
-      answer:
-        "Als je te weinig BTW afdraagt, kan de Belastingdienst een naheffing opleggen. Daarnaast kun je een boete krijgen en moet je belastingrente betalen over het te laat betaalde bedrag. Het is daarom belangrijk om je BTW-aangifte zorgvuldig en op tijd in te dienen. Gebruik deze calculator als hulpmiddel, maar controleer altijd de definitieve bedragen in je boekhouding.",
-    },
-    {
-      question: "Moet ik BTW rekenen over facturen naar het buitenland?",
-      answer:
-        "Bij facturen naar het buitenland gelden speciale regels. Voor facturen naar particulieren in andere EU-landen geldt vaak het BTW-tarief van jouw land. Voor zakelijke klanten in andere EU-landen is de BTW meestal 0% (verlegd naar de afnemer, ICP-aangifte). Voor facturen buiten de EU geldt meestal 0% BTW (export). Dit is een complex onderwerp; raadpleeg een fiscaal adviseur voor de juiste toepassing.",
-    },
+      question: "Wat zijn de voordelen voor mijn onderneming?",
+      answer: "De calculator geeft je snel inzicht in je financiële situatie, zodat je betere beslissingen kunt nemen voor je bedrijf. Geen registratie nodig.",
+    }
   ],
-});
+}
+);

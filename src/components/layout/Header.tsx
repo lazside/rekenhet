@@ -6,7 +6,12 @@ import { Container } from"@/components/ui/Container";
 import { Button } from"@/components/ui/Button";
 import { useState, useRef, useCallback, useEffect } from"react";
 import { cn } from"@/lib/utils";
-import { SearchDialog } from"@/components/search/SearchDialog";
+import dynamic from "next/dynamic";
+
+const SearchDialog = dynamic(() => import("@/components/search/SearchDialog").then((m) => m.SearchDialog), {
+  ssr: false,
+  loading: () => null,
+});
 import { categories } from"@/data/categories";
 
 const navLinks = [

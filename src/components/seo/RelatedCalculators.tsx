@@ -1,4 +1,3 @@
-"use client";
 
 import Link from "next/link";
 import { Card, CardContent, CardTitle, CardDescription } from "@/components/ui/Card";
@@ -76,7 +75,7 @@ export function RelatedCalculators({
         </h2>
         <Link
           href="/calculators"
-          className="flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700"
+          className="flex items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-700"
         >
           Alle calculators
           <ArrowRight className="h-4 w-4" />
@@ -90,9 +89,9 @@ export function RelatedCalculators({
             href={`/${calc.categorySlug}/${calc.slug}`}
             className="group"
           >
-            <Card className="h-full transition-all group-hover:border-blue-200 group-hover:shadow-sm">
+            <Card className="h-full transition-all group-hover:border-indigo-200 group-hover:shadow-sm">
               <CardContent className="p-4">
-                <CardTitle className="text-sm group-hover:text-blue-600 transition-colors">
+                <CardTitle className="text-sm group-hover:text-indigo-600 transition-colors">
                   {calc.title}
                 </CardTitle>
                 <CardDescription className="mt-1 text-xs line-clamp-2">

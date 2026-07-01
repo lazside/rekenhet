@@ -15,26 +15,23 @@ registerPages({
     categorySlug: "ondernemen",
   },
   categoryLabel: "Ondernemen",
-  faqs: [
-  {
-    "question": "Wat is BTW Calculator en hoe gebruik ik hem?",
-    "answer": "BTW Calculator is een gratis online tool waarmee je bereken snel en eenvoudig de btw over elk bedrag. kies uit 21%, 9% of 0% tarief en bereken inclusief of exclusief btw. Je vult de gevraagde gegevens in en het resultaat verschijnt direct. De calculator werkt met de meest actuele gegevens en tarieven, zodat je altijd een reële uitkomst krijgt. Geen registratie nodig en volledig gratis te gebruiken."
-  },
-  {
-    "question": "Zijn de tarieven en regels up-to-date voor 2026?",
-    "answer": "Ja, deze calculator werkt met de actuele 2026-tarieven en -regels. De bedragen worden jaarlijks bijgewerkt op basis van de officiële publicaties van de Belastingdienst, het UWV en andere overheidsinstanties. Je kunt er dus op vertrouwen dat de berekening klopt met de meest recente wet- en regelgeving."
-  },
-  {
-    "question": "In welke situaties gebruik ik BTW Calculator?",
-    "answer": "Je gebruikt deze calculator wanneer je snel inzicht wilt in een financiële situatie. Het is handig voor thuis, op het werk of onderweg. Omdat de tool gratis is en geen registratie vereist, kun je hem onbeperkt gebruiken voor verschillende scenario's."
-  },
-  {
-    "question": "Kan ik deze berekening gebruiken voor mijn boekhouding?",
-    "answer": "De calculator geeft een betrouwbare indicatie om snel inzicht te krijgen. Gebruik de uitkomsten als richtlijn en overleg altijd met je boekhouder of fiscalist voor de definitieve verwerking in je administratie. De tool is ideaal om scenario's door te rekenen voordat je beslissingen neemt."
-  },
-  {
-    "question": "Wat kost het gebruik van deze calculator?",
-    "answer": "Helemaal niets! Alle calculators op Rekenhet.nl zijn volledig gratis te gebruiken. Je hoeft je niet te registreren, geen app te downloaden en geen persoonlijke gegevens achter te laten. Vul je gegevens in en het resultaat verschijnt direct."
-  }
-],
-});
+    faqs: [
+    {
+      question: "Hoe gebruik ik de BTW Calculator voor mijn administratie?",
+      answer: "Bereken snel en eenvoudig de BTW over elk bedrag. Kies uit 21%, 9% of 0% tarief en bereken inclusief of exclusief BTW. De resultaten kun je gebruiken als indicatie voor je administratie. Voor de definitieve aangifte raden we aan een boekhouder te raadplegen.",
+    },
+    {
+      question: "Zijn de tarieven in btw calculator actueel voor 2026?",
+      answer: "Ja, alle belastingtarieven, percentages en drempelbedragen zijn bijgewerkt met de officiële 2026-waarden van de Belastingdienst.",
+    },
+    {
+      question: "Kan ik de resultaten gebruiken voor mijn belastingaangifte?",
+      answer: "De calculator geeft een betrouwbare indicatie, maar voor de officiële belastingaangifte raden we aan de berekeningen te verifiëren met een fiscaal adviseur.",
+    },
+    {
+      question: "Wat zijn de voordelen voor mijn onderneming?",
+      answer: "De calculator geeft je snel inzicht in je financiële situatie, zodat je betere beslissingen kunt nemen voor je bedrijf. Geen registratie nodig.",
+    }
+  ],
+}
+);
