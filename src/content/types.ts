@@ -11,6 +11,7 @@
 
 import type { FaqItem } from "@/types";
 import type { CalculatorMeta } from "@/data/calculators";
+import type { Source } from "@/components/seo/SourcesList";
 
 // ─── Content Page Definition ───────────────────────────────────
 
@@ -41,6 +42,9 @@ export interface SeoContentPage {
 
   /** Optional: override category display name in breadcrumbs */
   categoryLabel?: string;
+
+  /** Optional: bronvermeldingen voor E-E-A-T */
+  sources?: Source[];
 }
 
 // ─── Registry ──────────────────────────────────────────────────

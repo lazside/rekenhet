@@ -17,20 +17,20 @@ registerPages({
   categoryLabel: "Wiskunde",
     faqs: [
     {
-      question: "Hoe gebruik ik de Procenten Calculator?",
-      answer: "Voer eenvoudig de gevraagde waarden in en de calculator geeft direct het resultaat. Bij procenten calculator is het belangrijk dat je de juiste eenheden gebruikt voor een nauwkeurige uitkomst.",
+      question: "Hoe bereken ik een percentage van een getal?",
+      answer: "Om een percentage van een getal te berekenen gebruik je de formule: (percentage ÷ 100) × getal. Bijvoorbeeld: 15% van €200 = (15 ÷ 100) × 200 = €30. Selecteer in de calculator de optie 'Deel van geheel' en voer het percentage en het totaalbedrag in.",
+    },
+    {
+      question: "Hoe bereken ik de procentuele stijging of daling?",
+      answer: "De procentuele verandering bereken je met: ((nieuw - oud) ÷ oud) × 100%. Bij een stijging van €100 naar €120: ((120 - 100) ÷ 100) × 100% = 20% stijging. Bij een daling van €100 naar €80: ((80 - 100) ÷ 100) × 100% = -20% (20% daling). Selecteer in de calculator de optie 'Procentuele toename/afname'.",
     },
     {
       question: "Is de Procenten Calculator geschikt voor middelbare school wiskunde?",
-      answer: "Ja, deze calculator is ideaal voor middelbare scholieren. Het helpt bij het controleren van huiswerk en het begrijpen van wiskundige concepten.",
+      answer: "Ja, deze calculator is ideaal voor middelbare scholieren. Het helpt bij het controleren van huiswerk, het begrijpen van procentuele veranderingen en het oefenen met kortingen, rente en groeifactoren. Docenten kunnen de calculator ook gebruiken om voorbeelden te geven in de klas.",
     },
     {
-      question: "Werkt de Procenten Calculator ook met negatieve getallen?",
-      answer: "Ja, de calculator werkt met zowel positieve als negatieve getallen. Voer gewoon het minteken in voor negatieve waarden en de tool berekent correct.",
-    },
-    {
-      question: "Wat moet ik doen als ik een foutmelding krijg?",
-      answer: "Controleer of je geldige getallen hebt ingevoerd. Zorg dat je geen letters of speciale tekens gebruikt in de getalvelden.",
+      question: "Hoeveel is een procentuele toename van 10% per jaar over 5 jaar?",
+      answer: "Bij een jaarlijkse toename van 10% gebruik je de formule voor samengestelde groei: eindwaarde = beginwaarde × (1 + 0,10)^5. Voor een startbedrag van €1000 is dit: €1000 × 1,10^5 = €1000 × 1,61 = €1.610. De totale stijging is 61%, niet 50%, door het rente-op-rente effect. Gebruik onze procenten calculator met 'Procentuele toename' of de compound interest calculator voor meerdere jaren.",
     }
   ],
 }

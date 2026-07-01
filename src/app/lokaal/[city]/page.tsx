@@ -40,6 +40,7 @@ export async function generateMetadata({
   return {
     title: `Gemeentelijke Belastingen ${cityName} 2026 — Bereken Je Woonlasten | Rekenhet.nl`,
     description: `Woont u in ${cityName}? Bereken direct de exacte OZB, afvalstoffenheffing en rioolheffing voor jouw postcode in ${cityName} (${province}). 100% actueel voor 2026.`,
+    robots: { index: false },
     openGraph: {
       title: `Gemeentelijke Belastingen ${cityName} 2026`,
       description: `Bereken de OZB, afvalstoffenheffing en rioolheffing in ${cityName}.`,

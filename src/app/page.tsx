@@ -78,7 +78,7 @@ export default function HomePage() {
             <div className="mx-auto max-w-2xl text-center">
               <Badge variant="info" className="mb-4">
                 <Sparkles className="mr-1 inline h-3 w-3" />
-                {calculators.length} gratis online tools — 2026
+                {calculators.length} gratis online tools — Bijgewerkt juli 2026
               </Badge>
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                 Slim, Snel & Nauwkeurig
@@ -106,8 +106,8 @@ export default function HomePage() {
               {[
                 { value: calculators.length, label: "Calculators", icon: Calculator },
                 { value: categories.length, label: "Categorieën", icon: BookOpen },
-                { value: "2026", label: "Actuele tarieven", icon: Sparkles },
-                { value: "100%", label: "Gratis te gebruiken", icon: Heart },
+                { value: "2026", label: "Bijgewerkt tot juli 2026", icon: Sparkles },
+                { value: "100%", label: "Gratis — geen registratie", icon: Heart },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
                   <stat.icon className="mx-auto mb-1 h-5 w-5 text-indigo-500" />
@@ -256,6 +256,39 @@ export default function HomePage() {
           </Container>
         </section>
 
+        {/* ── Financieel Nieuws ── */}
+        <section className="border-b border-gray-100 bg-gradient-to-b from-white to-gray-50/30">
+          <Container className="py-12">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900">Financieel nieuws</h2>
+                <p className="mt-1 text-sm text-gray-500">Blijf op de hoogte</p>
+              </div>
+              <Link
+                href="/nieuws"
+                className="hidden items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors sm:flex"
+              >
+                Alle artikelen
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <p className="text-sm text-gray-600 mb-6 max-w-xl">
+              Prinsjesdag, belastingplan, AOW, minimumloon en meer. 
+              Al het laatste financiële nieuws met links naar de juiste calculators.
+            </p>
+            <div className="text-center sm:text-left">
+              <Link
+                href="/nieuws"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 transition-colors shadow-sm"
+              >
+                <BookOpen className="h-4 w-4" />
+                Lees het laatste nieuws
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </Container>
+        </section>
+
         {/* ── How It Works met icon cards ── */}
         <section className="border-b border-gray-100 bg-gradient-to-b from-gray-50/30 to-white">
           <Container className="py-16">
@@ -269,13 +302,13 @@ export default function HomePage() {
                   step: "1",
                   icon: Search,
                   title: "Kies een calculator",
-                  desc: "Blader door 77+ gratis calculators of gebruik de zoekfunctie om snel te vinden wat je nodig hebt.",
+                  desc: `Blader door ${calculators.length}+ gratis calculators of gebruik de zoekfunctie om snel te vinden wat je nodig hebt.`,
                 },
                 {
                   step: "2",
                   icon: PenLine,
                   title: "Vul je gegevens in",
-                  desc: "Voer je persoonlijke situatie in — de calculator werkt met de actuele 2026-tarieven en -regels.",
+                  desc: "Voer je gegevens in — de calculator werkt met actuele 2026-tarieven, heffingskortingen en wettelijke regels.",
                 },
                 {
                   step: "3",

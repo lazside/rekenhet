@@ -15,22 +15,26 @@ registerPages({
     categorySlug: "geld-en-verzekeringen",
   },
   categoryLabel: "Geld & Verzekeringen",
+  sources: [
+    { name: "NIBUD — Hypotheek", url: "https://www.nibud.nl/consumenten/hypotheek/" },
+    { name: "Belastingdienst — Eigenwoningschuld", url: "https://www.belastingdienst.nl/wps/wcm/connect/nl/eigen-woning/content/eigen-woning" },
+  ],
     faqs: [
     {
-      question: "Hoe wordt de berekening van annuïtaire maandlasten gemaakt?",
-      answer: "De calculator werkt met de actuele 2026-tarieven en -regels van de Belastingdienst en andere officiële instanties. De berekening geeft een betrouwbare indicatie op basis van jouw invoer.",
+      question: "Wat is een annuïteitenhypotheek?",
+      answer: "Bij een annuïteitenhypotheek betaal je elke maand een vast bedrag (de annuïteit). Dit bedrag bestaat uit een deel rente en een deel aflossing. In het begin betaal je vooral rente, later vooral aflossing. Na 30 jaar is de hele hypotheek afgelost. Dit is de standaard hypotheekvorm in Nederland en voldoet aan de eisen voor hypotheekrenteaftrek.",
     },
     {
-      question: "Zijn de tarieven voor annuïtaire maandlasten up-to-date voor 2026?",
-      answer: "Ja, alle tarieven in deze calculator zijn bijgewerkt met de officiële 2026-bedragen. We updaten de calculators jaarlijks na publicatie van nieuwe tarieven.",
+      question: "Hoe worden de bruto maandlasten van mijn annuïteitenhypotheek berekend?",
+      answer: "De bruto maandlast wordt berekend met de annuïteitenformule: M = (S × r) / (1 - (1 + r)^(-n)). Hierin is S het hypotheekbedrag, r de maandrente (jaarrente ÷ 12) en n het aantal maanden (30 jaar = 360 maanden). De calculator toont ook de totale rente over de hele looptijd en het totale bedrag dat je uiteindelijk betaalt.",
     },
     {
-      question: "Is de uitkomst van annuïtaire maandlasten bindend?",
-      answer: "Nee, de calculator geeft een indicatieve berekening. Voor definitief advies over jouw persoonlijke financiële situatie raden we aan een financieel adviseur te raadplegen.",
+      question: "Wat is het verschil tussen bruto en netto maandlasten?",
+      answer: "Bruto maandlasten zijn de totale maandelijkse betaling (rente + aflossing). Netto maandlasten zijn wat je daadwerkelijk betaalt na aftrek van de hypotheekrenteaftrek in box 1. Omdat je de betaalde hypotheekrente kunt aftrekken van je inkomen, betaal je minder belasting. De netto lasten kunnen daardoor aanzienlijk lager zijn dan de bruto lasten. Gebruik de netto maandlast calculator voor een complete berekening.",
     },
     {
-      question: "Wat is het verschil tussen bruto en netto bij deze tool?",
-      answer: "Bruto is het bedrag vóór belasting en premies, netto is wat je daadwerkelijk ontvangt of betaalt. De calculator toont beide waarden.",
+      question: "Wat is het effect van extra aflossen op mijn annuïteitenhypotheek?",
+      answer: "Extra aflossen verlaagt je restschuld, waardoor je maandelijkse rentelasten dalen. Omdat de annuïteit opnieuw wordt berekend over een lagere schuld, kun je maandelijks flink besparen. Ook verkort je de looptijd van de hypotheek. Gebruik onze extra aflossen calculator om te berekenen wat het jou oplevert. Let op: sommige hypotheken hebben een boeterente bij extra aflossen.",
     }
   ],
 }

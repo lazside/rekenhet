@@ -4,9 +4,12 @@ import { Card, CardContent, CardTitle, CardDescription } from "@/components/ui/C
 import {
   getAllCalculators,
   getCalculatorsByCategory,
+  calculatorRegistry,
 } from "@/data/calculators";
-import { CalculatorMeta } from "@/data/calculators";
-import { ArrowRight } from "lucide-react";
+import { getAllNews } from "@/data/news";
+import { categories } from "@/data/categories";
+import type { CalculatorMeta } from "@/data/calculators";
+import { ArrowRight, Newspaper } from "lucide-react";
 
 interface RelatedCalculatorsProps {
   currentSlug: string;
@@ -18,13 +21,16 @@ interface RelatedCalculatorsProps {
 /**
  * Related Calculators — Internal Linking Module
  *
- * Strategically links to other calculators to distribute PageRank.
- * Priority order:
- * 1. Same-category calculators (strongest topical relevance)
- * 2. Tag/keyword overlap (semantic relevance)
- * 3. Featured calculators (editorial pick)
+ * Strategically links to other calculators and relevant news articles
+ * to distribute PageRank and improve topical authority.
  *
- * Excludes the current calculator from results.
+ * Priority order:
+ * 1. Manually curated relatedSlugs from registry (editorial pick)
+ * 2. Same-category calculators (strongest topical relevance)
+ * 3. Tag/keyword overlap (semantic relevance)
+ * 4. Featured calculators (popularity boost)
+ *
+ * Falls back to cross-category suggestions when needed.
  */
 export function RelatedCalculators({
   currentSlug,
@@ -32,10 +38,19 @@ export function RelatedCalculators({
   currentTags = [],
   maxResults = 4,
 }: RelatedCalculatorsProps) {
-  // All calculators except current
-  const allOther = getAllCalculators().filter((c) => c.slug !== currentSlug);
+  // 1. Find manually curated related calculators
+  const currentCalc = calculatorRegistry.find((c) => c.slug === currentSlug);
+  const curatedSlugs = currentCalc?.relatedSlugs || [];
+  const curatedCalcs = curatedSlugs
+    .map((slug) => calculatorRegistry.find((c) => c.slug === slug))
+    .filter((c): c is CalculatorMeta => c !== undefined);
 
-  // Score each candidate for relevance
+  // 2. Dynamically score remaining calculators
+  const curatedSlugSet = new Set(curatedSlugs);
+  const allOther = calculatorRegistry.filter(
+    (c) => c.slug !== currentSlug && !curatedSlugSet.has(c.slug)
+  );
+
   const scored = allOther.map((calc) => {
     let score = 0;
 
@@ -59,13 +74,22 @@ export function RelatedCalculators({
     return { calculator: calc, score };
   });
 
-  // Sort by score descending, take top N
-  const related = scored
+  const dynamicCalcs = scored
     .sort((a, b) => b.score - a.score)
-    .slice(0, maxResults)
+    .slice(0, maxResults - curatedCalcs.length)
     .map((s) => s.calculator);
 
-  if (related.length === 0) return null;
+  const related = [...curatedCalcs, ...dynamicCalcs].slice(0, maxResults);
+
+  // 3. Find relevant news articles for this category
+  const relatedNews = getAllNews().filter(
+    (article) =>
+      article.category.toLowerCase() ===
+        categories.find((c) => c.slug === categorySlug)?.title.toLowerCase() ||
+      article.relatedCalculators.some((rc) => rc.slug === currentSlug)
+  ).slice(0, 2);
+
+  if (related.length === 0 && relatedNews.length === 0) return null;
 
   return (
     <section className="mt-12 pt-8 border-t border-gray-200">
@@ -102,6 +126,34 @@ export function RelatedCalculators({
           </Link>
         ))}
       </div>
+
+      {/* Link to relevant news articles */}
+      {relatedNews.length > 0 && (
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          {relatedNews.map((article) => (
+            <Link
+              key={article.slug}
+              href={`/nieuws/${article.slug}`}
+              className="group"
+            >
+              <Card className="h-full transition-all group-hover:border-indigo-200 group-hover:shadow-sm border-dashed">
+                <CardContent className="p-4 flex items-center gap-3">
+                  <Newspaper className="h-5 w-5 text-indigo-400 shrink-0" />
+                  <div>
+                    <CardTitle className="text-xs font-semibold text-indigo-600 uppercase tracking-wider">
+                      Nieuwsartikel
+                    </CardTitle>
+                    <p className="text-xs text-gray-600 mt-0.5 line-clamp-1 group-hover:text-indigo-600 transition-colors">
+                      {article.title}
+                    </p>
+                  </div>
+                  <ArrowRight className="h-3.5 w-3.5 text-gray-300 group-hover:text-indigo-500 ml-auto shrink-0" />
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

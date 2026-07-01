@@ -15,22 +15,27 @@ registerPages({
     categorySlug: "hypotheek",
   },
   categoryLabel: "Hypotheek & Wonen",
+  sources: [
+    { name: "NIBUD — Hypotheeknormen 2026", url: "https://www.nibud.nl/consumenten/hypotheek/" },
+    { name: "AFM — Leennormen hypotheken", url: "https://www.afm.nl/nl-nl/consumenten/producten/hypotheek" },
+    { name: "Rijksoverheid — Hypotheekrenteaftrek", url: "https://www.rijksoverheid.nl/onderwerpen/hypotheek" },
+  ],
     faqs: [
     {
-      question: "Hoe wordt met de sneltest maximale hypotheek berekend?",
-      answer: "Ontdek snel wat je maximale hypotheek is op basis van je inkomen, partnerinkomen, rente en looptijd. De berekening is gebaseerd op de actuele hypotheeknormen en toetsingsrente van 2026.",
+      question: "Hoe wordt mijn maximale hypotheek berekend?",
+      answer: "De sneltest maximale hypotheek berekent je leencapaciteit op basis van je bruto jaarinkomen, eventueel partnerinkomen, de actuele toetsingsrente en de gewenste looptijd. De calculator gebruikt de NIBUD-normen voor 2026. Het uitgangspunt is dat je maandelijkse woonlasten (hypotheekrente + aflossing) niet meer dan 30-40% van je bruto maandinkomen bedragen, afhankelijk van de hoogte van je inkomen. Ook wordt rekening gehouden met een buffer voor onderhoud en verzekeringen.",
     },
     {
-      question: "Zijn de rente en normen up-to-date?",
-      answer: "Ja, de calculator gebruikt de actuele toetsingsrente en hypotheeknormen voor 2026 zoals vastgesteld door de NIBUD en AFM.",
+      question: "Zijn de hypotheekrente en leennormen up-to-date?",
+      answer: "Ja, de calculator gebruikt de actuele toetsingsrente en leennormen voor 2026 zoals vastgesteld door het NIBUD en de AFM. De toetsingsrente is het gemiddelde van de hypotheekrentes over de afgelopen periode plus een opslag, bedoeld om te toetsen of je een rentestijging kunt opvangen. In 2026 is de toetsingsrente circa 5,5%. Bij een hypotheek met rentevaste periode van 10+ jaar mag de werkelijke rente worden gebruikt als die lager is.",
     },
     {
-      question: "Is de uitkomst een definitieve hypotheekofferte?",
-      answer: "Nee, de calculator geeft een indicatie van je maximale hypotheek. Voor een definitieve offerte moet je een hypotheekadviseur raadplegen.",
+      question: "Welke factoren beïnvloeden mijn maximale hypotheek?",
+      answer: "De belangrijkste factoren zijn: je bruto jaarinkomen (en dat van je partner), de actuele hypotheekrente, de looptijd (30 jaar gebruikelijk), eventuele studieschuld (weegt zwaar mee sinds de Wet study financing), en vaste lasten zoals creditcard of private lease. Ook je leeftijd speelt een rol: hoe ouder, hoe korter de maximale looptijd. Een studieschuld van €50.000 kan je maximale hypotheek met circa €100.000 verlagen.",
     },
     {
-      question: "Welke factoren beïnvloeden de maximale hypotheek?",
-      answer: "Je inkomen, partnerinkomen, rentestand, looptijd en eventuele studieschuld zijn de belangrijkste factoren.",
+      question: "Is de maximale hypotheek hetzelfde als wat ik kan lenen?",
+      answer: "Nee, de maximale hypotheek is de bovengrens op basis van leennormen. De daadwerkelijke lening kan lager uitvallen door: je eigen spaargeld (je hebt minimaal eigen geld nodig voor kosten koper), de waarde van de woning (maximaal 100% van de marktwaarde), en het beleid van de specifieke geldverstrekker. Laat altijd een hypotheekadviseur een definitieve berekening maken.",
     }
   ],
 }

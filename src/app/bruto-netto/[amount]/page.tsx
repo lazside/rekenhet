@@ -36,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    robots: { index: false },
     openGraph: { title, description },
     twitter: { card: "summary_large_image", title, description },
     alternates: { canonical: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.rekenhet.nl"}/bruto-netto/${amount}` },

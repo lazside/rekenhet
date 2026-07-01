@@ -16,7 +16,7 @@ export const META = {
     "inkomstenbelasting 2026",
   ],
   featured: true,
-  relatedSlugs: [],
+  relatedSlugs: ["uurtarief-berekenen", "parttime-factor", "netto-vakantiegeld"],
 };
 
 export type BrutoNettoMeta = typeof META;

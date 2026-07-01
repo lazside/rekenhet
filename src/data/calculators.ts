@@ -40,7 +40,7 @@ const registry: CalculatorMeta[] = [
       "9% btw",
     ],
     featured: true,
-    relatedSlugs: [],
+    relatedSlugs: ["btw-incl-excl", "omzetbelasting", "btw-privegebruik"],
   },
   brutoNettoMeta,
   {
@@ -61,7 +61,7 @@ const registry: CalculatorMeta[] = [
       "ideal gewicht",
     ],
     featured: true,
-    relatedSlugs: [],
+    relatedSlugs: ["caloriebehoefte", "ideaal-gewicht", "hartslagzones"],
   },
   {
     slug: "procenten-calculator",
@@ -80,7 +80,7 @@ const registry: CalculatorMeta[] = [
       "korting berekenen",
     ],
     featured: true,
-    relatedSlugs: [],
+    relatedSlugs: ["breuk-vereenvoudigen", "oppervlakte-berekenen", "kwadratische-vergelijking"],
   },
   {
     slug: "lengte-omrekenen",
@@ -345,7 +345,7 @@ const registry: CalculatorMeta[] = [
     metaDescription: "Gratis gemeentelijke belastingen check. Bereken OZB, rioolheffing en afvalstoffenheffing op basis van je postcode.",
     keywords: ["gemeentelijke belastingen", "ozb berekenen", "rioolheffing", "afvalstoffenheffing", "postcode check"],
     featured: true,
-    relatedSlugs: [],
+    relatedSlugs: ["kenteken-check"],
   },
   {
     slug: "zonnepanelen-opbrengst",
@@ -356,7 +356,7 @@ const registry: CalculatorMeta[] = [
     metaDescription: "Gratis zonnepanelen opbrengst calculator. Berekend via de officiële EU PVGIS API. Inclusief financiële ROI en terugverdientijd.",
     keywords: ["zonnepanelen opbrengst", "zonne-energie berekenen", "pvgis", "terugverdientijd zonnepanelen"],
     featured: true,
-    relatedSlugs: [],
+    relatedSlugs: ["isde-subsidie", "energielabel-berekenen"],
   },
   {
     slug: "thuiswerken-vs-kantoor",
@@ -511,7 +511,7 @@ const registry: CalculatorMeta[] = [
     metaDescription: "Gratis kwadratische vergelijking calculator. Los ax² + bx + c = 0 op met discriminant. Toon reële oplossingen.",
     keywords: ["kwadratische vergelijking", "abc formule", "discriminant", "tweedegraads vergelijking"],
     featured: true,
-    relatedSlugs: [],
+    relatedSlugs: ["cirkel-berekenen", "driehoek-oppervlakte", "machtsverheffen"],
   },
   {
     slug: "oppervlakte-berekenen",

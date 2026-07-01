@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${fromUnit.singular} naar ${toUnit.singular} omrekenen - Snel & Gratis | ${SITE_NAME}`,
     description: `Eenvoudig en snel ${fromUnit.singular} naar ${toUnit.singular} omrekenen. Bekijk de formule, de handige omrekeningstabel en gebruik de live calculator.`,
+    robots: { index: false },
     openGraph: {
       title: `${fromUnit.singular} naar ${toUnit.singular} omrekenen`,
       description: `Reken ${fromUnit.plural} om naar ${toUnit.plural} met de gratis calculator.`,

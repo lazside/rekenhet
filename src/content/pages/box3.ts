@@ -15,22 +15,26 @@ registerPages({
     categorySlug: "geld-en-verzekeringen",
   },
   categoryLabel: "Geld & Verzekeringen",
+  sources: [
+    { name: "Belastingdienst — Box 3", url: "https://www.belastingdienst.nl/wps/wcm/connect/nl/box-3/content/inkomen-uit-sparen-en-beleggen", context: "Split-rate systeem 2026" },
+    { name: "Rijksoverheid — Inkomstenbelasting box 3", url: "https://www.rijksoverheid.nl/onderwerpen/inkomstenbelasting/box-3" },
+  ],
     faqs: [
     {
-      question: "Hoe wordt de berekening van box 3 belasting berekenen gemaakt?",
-      answer: "De calculator werkt met de actuele 2026-tarieven en -regels van de Belastingdienst en andere officiële instanties. De berekening geeft een betrouwbare indicatie op basis van jouw invoer.",
+      question: "Hoe wordt de Box 3 belasting berekend in 2026?",
+      answer: "In 2026 werkt de Belastingdienst met het split-rate systeem. Je vermogen wordt verdeeld in spaargeld en beleggingen. Over spaargeld wordt een fictief rendement van 1,03% gerekend, over beleggingen 6,04%. Schulden worden in mindering gebracht met 2,47%. Het totale fictieve rendement wordt belast tegen 36%. Over de eerste €57.000 (€114.000 voor partners) betaal je geen belasting (heffingsvrij vermogen).",
     },
     {
-      question: "Zijn de tarieven voor box 3 belasting berekenen up-to-date voor 2026?",
-      answer: "Ja, alle tarieven in deze calculator zijn bijgewerkt met de officiële 2026-bedragen. We updaten de calculators jaarlijks na publicatie van nieuwe tarieven.",
+      question: "Wat is het heffingsvrij vermogen in 2026?",
+      answer: "Het heffingsvrij vermogen in 2026 is €57.000 per persoon. Voor fiscale partners is dit €114.000. Over het vermogen boven deze drempel betaal je Box 3 belasting. Let op: dit is het totale vermogen (sparen + beleggen + tweede woning - schulden). Heb je een hypotheek op je eigen woning? Die valt in box 1, niet in box 3.",
     },
     {
-      question: "Is de uitkomst van box 3 belasting berekenen bindend?",
-      answer: "Nee, de calculator geeft een indicatieve berekening. Voor definitief advies over jouw persoonlijke financiële situatie raden we aan een financieel adviseur te raadplegen.",
+      question: "Wordt mijn eigen woning ook belast in Box 3?",
+      answer: "Nee, je eigen woning (hoofdverblijf) valt niet in box 3 maar in box 1. Alleen je spaargeld, beleggingen, aandelen, tweede woning en overige bezittingen vallen in box 3. Schulden (exclusief hypotheek eigen woning) mag je aftrekken van je box 3 bezittingen tot een maximum van €3.700 per persoon.",
     },
     {
-      question: "Wat is het verschil tussen bruto en netto bij deze tool?",
-      answer: "Bruto is het bedrag vóór belasting en premies, netto is wat je daadwerkelijk ontvangt of betaalt. De calculator toont beide waarden.",
+      question: "Hoe kan ik mijn Box 3 belasting verlagen?",
+      answer: "Je kunt je Box 3 belasting verlagen door: 1) gebruik te maken van het heffingsvrij vermogen, 2) schulden af te lossen (maar let op: deze mag je al aftrekken), 3) vermogen over te hevelen naar je partner (fiscaal partnerschap), 4) te beleggen in groene beleggingen (vrijstelling tot €71.251), of 5) vermogen om te zetten in je eigen woning (extra aflossen). Raadpleeg een belastingadviseur voor persoonlijk advies.",
     }
   ],
 }

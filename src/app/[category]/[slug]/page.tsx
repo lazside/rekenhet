@@ -6,6 +6,9 @@ import { ChevronRight } from "lucide-react";
 import { CalculatorLayout } from "@/components/layout/CalculatorLayout";
 import { CalculatorPageJsonLd } from "@/components/seo/JsonLd";
 import { RelatedCalculators } from "@/components/seo/RelatedCalculators";
+import { LastUpdatedBadge } from "@/components/seo/LastUpdatedBadge";
+import { SourcesList } from "@/components/seo/SourcesList";
+import { ReviewWidget } from "@/components/seo/ReviewWidget";
 import { buildCalculatorMetadata } from "@/lib/seo/title-builder";
 import { getCalculatorBySlug, calculatorRegistry } from "@/data/calculators";
 import { getCategoryBySlug } from "@/data/categories";
@@ -104,6 +107,9 @@ export default async function CalculatorPage({ params }: Props) {
             </p>
           )}
 
+          {/* Actualiteitsbadge — toont dat de pagina up-to-date is */}
+          <LastUpdatedBadge />
+
           {hasComponent && CalculatorComponent ? (
             <Suspense fallback={<CalculatorSkeleton />}>
               <CalculatorErrorBoundary>
@@ -140,6 +146,14 @@ export default async function CalculatorPage({ params }: Props) {
               <p className="text-gray-700 leading-relaxed">{contentPage.seo.conclusion}</p>
             </section>
           )}
+
+          {/* Bronverwijzingen — E-E-A-T signaal */}
+          {contentPage?.sources && contentPage.sources.length > 0 && (
+            <SourcesList sources={contentPage.sources} />
+          )}
+
+          {/* Gebruikersbeoordelingen */}
+          <ReviewWidget calculatorSlug={calculator.slug} />
 
           <RelatedCalculators
             currentSlug={calculator.slug}
