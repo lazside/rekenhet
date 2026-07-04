@@ -12,7 +12,7 @@ const CONTACT_EMAIL = "lazside61@gmail.com";
 
 export default function ContactForm() {
   const [copied, setCopied] = useState(false);
-  const timeout = useRef<ReturnType<typeof setTimeout>>();
+  const timeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(CONTACT_EMAIL).then(() => {
