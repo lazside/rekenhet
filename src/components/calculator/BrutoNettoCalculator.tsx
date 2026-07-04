@@ -10,8 +10,9 @@ import { ResultBenchmark } from "@/components/benchmark/ResultBenchmark";
 import netIncomeData from "@/data/cbs-benchmarks.json";
 import { saveCalculatorState } from "@/lib/session/calculator-state";
 import { BenefitsImpactPanel } from "@/components/toeslagen/BenefitsImpactPanel";
+import { Tooltip, Toggle, ResultRow, SalarySlider } from "@/components/ui";
 import {
-  Info, SlidersHorizontal, Car, Percent,
+  SlidersHorizontal, Car, Percent,
   ArrowDownUp, Users, Clock, TrendingUp, Share2,
 } from "lucide-react";
 
@@ -37,73 +38,6 @@ const BIJTELLING_OPTIES = [
   { value: 12, label: "12% bijtelling (oude regeling)" },
 ];
 
-// ─── Tooltip ────────────────────────────────────────────────────
-
-function Tooltip({ text }: { text: string }) {
-  return (
-    <span className="group relative inline-flex">
-      <Info className="h-3.5 w-3.5 text-gray-400 hover:text-gray-600 cursor-help" tabIndex={0} aria-label={text} />
-      <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block group-focus-within:block w-60 rounded-lg bg-gray-900 px-3 py-2 text-xs text-white shadow-lg z-10 pointer-events-none" role="tooltip">
-        {text}
-        <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900" />
-      </span>
-    </span>
-  );
-}
-
-// ─── Salary Slider ─────────────────────────────────────────────
-
-function SalarySlider({ value, onChange, min, max, step, label, ariaLabel }: {
-  value: number; onChange: (v: number) => void; min: number; max: number; step: number; label: string; ariaLabel: string;
-}) {
-  const pct = ((value - min) / (max - min)) * 100;
-  return (
-    <div className="space-y-1.5">
-      <div className="flex items-center justify-between">
-        <label className="text-xs font-medium text-gray-500">{label}</label>
-        <span className="text-xs text-gray-400 tabular-nums">{formatEUR(value)}</span>
-      </div>
-      <input
-        type="range" min={min} max={max} step={step} value={value}
-        onChange={(e) => onChange(Number(e.target.value))} aria-label={ariaLabel}
-        className="w-full h-2 rounded-full appearance-none cursor-pointer
-          [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5
-          [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white
-          [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-indigo-600
-          [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-grab
-          [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full
-          [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-indigo-600
-          [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:cursor-grab"
-        style={{ background: `linear-gradient(to right, #2563eb 0%, #2563eb ${pct}%, #e5e7eb ${pct}%, #e5e7eb 100%)` }}
-      />
-    </div>
-  );
-}
-
-// ─── Toggle Switch ────────────────────────────────────────────
-
-function Toggle({ label, checked, onChange, tooltip, id }: {
-  label: string; checked: boolean; onChange: (v: boolean) => void; tooltip?: string; id: string;
-}) {
-  return (
-    <div className="flex items-center justify-between py-1.5">
-      <div className="flex items-center gap-1.5">
-        <label htmlFor={id} className="text-sm text-gray-700 cursor-pointer select-none">{label}</label>
-        {tooltip && <Tooltip text={tooltip} />}
-      </div>
-      <button
-        id={id} role="switch" aria-checked={checked} onClick={() => onChange(!checked)}
-        className={cn(
-          "relative inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
-          checked ? "bg-indigo-600" : "bg-gray-300"
-        )}
-      >
-        <span className={cn("inline-block h-3.5 w-3.5 transform rounded-full bg-white shadow-sm transition-transform", checked ? "translate-x-[18px]" : "translate-x-[3px]")} />
-      </button>
-    </div>
-  );
-}
-
 // ─── Select ──────────────────────────────────────────────────
 
 function Select({ options, value, onChange, label, id }: {
@@ -117,33 +51,6 @@ function Select({ options, value, onChange, label, id }: {
       >
         {options.map((opt) => (<option key={opt.value} value={opt.value}>{opt.label}</option>))}
       </select>
-    </div>
-  );
-}
-
-// ─── Result Row ─────────────────────────────────────────────
-
-function ResultRow({ label, value, type = "default", tooltip }: {
-  label: string; value: string; type?: "default" | "success" | "warning" | "info" | "highlight"; tooltip?: string;
-}) {
-  return (
-    <div className={cn("flex items-center justify-between rounded-xl px-5 py-3.5 transition-all", {
-      "bg-white border border-gray-100": type === "default",
-      "bg-gradient-to-r from-emerald-50 to-white border border-emerald-100": type === "success",
-      "bg-gradient-to-r from-amber-50 to-white border border-amber-100": type === "warning",
-      "bg-gradient-to-r from-blue-50 to-white border border-blue-100": type === "info",
-      "bg-gradient-to-r from-gray-100 to-white border border-gray-200 font-semibold": type === "highlight",
-    })}>
-      <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-600">{label}</span>
-        {tooltip && <Tooltip text={tooltip} />}
-      </div>
-      <span className={cn("text-sm font-bold tabular-nums tracking-tight", {
-        "text-gray-900": type === "default" || type === "highlight",
-        "text-emerald-700": type === "success",
-        "text-amber-700": type === "warning",
-        "text-indigo-700": type === "info",
-      })}>{value}</span>
     </div>
   );
 }
@@ -372,14 +279,14 @@ export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalcul
         {breakdown.leaseautoImpact && <LeaseautoInline impact={breakdown.leaseautoImpact} />}
 
         {/* Inklapbaar: heffingskorting detail */}
-        {breakdown.heffingskortingTrace.filter(t => t.max > 0).length > 0 && (
+        {breakdown.heffingskortingTrace.filter((t: { max: number }) => t.max > 0).length > 0 && (
           <details className="group rounded-lg border border-gray-200">
             <summary className="flex cursor-pointer items-center justify-between px-4 py-2.5 text-sm font-medium text-gray-700 hover:text-emerald-600">
               <span className="flex items-center gap-2"><Percent className="h-3.5 w-3.5 text-emerald-500" />Heffingskortingen — doorloop</span>
               <span className="text-xs text-gray-400 transition-transform group-open:rotate-180">▼</span>
             </summary>
             <div className="px-4 pb-4 border-t border-gray-100 pt-3 space-y-3">
-              {breakdown.heffingskortingTrace.filter(t => t.max > 0).map((t) => (
+              {breakdown.heffingskortingTrace.filter((t: { max: number }) => t.max > 0).map((t) => (
                 <div key={t.name}>
                   <div className="flex justify-between text-xs mb-1">
                     <span className="font-medium text-gray-700">{t.name}</span>
@@ -395,7 +302,7 @@ export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalcul
                 </div>
               ))}
               <div className="text-xs text-gray-500 border-t border-gray-100 pt-2 space-y-1">
-                {breakdown.bracketDetails.map((b, i) => (
+                {breakdown.bracketDetails.map((b: { label: string; amount: number; tax: number }, i: number) => (
                   <div key={i} className="flex justify-between"><span>{b.label}</span><span className="tabular-nums">{formatEUR(b.amount)} → {formatEUR(b.tax)}</span></div>
                 ))}
               </div>

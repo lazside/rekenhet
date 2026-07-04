@@ -159,7 +159,7 @@ export function vakantiedagen(dienstverband: "fulltime" | "parttime", urenPerWee
   return { wettelijk, bovenwettelijk, totaal: wettelijk + bovenwettelijk, dagenPerMaand: Math.round((wettelijk + bovenwettelijk) / 12) };
 }
 export function ontslagvergoeding(maandSalaris: number, dienstjaren: number, leeftijd: number): { transitie: number; billijke: number } {
-  const transitie = Math.round(maandSalaris * dienstjaren * 0.33);
+  const transitie = Math.round(maandSalaris * dienstjaren * (1/3));
   const billijke = Math.round(leeftijd > 50 ? transitie * 1.5 : transitie);
   return { transitie, billijke };
 }

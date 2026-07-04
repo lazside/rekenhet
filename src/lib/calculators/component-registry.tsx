@@ -159,6 +159,11 @@ registry.set("huurtoeslag", () => import("@/components/calculator/HuurtoeslagCal
 registry.set("energielabel-berekenen", () => import("@/components/calculator/EnergielabelCalculator"));
 registry.set("zelfstandigenaftrek-berekenen", () => import("@/components/calculator/ZelfstandigenaftrekCalculator"));
 
+// ─── SEO / Vindbaarheid ───────────────────────────────────────
+registry.set("minimumloon-2026", () => import("@/components/calculator/MinimumloonCalculator"));
+registry.set("belastingjaar-vergelijken", () => import("@/components/calculator/TaxComparisonCalculator"));
+registry.set("jaarruimte-berekenen", () => import("@/components/calculator/JaarruimteCalculator"));
+
 // ─── Resolver ──────────────────────────────────────────────────
 
 /**

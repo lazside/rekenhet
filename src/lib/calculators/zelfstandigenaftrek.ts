@@ -179,10 +179,11 @@ export function berekenZelfstandigenaftrek(input: ZelfstandigenaftrekInput): Zel
   const marginaalTarief = getMarginalRate(belastbareWinst);
 
   // ── Step 10: Tax savings breakdown ──
-  // Besparing = ondernemersaftrek × marginaal tarief + indirect MKB-effect
+  // Besparing = ondernemersaftrek × marginaal tarief
   const besparingDirect = Math.round(totaleOndernemersaftrek * (marginaalTarief / 100) * 100) / 100;
+  // MKB-besparing = mkbVrijstellingBedrag × marginaal tarief (gecorrigeerd: eerder stond hier totaleOndernemersaftrek i.p.v. mkbVrijstellingBedrag)
   const besparingMkb = rechtMkbVrijstelling
-    ? Math.round(totaleOndernemersaftrek * (MKB_VRIJSTELLING_PERCENTAGE / 100) * (marginaalTarief / 100) * 100) / 100
+    ? Math.round(mkbVrijstellingBedrag * (marginaalTarief / 100) * 100) / 100
     : 0;
 
   const reserveringPerMaand = Math.round((totaleBelasting / 12) * 100) / 100;

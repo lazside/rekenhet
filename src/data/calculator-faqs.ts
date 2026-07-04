@@ -48,6 +48,35 @@ const explicitFaqs: CalculatorFaqEntry[] = [
     ],
   },
   {
+    slug: "minimumloon-2026",
+    faqs: [
+      { question: "Wat is het minimumloon in 2026?", answer: "Per 1 juli 2026 is het wettelijk minimumuurloon voor 21-jarigen en ouder €14,99 bruto. In de eerste helft van 2026 was dit €14,71 per uur. Het minimumloon wordt twee keer per jaar geïndexeerd op basis van de cao-loonontwikkeling." },
+      { question: "Hoeveel is het minimumloon per maand in 2026?", answer: "Bij een fulltime dienstverband (40 uur per week) is het minimumloon per maand ongeveer €2.597 bruto (2e helft 2026: €14,99 × 40 × 52 / 12). Let op: dit is exclusief vakantiegeld. Het exacte bedrag hangt af van het aantal gewerkte uren per week." },
+      { question: "Hoeveel is het minimumloon voor jongeren (jeugdminimumloon)?", answer: "Het jeugdminimumloon is een percentage van het wettelijk minimumuurloon voor 21+. Bijvoorbeeld: 20-jarigen krijgen 80% (€11,99/uur), 19-jarigen 60% (€8,99/uur), 18-jarigen 50% (€7,50/uur), 17-jarigen 39,5% (€5,92/uur), 16-jarigen 34,5% (€5,17/uur) en 15-jarigen 30% (€4,50/uur)." },
+      { question: "Wat is het verschil tussen minimumloon 2025 en 2026?", answer: "Het minimumloon is in 2026 gestegen door indexatie. Per 1 januari 2026 steeg het naar €14,71/uur (was €13,68/uur per juli 2025). Per 1 juli 2026 volgde een tweede stijging naar €14,99/uur. De totale stijging op jaarbasis is ongeveer 4,5-5%." },
+      { question: "Heb ik recht op het volledige minimumloon vanaf 21 jaar?", answer: "Ja, vanaf 21 jaar heb je recht op 100% van het wettelijk minimumuurloon. Daarvoor gelden de lagere jeugdminimumlonen. Er is geen apart minimumloon meer voor 22-jarigen en ouder — dat is sinds 2024 afgeschaft en samengevoegd met de 21+ leeftijdsgroep." },
+    ],
+  },
+  {
+    slug: "belastingjaar-vergelijken",
+    faqs: [
+      { question: "Wat is het grootste verschil tussen belastingjaar 2025 en 2026?", answer: "De belangrijkste wijzigingen zijn: (1) de eerste schijf is verbreed van €38.441 naar €40.018, waardoor een groter deel van je inkomen in het lage tarief valt; (2) de AOW-premie is verlaagd van 27,65% naar 26,54%, wat de totale schijf-1-druk onveranderd op 35,82% houdt; (3) de algemene heffingskorting is licht gestegen van €3.068 naar €3.070." },
+      { question: "Is 2026 voordeliger dan 2025?", answer: "Voor de meeste inkomens is 2026 iets voordeliger, voornamelijk door de verbreding van de eerste schijf. Het exacte verschil hangt af van je inkomen en of vakantiegeld is inbegrepen. Bij een modaal inkomen (€45.000) scheelt het doorgaans enkele tientallen euro's per maand in het voordeel van 2026." },
+      { question: "Zijn de heffingskortingen veranderd in 2026?", answer: "De algemene heffingskorting is licht gestegen (max €3.070 vs €3.068 in 2025). De faseringsgrens is omhoog gegaan van €24.821 naar €24.928. De arbeidskorting is nagenoeg gelijk (max €5.598 vs €5.599), maar de faseringsgrens is verhoogd van €39.958 naar €40.018." },
+      { question: "Wat is de belastingdruk in 2026?", answer: "De belastingdruk in de eerste schijf blijft 35,82% (waarvan 9,28% inkomstenbelasting en 26,54% AOW/Anw/Wlz-premies). De tweede schijf is 37,48% en de top schijf is 49,50%. Door de verbrede eerste schijf betaal je effectief iets minder belasting dan in 2025." },
+    ],
+  },
+  {
+    slug: "jaarruimte-berekenen",
+    faqs: [
+      { question: "Wat is jaarruimte?", answer: "Jaarruimte is het maximale bedrag dat je jaarlijks fiscaal voordelig kunt inleggen voor je pensioen (bijvoorbeeld via een lijfrentespaarrekening of -beleggingsrekening). De inleg is aftrekbaar in box 1 tegen je marginale belastingtarief, wat een belastingbesparing kan opleveren tot 49,5%." },
+      { question: "Hoeveel is de jaarruimte in 2026?", answer: "De maximale jaarruimte in 2026 is €35.589. De jaarruimte wordt berekend als 30% van de premiegrondslag (salaris − AOW-franchise van €17.545, met een maximum salaris van €137.800) minus factor A (pensioenopbouw via werkgever)." },
+      { question: "Wat is reserveringsruimte?", answer: "Reserveringsruimte is de jaarruimte die je in de afgelopen 10 jaar niet hebt benut. In 2026 kun je maximaal €42.753 aan reserveringsruimte gebruiken. Je kunt jaarruimte en reserveringsruimte combineren voor een totale inleg." },
+      { question: "Waar vind ik factor A?", answer: "Factor A vind je op het Uniform Pensioenoverzicht (UPO) dat je jaarlijks ontvangt van je pensioenfonds of pensioenuitvoerder. Het is de waarde van de pensioenopbouw die je in 2025 via je werkgever hebt opgebouwd. Heb je geen pensioenregeling, dan is factor A €0." },
+      { question: "Wat is het belastingvoordeel van jaarruimte?", answer: "De inleg voor jaarruimte is aftrekbaar in box 1 tegen je marginale belastingtarief. Dat betekent dat je bij een inkomen tot €40.018 35,82% terugkrijgt, tot €76.817 37,48%, en daarboven 49,50%. Over het opgebouwde vermogen betaal je geen box 3-belasting, en bij uitkering in de toekomst betaal je inkomstenbelasting over de uitkeringen." },
+    ],
+  },
+  {
     slug: "zelfstandigenaftrek-berekenen",
     faqs: [
       { question: "Hoeveel is de zelfstandigenaftrek in 2026?", answer: "In 2026 is de zelfstandigenaftrek gedaald naar €1.200. Dat is een halvering ten opzichte van 2025 (€2.470). Deze drastische afbouw is onderdeel van het Belastingplan om het verschil in belastingdruk tussen werknemers en zelfstandigen te verkleinen. Voor ondernemers die de AOW-leeftijd hebben bereikt geldt de helft: €600." },

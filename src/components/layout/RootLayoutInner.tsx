@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { AdZoneMobileAnchor } from "@/components/ads/AdSenseBanner";
-import { CookieConsentBanner } from "@/components/cookies/CookieConsentBanner";
+import { CookieConsentBar } from "@/components/cookies/CookieConsentBar";
 import { hasConsent, getConsent } from "@/lib/cookies/consent";
 
 const ADSENSE_ID =
@@ -77,8 +77,8 @@ export function RootLayoutInner({
       </main>
       <Footer />
 
-      {/* Cookie Consent Banner — blocks AdSense until user acts */}
-      <CookieConsentBanner />
+      {/* Cookie Consent Bar — minimal, non-intrusive */}
+      <CookieConsentBar />
 
       {/* Zone C: Mobile sticky anchor footer */}
       <AdZoneMobileAnchor />

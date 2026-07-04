@@ -81,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="nl" data-scroll-behavior="smooth">
       <head>
         <meta name="color-scheme" content="light only" />
+        <link rel="alternate" type="application/rss+xml" title="Rekenhet.nl — Financieel Nieuws &amp; Blogs" href={`${SITE_URL}/feed.xml`} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebSite) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }} />
         <script dangerouslySetInnerHTML={{ __html: printDateScript() }} />

@@ -364,14 +364,14 @@ export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalcul
         {breakdown.leaseautoImpact && <LeaseautoInline impact={breakdown.leaseautoImpact} />}
 
         {/* Inklapbaar: heffingskorting detail */}
-        {breakdown.heffingskortingTrace.filter(t => t.max > 0).length > 0 && (
+        {breakdown.heffingskortingTrace.filter((t: { max: number }) => t.max > 0).length > 0 && (
           <details className="group rounded-lg border border-gray-200">
             <summary className="flex cursor-pointer items-center justify-between px-4 py-2.5 text-sm font-medium text-gray-700 hover:text-emerald-600">
               <span className="flex items-center gap-2"><Percent className="h-3.5 w-3.5 text-emerald-500" />Heffingskortingen — doorloop</span>
               <span className="text-xs text-gray-400 transition-transform group-open:rotate-180">▼</span>
             </summary>
             <div className="px-4 pb-4 border-t border-gray-100 pt-3 space-y-3">
-              {breakdown.heffingskortingTrace.filter(t => t.max > 0).map((t) => (
+              {breakdown.heffingskortingTrace.filter((t: { max: number }) => t.max > 0).map((t) => (
                 <div key={t.name}>
                   <div className="flex justify-between text-xs mb-1">
                     <span className="font-medium text-gray-700">{t.name}</span>
@@ -387,7 +387,7 @@ export default function BrutoNettoCalculator({ initialSalary }: BrutoNettoCalcul
                 </div>
               ))}
               <div className="text-xs text-gray-500 border-t border-gray-100 pt-2 space-y-1">
-                {breakdown.bracketDetails.map((b, i) => (
+                {breakdown.bracketDetails.map((b: { label: string; amount: number; tax: number }, i: number) => (
                   <div key={i} className="flex justify-between"><span>{b.label}</span><span className="tabular-nums">{formatEUR(b.amount)} → {formatEUR(b.tax)}</span></div>
                 ))}
               </div>

@@ -53,77 +53,23 @@ const HEFFINGSKORTING = {
   },
 } as const;
 
-// ─── Input / Output Types ───────────────────────────────────────
+// ─── Types (geëxtraheerd naar tax-types.ts) ──────────────────────
 
-export interface BrutoNettoInput {
-  brutoJaar: number;
-  vakantiegeldInbegrepen: boolean;
-  bijtellingPercentage: number;
-  catalogusWaarde?: number;
-  /** Eigen bijdrage leaseauto per maand (private contribution) */
-  eigenBijdrage?: number;
-  algemeneHeffingskorting: boolean;
-  arbeidskorting: boolean;
-}
+import type {
+  BrutoNettoInput,
+  HeffingskortingTrace,
+  LeaseautoImpact,
+  UurloonProjectie,
+  BrutoNettoBreakdown,
+} from "./tax-types";
 
-export interface HeffingskortingTrace {
-  name: string;
-  max: number;
-  applied: number;
-  phaseOutStart: number;
-  isPhasingOut: boolean;
-  reductionAmount: number;
-}
-
-export interface LeaseautoImpact {
-  /** Annual bijtelling added to taxable income */
-  bijtellingJaar: number;
-  /** Marginal rate the bijtelling lands in */
-  marginalRate: number;
-  /** Extra tax due to bijtelling (annual) */
-  extraBelasting: number;
-  /** Eigen bijdrage per year */
-  eigenBijdrageJaar: number;
-  /** Net annual cost of the lease car (tax increase + eigen bijdrage) */
-  nettoJaarkosten: number;
-  /** Net monthly cost */
-  nettoMaandkosten: number;
-}
-
-export interface UurloonProjectie {
-  /** Number of hours per week */
-  urenPerWeek: number;
-  /** Annual gross at this schedule */
-  brutoJaar: number;
-  /** Estimated net monthly */
-  nettoMaand: number;
-  /** Effective rate */
-  effectiveRate: number;
-}
-
-export interface BrutoNettoBreakdown {
-  brutoJaar: number;
-  brutoMaand: number;
-  vakantiegeld: number;
-  belastbaarInkomen: number;
-  bracketDetails: { label: string; amount: number; tax: number }[];
-  totaleBelasting: number;
-  premieVolksverzekeringen: number;
-  algemeneHeffingskortingBedrag: number;
-  arbeidskortingBedrag: number;
-  totaleHeffingskorting: number;
-  /** Track phase-out details for both heffingskortingen */
-  heffingskortingTrace: HeffingskortingTrace[];
-  loonheffing: number;
-  /** Leaseauto impact (only if bijtelling > 0) */
-  leaseautoImpact?: LeaseautoImpact;
-  /** Hourly wage projections (only if provided) */
-  uurloonProjecties?: UurloonProjectie[];
-  nettoJaar: number;
-  nettoMaand: number;
-  effectiveRate: number;
-  marginalRate: number;
-}
+export type {
+  BrutoNettoInput,
+  HeffingskortingTrace,
+  LeaseautoImpact,
+  UurloonProjectie,
+  BrutoNettoBreakdown,
+} from "./tax-types";
 
 // ─── Core: Income Tax ───────────────────────────────────────────
 

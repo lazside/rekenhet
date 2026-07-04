@@ -20,8 +20,9 @@ export default function Box3Calculator() {
       <div className="rounded-lg bg-gray-50 p-3 border border-gray-100"><p className="text-[10px] text-gray-500">Heffingsvrij</p><p className="text-sm font-bold tabular-nums">{formatEUR(r.heffingsvrij)}</p></div>
       <div className="rounded-lg bg-emerald-50 p-3 border border-emerald-100"><p className="text-[10px] text-emerald-600">Fictief rendement sparen</p><p className="text-sm font-bold text-emerald-700 tabular-nums">{formatEUR(r.fictiefRendementSparen)}</p></div>
       <div className="rounded-lg bg-amber-50 p-3 border border-amber-100"><p className="text-[10px] text-amber-600">Fictief rendement beleggen</p><p className="text-sm font-bold text-amber-700 tabular-nums">{formatEUR(r.fictiefRendementBeleggen)}</p></div>
+      {r.aftrekbareSchulden > 0 && <div className="rounded-lg bg-blue-50 p-3 border border-blue-100"><p className="text-[10px] text-blue-600">Aftrekbare schulden</p><p className="text-sm font-bold text-blue-700 tabular-nums">− {formatEUR(r.aftrekbareSchulden)}</p></div>}
     </div>
   </div>
   <ShareToolbar calculatorType="box3-berekenen" calculatorName="Box 3 Berekenen" categoryName="Geld & Verzekeringen" inputs={[{label:"Sparen",value:formatEUR(s)},{label:"Beleggen",value:formatEUR(b)}]} results={[{label:"Belasting",value:formatEUR(r.belasting),type:"warning"}]} />
-  <p className="text-xs text-gray-400 text-center">Op basis van 2026 forfaitaire rendementen (sparen 1,52%, beleggen 6,04%, tarief 36%).</p></div>);
+  <p className="text-xs text-gray-400 text-center">Op basis van 2026 forfaitaire rendementen (sparen 1,52%, beleggen 6,04%, heffingsvrij vermogen €{r.heffingsvrij.toLocaleString("nl-NL")}, tarief 36%). Schulden boven €3.700 worden afgetrokken van de rendementsgrondslag.</p></div>);
 }
