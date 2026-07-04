@@ -10,7 +10,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "check": "npx tsx src/scripts/check-consistency.ts"
+    "check": "npx tsx src/scripts/check-consistency.ts",
+    "validate-rates": "npx tsx src/scripts/validate-rates.ts",
+    "pre-deploy": "npx tsx src/scripts/pre-deploy.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
